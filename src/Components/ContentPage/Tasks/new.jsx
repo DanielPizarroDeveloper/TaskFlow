@@ -22,7 +22,7 @@ export function New({droppedStates, idElement, id, titulo, responsable, estado, 
                       <h4 className='article-card-new__task__titulo'>{titulo}</h4>
                     </div>
                     <div className='article-card-new__task__content-responsable'>
-                      <Avatar name={responsable} color="purple" size={40} />
+                      <Avatar name={responsable} color="purple" size={40} zIndex={1} />
                       <span className='article-card-new__task__content-titulo'>{responsable}</span>
                     </div>
                     <div className='article-card-new__task-content-estado'>
