@@ -1,0 +1,95 @@
+:root {
+    --custom-color-new: #e7e4f9;
+    --custom-color-progress: #d6e0ff;
+    --custom-color-complete: #dcf2ea;
+    --custom-color-white-smoke: whitesmoke;
+    --custom-color-h1-purple: #6e64b6;
+    --custom-color-h1-blue: #2952cf;
+    --custom-color-h1-green: #317159;
+    --custom-color-aside: #0f95cd;
+    --custom-color-shadow: rgba(0, 0, 0, 0.86)
+}
+
+body {
+    background-color: var(--custom-color-white-smoke);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+span {
+    color: var(--custom-color-white-smoke);
+    font-weight: bold;
+}
+
+button {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background-color: var(--custom-color-white-smoke);
+    width: 80%;
+    min-width: max-content;
+    margin-bottom: 2px;
+    border: 1px solid var(--custom-color-white-smoke);
+}
+
+.app-main {
+    display: flex;
+    flex-direction: row;
+}
+
+.app-main__section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    align-items: center;
+    padding-left: 17%;
+}
+
+.app-main__section__tasks-panel {
+    padding-top: 9%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.app-main__section__tasks-panel__section {
+    flex-basis: 34%;
+    height: 100%;
+}
+
+.app-main__section__tasks__panel__section__titulo-New {
+    color: var(--custom-color-h1-purple);
+    font-weight: bold;
+}
+
+.app-main__section__tasks__panel__section__titulo-Progreso {
+    color: var(--custom-color-h1-blue);
+    font-weight: bold;
+}
+
+.app-main__section__tasks__panel__section__titulo-Completo {
+    color: var(--custom-color-h1-green);
+    font-weight: bold;
+}
+
+.app-main__section__tasks-panel__section:nth-child(1) {
+    flex-basis: 34%;
+    height: 100%;
+    background-color: var(--custom-color-new);
+}
+
+.app-main__section__tasks-panel__section:nth-child(2) {
+    flex-basis: 34%;
+    height: 100%;
+    background-color: var(--custom-color-progress);
+}
+
+.app-main__section__tasks-panel__section:nth-child(3) {
+    flex-basis: 34%;
+    height: 100%;
+    background-color: var(--custom-color-complete);
+}

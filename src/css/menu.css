@@ -1,0 +1,104 @@
+:root {
+    --custom-color-white: white;
+    --custom-color-aside: #0f95cd;
+    --custom-color-li-hover: #0E709A;
+    --custom-color-shadow: rgba(0, 0, 0, 0.86);
+}
+
+.aside-menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    min-width: 270px;
+    height: 100dvh;
+    height: 100vh;
+    background-color: var(--custom-color-aside);
+    box-shadow: 0px 3px 10px -2px var(--custom-color-shadow);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
+
+.menu-section__lateral {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-titulo-empresa__open-button {
+    display: none;
+    border: 0;
+    background-color: transparent;
+    text-align: center;
+}
+
+.header-titulo-empresa__close-button {
+    display: block;
+    border: 0;
+    background-color: transparent;
+    text-align: center;
+}
+
+.SVG-format,
+.article-titulo-empresa__SVG {
+    width: 25px;
+    color: var(--custom-color-white);
+}
+
+.menu-section__lateral__header-titulo-proyecto {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between;
+    padding: 5%;
+}
+
+.header-titulo-proyecto__open-button {
+    display: none;
+    border: 0;
+    background-color: transparent;
+    text-align: center;
+    width: fit-content;
+    margin-bottom: 0;
+}
+
+.header-titulo-proyecto__close-button {
+    display: block;
+    border: 0;
+    background-color: transparent;
+    text-align: center;
+    width: fit-content;
+    margin-bottom: 0;
+}
+
+.menu-section__lateral__article__content_block {
+    display: block;
+}
+
+.menu-section__lateral__article__content_none {
+    display: none;
+}
+
+.menu-section__lateral__article__lu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: -5%;
+    margin-right: 15%;
+    gap: 10px;
+}
+
+.menu-section__lateral_article__li__button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+}
+
+.menu-section__lateral_article__li__button:hover {
+    background-color: var(--custom-color-li-hover);
+}
