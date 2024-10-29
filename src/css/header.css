@@ -58,8 +58,9 @@
 .header-main__section__bar-tool__elements {
     display: flex;
     flex-direction: row;
-    gap: 60px;
+    gap: 30px;
     align-items: center;
+    justify-content: space-between;
 }
 
 .bar-tool__elements__button {

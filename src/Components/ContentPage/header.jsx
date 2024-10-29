@@ -56,10 +56,12 @@ export function Header() {
                 <span className='bar-tool__elements__span'>Nueva Actividad</span>
               </button>
 
-              <h3>Título proyecto</h3>
+              <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px'}}>
+                <h3>Título proyecto</h3>
+              </div>
 
               <button className='bar-tool__elements__button' onClick={() => setIsShown(true)}>
-                <span className='bar-tool__elements__span'>Nueva Actividad</span>
+                <span className='bar-tool__elements__span'>Más detalles</span>
               </button>
             </div>
           </Pane>
