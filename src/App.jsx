@@ -31,7 +31,9 @@ function App() {
         <article className='app-main__section__tasks-panel'>
           <DndContext onDragEnd={handleDragEnd}>
             <section className='app-main__section__tasks-panel__section'>
-              <h1 className='app-main__section__tasks__panel__section__titulo-New'>NUEVO</h1>
+              <div className='app-main__section__tasks__panel__section__content__titulo'>
+                <h1 className='app-main__section__tasks__panel__section__titulo-New'>NUEVO</h1>
+              </div>
               {
                 tasks.map(({idElement, array, posicion, titulo, responsable, estado, esfuerzo}) => {
                   return(
@@ -49,7 +51,9 @@ function App() {
             </section>
 
             <section className='app-main__section__tasks-panel__section'>
-              <h1 className='app-main__section__tasks__panel__section__titulo-Progreso'>EN PROGRESO</h1>
+              <div className='app-main__section__tasks__panel__section__content__titulo'>
+                <h1 className='app-main__section__tasks__panel__section__titulo-Progreso'>EN PROGRESO</h1>
+              </div>
               {
                 tasksProgreso.map(({idElement, array, posicion, titulo, responsable, estado, esfuerzo}) => {
                   return(
@@ -67,7 +71,9 @@ function App() {
             </section>
 
             <section className='app-main__section__tasks-panel__section'>
-            <h1 className='app-main__section__tasks__panel__section__titulo-Completo'>FINALIZADO</h1>
+              <div className='app-main__section__tasks__panel__section__content__titulo'>
+                <h1 className='app-main__section__tasks__panel__section__titulo-Completo'>FINALIZADO</h1>
+              </div>
               {
                 tasksFinalizado.map(({idElement, array, posicion, titulo, responsable, estado, esfuerzo}) => {
                   return (

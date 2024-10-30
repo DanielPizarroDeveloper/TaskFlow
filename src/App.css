@@ -38,6 +38,7 @@ button {
 .app-main {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
 .app-main__section {
@@ -46,14 +47,15 @@ button {
     text-align: center;
     width: 100%;
     align-items: center;
-    padding-left: 17%;
+    padding-left: 18%;
 }
 
 .app-main__section__tasks-panel {
-    padding-top: 9%;
+    padding-top: 2%;
     display: flex;
     flex-direction: row;
     width: 100%;
+    min-width: 1150px;
 }
 
 .app-main__section__tasks-panel__section {
@@ -61,7 +63,14 @@ button {
     height: 100%;
 }
 
+.app-main__section__tasks__panel__section__content__titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .app-main__section__tasks__panel__section__titulo-New {
+    width: fit-content;
     color: var(--custom-color-h1-purple);
     font-weight: bold;
 }
@@ -77,19 +86,13 @@ button {
 }
 
 .app-main__section__tasks-panel__section:nth-child(1) {
-    flex-basis: 34%;
-    height: 100%;
     background-color: var(--custom-color-new);
 }
 
 .app-main__section__tasks-panel__section:nth-child(2) {
-    flex-basis: 34%;
-    height: 100%;
     background-color: var(--custom-color-progress);
 }
 
 .app-main__section__tasks-panel__section:nth-child(3) {
-    flex-basis: 34%;
-    height: 100%;
     background-color: var(--custom-color-complete);
 }

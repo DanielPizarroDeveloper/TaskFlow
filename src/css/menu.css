@@ -9,7 +9,8 @@
     position: fixed;
     display: flex;
     flex-direction: column;
-    min-width: 270px;
+    min-width: 250px;
+    width: 18%;
     height: 100dvh;
     height: 100vh;
     background-color: var(--custom-color-aside);
@@ -40,7 +41,7 @@
 
 .SVG-format,
 .article-titulo-empresa__SVG {
-    width: 25px;
+    width: 35px;
     color: var(--custom-color-white);
 }
 
@@ -51,6 +52,7 @@
     padding: 5%;
     align-items: center;
     height: fit-content;
+    margin-top: 5%;
 }
 
 .header-titulo-proyecto__open-button {
@@ -81,11 +83,12 @@
 }
 
 .menu-section__lateral__article__lu {
+    position: relative;
+    right: 25px;
     list-style: none;
     display: flex;
     flex-direction: column;
     margin-top: -5%;
-    margin-right: 15%;
     gap: 10px;
 }
 
