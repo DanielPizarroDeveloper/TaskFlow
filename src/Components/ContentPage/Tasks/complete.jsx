@@ -6,11 +6,11 @@ import { Draggable } from '../../Arrastrable/Draggable'
 import '../../../css/card-complete.css'
 
 export function Complete({ droppedStates, idElement, id, titulo, responsable, estado, esfuerzo }) {
-    return (
-      <Droppable id={id} key={idElement}>
-        { droppedStates  === 'complete' ? 
-          <Draggable id={id} key={idElement}>
-            <article className='article-card-complete'>
+  return (
+    <Droppable id={id} key={idElement}>
+      { droppedStates  === 'complete' ? 
+        <Draggable id={id} key={idElement}>
+          <article className='article-card-complete'>
             <div className='article-card-complete__task'>
               <div className='article-card-complete__task-bar'></div>
               <div className='article-card-complete__task-content'>
@@ -41,8 +41,8 @@ export function Complete({ droppedStates, idElement, id, titulo, responsable, es
               </div>
             </div>
           </article>
-          </Draggable> : <div className='droppable-content'></div>
-        }
-      </Droppable>
-    )
+        </Draggable> : <div className='droppable-content'></div>
+      }
+    </Droppable>
+  )
 }

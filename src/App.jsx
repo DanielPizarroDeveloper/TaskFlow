@@ -13,6 +13,7 @@ import taskListFinalizado from '../src/mocks/Complete/card.json'
 import './App.css'
 
 function App() {
+  const [app_main_section, setApp_main_section] = useState('app-main__section')
   const [droppedStates, setDroppedStates] = useState([
     ['new', null, null], 
     ['new', null, null], 
@@ -23,10 +24,16 @@ function App() {
   const tasksProgreso = taskListProgreso;
   const tasksFinalizado = taskListFinalizado;
 
+  //Método Callback que realiza el envió del prompt desde el Hijo al componente Padre
+  const handlePromptChange = (newPrompt) => {
+    setApp_main_section(newPrompt);
+    console.log(app_main_section)
+  };
+
   return (
     <main className='app-main'>
-      <Menu />
-      <section className='app-main__section'>
+      <Menu onPromptChange={handlePromptChange}/>
+      <section className={app_main_section}>
         <Header />
         <article className='app-main__section__tasks-panel'>
           <DndContext onDragEnd={handleDragEnd}>

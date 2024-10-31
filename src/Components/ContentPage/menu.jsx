@@ -1,48 +1,73 @@
 import { useState } from 'react'
-import { Init_Desplegable_Proyecto } from '../../js/Init'
+import { Init_Desplegable_Proyecto, Init_Menu_Lateral } from '../../js/Init'
 import proyectos from'../../mocks/Menu/proyectos.json'
 import '../../css/menu.css'
 
-export function Menu () {
+// eslint-disable-next-line react/prop-types
+export function Menu ({ onPromptChange }) {
   const listProyectos = proyectos
   const [proyecto, setProyecto] = useState(true)
+  const [menu, setMenu] = useState(true)
 
   var { pickList_open_proyecto, pickList_close_proyecto, article_proyecto } = Init_Desplegable_Proyecto(proyecto)
+  var { appMainSection, aside_Menu, headerTitulo, articleContentProyecto, buttonShow, buttonHidden } = Init_Menu_Lateral(menu)
+
+  // Enviar el prompt actualizado al padre
+  const sendPrompt = () => { 
+    onPromptChange(appMainSection)
+  }
 
   const handlerClickProyecto = () => {
     var status = proyecto
-    
-    status == false ? 
-    ((setProyecto(!status)), (pickList_open_proyecto, pickList_close_proyecto = Init_Desplegable_Proyecto(status))) :
-    ((setProyecto(!status)), (pickList_open_proyecto, pickList_close_proyecto = Init_Desplegable_Proyecto(status)))
+    setProyecto(!status)
+  }
+
+  const handlerClickMenu = () => {
+    var status = menu
+    setMenu(!status)
+    sendPrompt()
   }
 
   return (
-      <aside className='aside-menu'>
-          <section className='menu-section__lateral'>
-            <header className='menu-section__lateral__header-titulo-proyecto'>
-              <button className={pickList_open_proyecto} onClick={handlerClickProyecto}>
-                <svg className='SVG-format' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-              </button>
+    <aside className={aside_Menu}>
+      <section className='menu-section__lateral'>
+        <header className={headerTitulo}>
+          <button className={pickList_open_proyecto} onClick={handlerClickProyecto}>
+            <svg className='SVG-format' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </button>
 
-              <button className={pickList_close_proyecto} onClick={handlerClickProyecto}>
-                <svg className='SVG-format' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
+          <button className={pickList_close_proyecto} onClick={handlerClickProyecto}>
+            <svg className='SVG-format' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </button>
 
-              </button>
+          <h4>PROYECTOS</h4>
 
-              <h4>PROYECTOS</h4>
+          <svg className='SVG-format' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+        </header>
 
-              <svg className='SVG-format' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-              </svg>
-            </header>
+        <div className='menu-section__lateral__content_button'>
+          <button className={buttonShow} onClick={handlerClickMenu}>
+            <svg className='SVG-states' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+          </button>
 
-            <article className={article_proyecto}>
-              <ul className='menu-section__lateral__article__lu'>
+          <button className={buttonHidden} onClick={handlerClickMenu}>
+            <svg className='SVG-states' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </button>
+        </div>
+
+        <div className={articleContentProyecto}>
+          <article className={article_proyecto}>
+            <ul className='menu-section__lateral__article__lu'>
               {
                 listProyectos.map(({id, titulo}) => {
                   return(
@@ -57,9 +82,10 @@ export function Menu () {
                   ) 
                 })
               }
-              </ul>
-            </article>
-          </section>
-      </aside>
-    )
+            </ul>
+          </article>
+        </div>
+      </section>
+    </aside>
+  )
 }

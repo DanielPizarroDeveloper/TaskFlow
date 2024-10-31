@@ -17,7 +17,14 @@
     box-shadow: 0px 3px 10px -2px var(--custom-color-shadow);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+    animation: slide-left-menu 1s linear both;
+    z-index: 999;
+}
 
+.aside-menu-dynamic {
+    min-width: 0;
+    z-index: 999;
+    animation: slide-right-menu 1s linear both;
 }
 
 .menu-section__lateral {
@@ -42,6 +49,40 @@
 .SVG-format,
 .article-titulo-empresa__SVG {
     width: 35px;
+    color: var(--custom-color-white);
+}
+
+.menu-section__lateral__content_button {
+    position: relative;
+    left: 94%;
+    bottom: 5%;
+    width: fit-content;
+}
+
+.button-SVG-Block,
+.button-SVG-Hidden {
+    box-shadow: 0px 0px 50px -12px var(--custom-color-li-hover);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--custom-color-li-hover);
+    background-color: var(--custom-color-aside);
+    border-radius: 999px;
+}
+
+.button-SVG-Hidden {
+    position: relative;
+    top: 86px;
+    left: -12px;
+}
+
+.SVG-states {
+    position: relative;
+    top: 1.5px;
+    left: 1.5px;
+    width: 20px;
     color: var(--custom-color-white);
 }
 
@@ -75,11 +116,18 @@
 }
 
 .menu-section__lateral__article__content_block {
-    display: block;
+    margin-top: 0;
 }
 
 .menu-section__lateral__article__content_none {
     display: none;
+}
+
+.menu-section__lateral__ul_option {
+    position: relative;
+    right: 25px;
+    list-style: none;
+    margin-top: -5%;
 }
 
 .menu-section__lateral__article__lu {
@@ -88,8 +136,26 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    margin-top: -5%;
+    margin-top: -10%;
     gap: 10px;
+}
+
+.menu-section__lateral__article__lu__li__hidden-block {
+    position: absolute;
+    left: 103%;
+}
+
+.display-none {
+    display: none;
+}
+
+.display-block {
+    display: block;
+}
+
+.button-SVG-Hidden:hover,
+.button-SVG-Block:hover {
+    background-color: var(--custom-color-li-hover);
 }
 
 .menu-section__lateral_article__li__button {
@@ -107,4 +173,25 @@
 
 .menu-section__lateral_article__li__button:hover {
     background-color: var(--custom-color-li-hover);
+}
+
+/* Keyframes - Menu */
+@keyframes slide-left-menu {
+    0% {
+        transform:translateX(-200px);
+    }
+    100% {
+        transform:translateX(0);
+    }
+}
+
+@keyframes slide-right-menu {
+    0% {
+        transform:translateX(0px);
+        min-width: 0;
+    }
+    100% { 
+        transform:translateX(0);
+        width: 80px;
+    }
 }

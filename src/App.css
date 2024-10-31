@@ -47,7 +47,16 @@ button {
     text-align: center;
     width: 100%;
     align-items: center;
-    padding-left: 18%;
+    animation: slide-left-panel-task 1s linear both;
+}
+
+.app-main__section-dynamic {
+    animation: slide-right-panel-task 1s linear both;
+}
+
+.aside-menu-dynamic {
+    min-width: 0;
+    z-index: 999;
 }
 
 .app-main__section__tasks-panel {
@@ -95,4 +104,30 @@ button {
 
 .app-main__section__tasks-panel__section:nth-child(3) {
     background-color: var(--custom-color-complete);
+}
+
+/* Keyframes - Panel Task */
+
+@keyframes slide-left-panel-task {
+    0% {
+        transform:translateX(100px);
+        padding-left: 0;
+        overflow:  hidden;
+    }
+    100% {
+        transform:translateX(0);
+        padding-left: 18%;
+        overflow:  hidden;
+    }
+}
+
+@keyframes slide-right-panel-task {
+    0% {
+        transform:translateX(0px);
+        min-width: 0;
+    }
+    100% { 
+        transform:translateX(0);
+        padding-left: 5%;
+    }
 }
