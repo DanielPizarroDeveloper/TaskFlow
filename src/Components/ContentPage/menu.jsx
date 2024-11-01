@@ -1,20 +1,35 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { getProyectos } from '../../database/query/select/proyectos'
 import { Init_Desplegable_Proyecto, Init_Menu_Lateral } from '../../js/Init'
-import proyectos from'../../mocks/Menu/proyectos.json'
+
 import '../../css/menu.css'
 
 // eslint-disable-next-line react/prop-types
-export function Menu ({ onPromptChange }) {
-  const listProyectos = proyectos
+export function Menu ({ onPromptChange, onPromptProyecto }) {
   const [proyecto, setProyecto] = useState(true)
   const [menu, setMenu] = useState(true)
+  const [proyectosFirebase, setProyectosFirebase] = useState([])
 
   var { pickList_open_proyecto, pickList_close_proyecto, article_proyecto } = Init_Desplegable_Proyecto(proyecto)
   var { appMainSection, aside_Menu, headerTitulo, articleContentProyecto, buttonShow, buttonHidden } = Init_Menu_Lateral(menu)
 
+
+  useEffect(() => {
+    const fetchProyectos = async () => {
+      const loadedProyectos = await getProyectos()
+      setProyectosFirebase(loadedProyectos)
+    }
+    fetchProyectos()
+  }, [])
+
   // Enviar el prompt actualizado al padre
   const sendPrompt = () => { 
     onPromptChange(appMainSection)
+  }
+
+  // Envia el proyecto seleccionado
+  const sendProyectoSeleccionado = (proyectoSeleccionado) => { 
+    onPromptProyecto(proyectoSeleccionado)
   }
 
   const handlerClickProyecto = () => {
@@ -26,6 +41,10 @@ export function Menu ({ onPromptChange }) {
     var status = menu
     setMenu(!status)
     sendPrompt()
+  }
+
+  const handlerClickSendProyecto = (proyectoSeleccionado) => {
+    sendProyectoSeleccionado(proyectoSeleccionado)
   }
 
   return (
@@ -69,18 +88,16 @@ export function Menu ({ onPromptChange }) {
           <article className={article_proyecto}>
             <ul className='menu-section__lateral__article__lu'>
               {
-                listProyectos.map(({id, titulo}) => {
-                  return(
-                    <li key={id}>
-                      <button className='menu-section__lateral_article__li__button'>
+                proyectosFirebase.map((proyecto) => (
+                    <li className='menu-section__lateral__article__lu__li' key={proyecto.id}>
+                      <button className='menu-section__lateral_article__li__button' onClick={() => handlerClickSendProyecto(proyecto.nombreProyecto)}>
                         <svg className='SVG-format' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
                         </svg>
-                        <span>{titulo}</span>
+                        <span>{proyecto.nombreProyecto}</span>
                       </button>
                     </li> 
-                  ) 
-                })
+                ))
               }
             </ul>
           </article>

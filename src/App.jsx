@@ -13,28 +13,35 @@ import taskListFinalizado from '../src/mocks/Complete/card.json'
 import './App.css'
 
 function App() {
+  const [proyecto, setProyecto] = useState(null)
   const [app_main_section, setApp_main_section] = useState('app-main__section')
   const [droppedStates, setDroppedStates] = useState([
     ['new', null, null], 
     ['new', null, null], 
-    ['new', null, null],
-    ['new', null, null]]);
+    ['new', null, null], 
+    ['new', null, null]]
+  );
 
-  const tasks = taskList;
+  const tasksNew = taskList;
   const tasksProgreso = taskListProgreso;
   const tasksFinalizado = taskListFinalizado;
-
+  
   //Método Callback que realiza el envió del prompt desde el Hijo al componente Padre
   const handlePromptChange = (newPrompt) => {
+    console.log(newPrompt)
     setApp_main_section(newPrompt);
-    console.log(app_main_section)
-  };
+  }
+
+  //Método Callback que realiza el envió del proyecto seleccionado desde el componente hijo
+  const handlePromptProyecto = (proyectoPrompt) => {
+    setProyecto(proyectoPrompt)
+  }
 
   return (
     <main className='app-main'>
-      <Menu onPromptChange={handlePromptChange}/>
+      <Menu onPromptChange={handlePromptChange} onPromptProyecto={handlePromptProyecto} />
       <section className={app_main_section}>
-        <Header />
+        <Header proyecto={proyecto} />
         <article className='app-main__section__tasks-panel'>
           <DndContext onDragEnd={handleDragEnd}>
             <section className='app-main__section__tasks-panel__section'>
@@ -42,7 +49,7 @@ function App() {
                 <h1 className='app-main__section__tasks__panel__section__titulo-New'>NUEVO</h1>
               </div>
               {
-                tasks.map(({idElement, array, posicion, titulo, responsable, estado, esfuerzo}) => {
+                tasksNew.map(({idElement, array, posicion, titulo, responsable, estado, esfuerzo}) => {
                   return(
                     <New id={`new${array}`} key={idElement}
                       droppedStates = {droppedStates[array][posicion]}

@@ -1,0 +1,21 @@
+:root {
+    --custom-color-span: #0F95CD;
+}
+
+.article-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.article-modal__container__div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.article-modal__container__div-span {
+    width: 120px;
+    color: var(--custom-color-span)
+}

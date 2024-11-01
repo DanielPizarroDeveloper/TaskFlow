@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
-import { Dialog, Pane, TextInput, Combobox, Textarea } from 'evergreen-ui'
 import { useState } from 'react'
+import { Dialog, Pane, TextInput, Combobox, Textarea } from 'evergreen-ui'
+
+import '../../../css/ModalTask/Task/Crear.css'
 
 export function CrearTask ({changeStatus}) {
   const [isShown, setIsShown] = useState(changeStatus)
@@ -15,16 +17,16 @@ export function CrearTask ({changeStatus}) {
         hasCancel={false}
       >
         
-        <article className='header-main__section__panel__article'>
-          <div className='header-main__section__panel__article-content'>
-            <span className='panel__article__content__span'>Título: </span>
-            <TextInput className='panel__article__content_input' placeholder="Nombre de la actividad" />
+        <article className='article-modal-create'>
+          <div className='article-modal-create__content'>
+            <span className='article-modal-create__content__span'>Título: </span>
+            <TextInput className='article-modal-create__content__input' placeholder="Nombre de la actividad" />
           </div>
 
-          <div className='header-main__section__panel__pickList'>
-            <span className='panel__article__content__span'>Estado: </span>
+          <div className='article-modal-create__content__pickList'>
+            <span className='article-modal-create__content__span'>Estado: </span>
             <Combobox
-              className='panel__article__content_input'
+              className='article-modal-create__content__input'
               initialSelectedItem={{ label: 'NUEVO' }}
               items={[{ label: 'NUEVO' }, { label: 'EN PROGRESO' }, { label: 'FINALIZADO' }]}
               itemToString={item => (item ? item.label : '')}
@@ -32,10 +34,10 @@ export function CrearTask ({changeStatus}) {
             />
           </div>
 
-          <div className='header-main__section__panel__pickList'>
-            <span className='panel__article__content__span'>Esfuerzo: </span>
+          <div className='article-modal-create__content__pickList'>
+            <span className='article-modal-create__content__span'>Esfuerzo: </span>
             <Combobox
-              className='panel__article__content_input'
+              className='article-modal-create__content__input'
               initialSelectedItem={{ label: '1' }}
               items={[{ label: '1' }, { label: '2' }, { label: '3' },
                       { label: '4' }, { label: '5' }, { label: '6' },
@@ -46,8 +48,8 @@ export function CrearTask ({changeStatus}) {
           
           <br></br>
           
-          <span className='panel__article__content__span'>Descripción: </span>
-          <Textarea className='header-main__Section__panel__input__text-area' placeholder="Textarea placeholder..." />
+          <span className='article-modal-create__content__span'>Descripción: </span>
+          <Textarea className='article-modal-create__content__text-area' placeholder="Textarea placeholder..." />
         </article>
       </Dialog>
     </Pane>

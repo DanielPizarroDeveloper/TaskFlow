@@ -47,11 +47,11 @@ button {
     text-align: center;
     width: 100%;
     align-items: center;
-    animation: slide-left-panel-task 1s linear both;
+    animation: slide-left-panel-task .4s linear both;
 }
 
 .app-main__section-dynamic {
-    animation: slide-right-panel-task 1s linear both;
+    animation: slide-right-panel-task .4s linear both;
 }
 
 .aside-menu-dynamic {

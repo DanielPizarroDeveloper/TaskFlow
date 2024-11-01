@@ -1,0 +1,36 @@
+:root {
+    --custom-color-span: #0F95CD;
+}
+
+.article-modal-create {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.article-modal-create__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.article-modal-create__content__span {
+    width: 100px;
+    color: var(--custom-color-span)
+}
+
+.article-modal-create__content__input {
+    width: 400px !important;
+}
+
+.article-modal-create__content__pickList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.article-modal-create__content__text-area {
+    width: 500px !important;
+}
