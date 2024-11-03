@@ -4,8 +4,7 @@
         "array": 0,
         "posicion": 2,
         "titulo": "Estructura HTML",
-        "responsable": "Daniel Pizarro Saavedra", 
-        "color": "green",
+        "responsable": "Daniel Pizarro Saavedra",
         "estado": "FINALIZADO",
         "esfuerzo": 5
     },
@@ -14,8 +13,7 @@
         "array": 1,
         "posicion": 2,
         "titulo": "Estructura CSS",
-        "responsable": "Cecilia Saavedra Zuñiga", 
-        "color": "green",
+        "responsable": "Cecilia Saavedra Zuñiga",
         "estado": "FINALIZADO",
         "esfuerzo": 5
     },
@@ -24,18 +22,7 @@
         "array": 2,
         "posicion": 2,
         "titulo": "Estructura JS",
-        "responsable": "Juan Pizarro Leon", 
-        "color": "green",
-        "estado": "FINALIZADO",
-        "esfuerzo": 5
-    },
-    {
-        "idElement": 4,
-        "array": 3,
-        "posicion": 2,
-        "titulo": "Revisión Web Responsive",
-        "responsable": "Daniel Pizarro Saavedra", 
-        "color": "green",
+        "responsable": "Juan Pizarro Leon",
         "estado": "FINALIZADO",
         "esfuerzo": 5
     }

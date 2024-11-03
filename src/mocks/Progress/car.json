@@ -4,8 +4,7 @@
         "array": 0,
         "posicion": 1,
         "titulo": "Estructura HTML",
-        "responsable": "Daniel Pizarro Saavedra", 
-        "color": "blue",
+        "responsable": "Daniel Pizarro Saavedra",
         "estado": "EN PROGRESO",
         "esfuerzo": 5
     },
@@ -14,8 +13,7 @@
         "array": 1,
         "posicion": 1,
         "titulo": "Estructura CSS",
-        "responsable": "Cecilia Saavedra Zuñiga", 
-        "color": "blue",
+        "responsable": "Cecilia Saavedra Zuñiga",
         "estado": "EN PROGRESO",
         "esfuerzo": 5
     },
@@ -24,18 +22,7 @@
         "array": 2,
         "posicion": 1,
         "titulo": "Estructura JS",
-        "responsable": "Juan Pizarro Leon", 
-        "color": "blue",
-        "estado": "EN PROGRESO",
-        "esfuerzo": 5
-    },
-    {
-        "idElement": 4,
-        "array": 3,
-        "posicion": 1,
-        "titulo": "Estructura JS",
-        "responsable": "Juan Pizarro Leon", 
-        "color": "blue",
+        "responsable": "Juan Pizarro Leon",
         "estado": "EN PROGRESO",
         "esfuerzo": 5
     }
