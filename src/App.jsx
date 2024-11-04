@@ -20,8 +20,8 @@ function App() {
   //Obtenemos las tareas del proyecto respectivo, actualizando las tareas cuando se cambie el proyecto seleccionado
   useEffect(() => {
     const fetchGetProyecto = async () => {
-      const newTask = await getTasks({proyecto: proyecto})
-      setTasksFirebase(newTask)
+      const getTasksAll = await getTasks({proyecto: proyecto})
+      setTasksFirebase(getTasksAll)
     }
 
     const getEstadoTask = async () => {
@@ -126,14 +126,18 @@ function App() {
 
     if (event.over) {
       const newDroppedStates = [...droppedStates]
-
+      const newTasks = [...tasksFirebase]
+      
       if(event.over.id.startsWith(statusEnProceso)) {
+        newTasks[index].estado = statusEnProceso
         newDroppedStates[index] = statusEnProceso
       }
       else if(event.over.id.startsWith(statusFinalizado)) {
+        newTasks[index].estado = statusFinalizado
         newDroppedStates[index] = statusFinalizado
       }
       else if(event.over.id.startsWith(statusNuevo)) {
+        newTasks[index].estado = statusNuevo
         newDroppedStates[index] = statusNuevo
       }
       

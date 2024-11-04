@@ -1,11 +1,22 @@
 /* eslint-disable react/prop-types */
+import { useEffect } from 'react'
 import { Avatar, Badge } from 'evergreen-ui'
 import { Droppable } from '../../Arrastrable/Droppable'
 import { Draggable } from '../../Arrastrable/Draggable'
+import { updateTask } from '../../../database/query/update/update'
 
 import '../../../css/card-complete.css'
 
 export function Complete({ droppedStates, idElement, id, titulo, responsable, estado, esfuerzo }) {
+  
+  useEffect(() => {
+    const updateTaskID = async () => {
+      updateTask({idElement, estado})
+    }
+
+    updateTaskID()
+  }, [droppedStates])
+  
   return (
     <Droppable id={id} key={idElement}>
       { droppedStates  === 'FINALIZADO' ? 

@@ -1,11 +1,22 @@
 /* eslint-disable react/prop-types */
+import { useEffect } from 'react'
 import { Avatar, Badge } from 'evergreen-ui'
 import { Droppable } from '../../Arrastrable/Droppable'
 import { Draggable } from '../../Arrastrable/Draggable'
+import { updateTask } from '../../../database/query/update/update'
 
 import '../../../css/card-new.css'
 
 export function New({droppedStates, idElement, id, titulo, responsable, estado, esfuerzo}) {
+  
+  useEffect(() => {
+    const updateTaskID = async () => {
+      updateTask({idElement, estado})
+    }
+
+    updateTaskID()
+  }, [droppedStates])
+  
   return (
     <Droppable id={id} key={idElement}>
       {droppedStates === 'NUEVO' ? (
