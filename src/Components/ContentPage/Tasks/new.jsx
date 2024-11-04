@@ -8,7 +8,7 @@ import '../../../css/card-new.css'
 export function New({droppedStates, idElement, id, titulo, responsable, estado, esfuerzo}) {
   return (
     <Droppable id={id} key={idElement}>
-      {droppedStates === 'new' ? (
+      {droppedStates === 'NUEVO' ? (
         <Draggable id={id}  key={idElement}>
           <article className='article-card-new'>
             <div className='article-card-new__task'>

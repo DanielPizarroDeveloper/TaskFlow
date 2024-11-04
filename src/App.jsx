@@ -6,10 +6,7 @@ import { Complete } from './Components/ContentPage/Tasks/complete'
 import { InProgress } from './Components/ContentPage/Tasks/inProgress'
 import { Header } from './Components/ContentPage/header'
 
-import { getTaskNew } from './database/query/select/getNewTasks'
-
-import taskListProgreso from '../src/mocks/Progress/car.json'
-import taskListFinalizado from '../src/mocks/Complete/card.json'
+import { getTasks } from './database/query/select/getTasks'
 
 import './App.css'
 
@@ -17,23 +14,23 @@ function App() {
   const [proyecto, setProyecto] = useState(null)
   const [app_main_section, setApp_main_section] = useState('app-main__section')
   const [tasksFirebase, setTasksFirebase] = useState([])
+  const [droppedStates, setDroppedStates] = useState([null])
   
-  const [droppedStates, setDroppedStates] = useState(
-    [
-      ['new', null, null], 
-      ['new', null, null], 
-      ['new', null, null]
-    ]
-  )
-  
-  const tasksProgreso = taskListProgreso;
-  const tasksFinalizado = taskListFinalizado;
-  
+  //Obtenemos los estados de las tareas respectivas, cuando se cambie el proyecto seleccionado
+  //Obtenemos las tareas del proyecto respectivo, actualizando las tareas cuando se cambie el proyecto seleccionado
   useEffect(() => {
     const fetchGetProyecto = async () => {
-      const newTask = await getTaskNew({proyecto: proyecto, estado: 'NUEVO'})
+      const newTask = await getTasks({proyecto: proyecto})
       setTasksFirebase(newTask)
     }
+
+    const getEstadoTask = async () => {
+      const element = await getTasks({proyecto: proyecto})
+      const result = element.map(item => item.estado)
+      setDroppedStates(result)
+    }
+
+    getEstadoTask()
     fetchGetProyecto()
   }, [proyecto])
 
@@ -60,8 +57,8 @@ function App() {
               </div>
               {
                 tasksFirebase.map((taskFB) => (
-                  <New id={`new${taskFB.arrayNumber}`} key={taskFB.id}
-                    droppedStates = {droppedStates[taskFB.arrayNumber][taskFB.positionArray]}
+                  <New id={`NUEVO${taskFB.idTask}`} key={taskFB.id}
+                    droppedStates = {droppedStates[taskFB.idTask]}
                     idElement={taskFB.id}
                     titulo={taskFB.titulo}
                     responsable={taskFB.responsable}
@@ -77,18 +74,16 @@ function App() {
                 <h1 className='app-main__section__tasks__panel__section__titulo-Progreso'>EN PROGRESO</h1>
               </div>
               {
-                tasksProgreso.map(({idElement, array, posicion, titulo, responsable, estado, esfuerzo}) => {
-                  return(
-                    <InProgress id={`inProgress${array}`} key={idElement}
-                      droppedStates = {droppedStates[array][posicion]}
-                      idElement={idElement}
-                      titulo={titulo}
-                      responsable={responsable}
-                      estado={estado}
-                      esfuerzo={esfuerzo}
-                    />
-                  )
-                })
+                tasksFirebase.map((taskFB) => (
+                  <InProgress id={`EN PROGRESO${taskFB.idTask}`} key={taskFB.id}
+                    droppedStates = {droppedStates[taskFB.idTask]}
+                    idElement={taskFB.id}
+                    titulo={taskFB.titulo}
+                    responsable={taskFB.responsable}
+                    estado={taskFB.estado}
+                    esfuerzo={taskFB.esfuerzo}
+                  />
+                ))
               }
             </section>
 
@@ -97,18 +92,16 @@ function App() {
                 <h1 className='app-main__section__tasks__panel__section__titulo-Completo'>FINALIZADO</h1>
               </div>
               {
-                tasksFinalizado.map(({idElement, array, posicion, titulo, responsable, estado, esfuerzo}) => {
-                  return (
-                    <Complete id={`complete${array}`} key={idElement}
-                      droppedStates = {droppedStates[array][posicion]}
-                      idElement={idElement}
-                      titulo={titulo}
-                      responsable={responsable}
-                      estado={estado}
-                      esfuerzo={esfuerzo}
-                    />
-                  )
-                })
+                tasksFirebase.map((taskFB) => (
+                  <Complete id={`FINALIZADO${taskFB.idTask}`} key={taskFB.id}
+                    droppedStates = {droppedStates[taskFB.idTask]}
+                    idElement={taskFB.id}
+                    titulo={taskFB.titulo}
+                    responsable={taskFB.responsable}
+                    estado={taskFB.estado}
+                    esfuerzo={taskFB.esfuerzo}
+                  />
+                ))
               }
             </section>    
           </DndContext>
@@ -119,38 +112,32 @@ function App() {
 
   function handleDragEnd(event) {
     var index = 0;
+    var statusNuevo = 'NUEVO'
+    var statusEnProceso = 'EN PROGRESO'
+    var statusFinalizado = 'FINALIZADO'
 
-    if (event.active.id.startsWith('new')) {
-        index = parseInt(event.active.id.replace('new', ''), 10);
-    } else if (event.active.id.startsWith('inProgress')) {
-        index = parseInt(event.active.id.replace('inProgress', ''), 10);
-    } else if (event.active.id.startsWith('complete')) {
-        index = parseInt(event.active.id.replace('complete', ''), 10);
+    if (event.active.id.startsWith(statusNuevo)) {
+        index = parseInt(event.active.id.replace(statusNuevo, ''), 10);
+    } else if (event.active.id.startsWith(statusEnProceso)) {
+        index = parseInt(event.active.id.replace(statusEnProceso, ''), 10);
+    } else if (event.active.id.startsWith(statusFinalizado)) {
+        index = parseInt(event.active.id.replace(statusFinalizado, ''), 10);
     }
 
     if (event.over) {
-        const newStates = [...droppedStates];
+      const newDroppedStates = [...droppedStates]
 
-
-        newStates[index] = [null, null, null];
-
-        if (event.over.id.startsWith('inProgress')) {
-          newStates[index][1] = 'inProgress';
-          newStates[index][2] = null;
-        }
-
-        else if (event.over.id.startsWith('complete')) {
-          newStates[index][1] = null
-          newStates[index][2] = 'complete';
-        }
-
-        else if (event.over.id.startsWith('new')) {
-            newStates[index][0] = 'new';
-            newStates[index][1] = null;
-            newStates[index][2] = null;
-        }
-
-        setDroppedStates(newStates);
+      if(event.over.id.startsWith(statusEnProceso)) {
+        newDroppedStates[index] = statusEnProceso
+      }
+      else if(event.over.id.startsWith(statusFinalizado)) {
+        newDroppedStates[index] = statusFinalizado
+      }
+      else if(event.over.id.startsWith(statusNuevo)) {
+        newDroppedStates[index] = statusNuevo
+      }
+      
+      setDroppedStates(newDroppedStates)
     }
   }
 }

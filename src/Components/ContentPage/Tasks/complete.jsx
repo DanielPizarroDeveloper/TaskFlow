@@ -8,7 +8,7 @@ import '../../../css/card-complete.css'
 export function Complete({ droppedStates, idElement, id, titulo, responsable, estado, esfuerzo }) {
   return (
     <Droppable id={id} key={idElement}>
-      { droppedStates  === 'complete' ? 
+      { droppedStates  === 'FINALIZADO' ? 
         <Draggable id={id} key={idElement}>
           <article className='article-card-complete'>
             <div className='article-card-complete__task'>

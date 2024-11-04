@@ -8,7 +8,7 @@ import '../../../css/card-progress.css'
 export function InProgress({ droppedStates, idElement, id, titulo, responsable, estado, esfuerzo }) {
   return (
     <Droppable id={id} key={idElement}>
-      {droppedStates === 'inProgress' ?
+      {droppedStates === 'EN PROGRESO' ?
         <Draggable id={id} key={idElement}>
           <article className='article-card-progress'>
             <div className='article-card-progress__task'>

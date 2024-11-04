@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getProyectos } from '../../database/query/select/proyectos'
+import { getProyectos } from '../../database/query/select/getProyectos'
 import { Init_Desplegable_Proyecto, Init_Menu_Lateral } from '../../js/Init'
 
 import '../../css/menu.css'
