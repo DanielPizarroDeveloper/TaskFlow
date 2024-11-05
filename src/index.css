@@ -4,6 +4,9 @@
   --custom-font-weight: 100;
   --custom-font-style: normal;
   --custom-section-min-width: 100%;
+  --custom-color-border: #d8dae5;
+  --custom-color-border-focus: #0f95cd;
+  --custom-box-shadow-focus: 0 0 8px rgba(15, 149, 205, 0.3);
 }
 
 body {
@@ -19,9 +22,48 @@ h4,
 h5,
 p,
 a,
-span {
+span,
+input[type='text'],
+select {
   font-family: var(--custom-font-family);
   font-optical-sizing: var(--custom-font-optical-sizing);
   font-weight: var(--custom-font-weight);
   font-style: var(--custom-font-style);
+}
+
+input[type='text'], 
+textarea,
+select, 
+button {
+  outline: none;
+}
+
+input[type='text'], 
+textarea,
+select {
+  padding: 2px;
+  border: 1px solid var(--custom-color-border);
+}
+
+input[type='text'] {
+  padding-left: 7px;
+}
+
+textarea {
+  padding: 10px;
+}
+
+input[type='text']:focus {
+  border-color: var(--custom-color-border-focus);
+  box-shadow: var(--custom-box-shadow-focus);
+}
+
+select:focus {
+  border-color: var(--custom-color-border-focus);
+  box-shadow: var(--custom-box-shadow-focus);
+}
+
+textarea:focus {
+  border-color: var(--custom-color-border-focus);
+  box-shadow: var(--custom-box-shadow-focus);
 }

@@ -1,5 +1,7 @@
 :root {
-    --custom-color-span: #0F95CD;
+    --custom-color-light-blue: #0F95CD;
+    --custom-color-dark-blue: #0E709A;
+    --custom-color-white: white;
 }
 
 .article-modal-create {
@@ -13,24 +15,45 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    max-width: 500px;
 }
 
 .article-modal-create__content__span {
     width: 100px;
-    color: var(--custom-color-span)
+    color: var(--custom-color-light-blue);
 }
 
 .article-modal-create__content__input {
     width: 400px !important;
+    max-width: 400px;
+    border-radius: 5px;
+    height: 25px;
 }
 
-.article-modal-create__content__pickList {
+.article-modal-create__content__descripcion {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .article-modal-create__content__text-area {
-    width: 500px !important;
+    height: 100px;
+    width: 480px !important;
+    border-radius: 10px;
+}
+
+.article-modal-create__content__submit {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.article-modal-create__content__button {
+    width: 100px;
+    height: 40px;
+    border: 0;
+    background-color: var(--custom-color-light-blue);
+    border-color: var(--custom-color-dark-blue);
+    color: var(--custom-color-white);
+    border-radius: 20px;
 }

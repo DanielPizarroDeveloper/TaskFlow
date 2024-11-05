@@ -1,6 +1,7 @@
 :root {
     --custom-color-white-smoke: #f5f5f5;
     --custom-color-blue: #2952cf;
+    --custom-color-blue-hover: #D6DFFF;
 }
 
 .article-card-progress {
@@ -31,7 +32,27 @@
 .article-card-progress__task__panel-titulo {
     display: flex;
     flex-direction: row;
-    gap: 5%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-card-progress__task__panel__content {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.article-card-progress__task__panel__content__button {
+    width: auto;
+    display: flex;
+    align-items: stretch;
+    height: fit-content;
+}
+
+.article-card-progress__task__panel__content__button:hover {
+    background-color: var(--custom-color-blue-hover);
+    border-radius: 99px;
 }
 
 .article-card-progress__task__panel__svg {

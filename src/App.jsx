@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react'
 import { DndContext } from '@dnd-kit/core'
+import { useEffect, useState } from 'react'
 import { Menu } from './Components/ContentPage/menu'
 import { New } from './Components/ContentPage/Tasks/new'
 import { Complete } from './Components/ContentPage/Tasks/complete'
 import { InProgress } from './Components/ContentPage/Tasks/inProgress'
 import { Header } from './Components/ContentPage/header'
-
 import { getTasks } from './database/query/select/getTasks'
 
 import './App.css'
@@ -26,6 +25,7 @@ function App() {
 
     const getEstadoTask = async () => {
       const element = await getTasks({proyecto: proyecto})
+      console.log('Element: ', element)
       const result = element.map(item => item.estado)
       setDroppedStates(result)
     }
@@ -64,6 +64,7 @@ function App() {
                     responsable={taskFB.responsable}
                     estado={taskFB.estado}
                     esfuerzo={taskFB.esfuerzo}
+                    descripcion={taskFB.descripcion}
                   />
                 ))
               }

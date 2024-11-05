@@ -1,6 +1,7 @@
 :root {
     --custom-color-white-smoke: whitesmoke;
     --custom-color-green: #317159;
+    --custom-color-green-hover: #DCF2EA;
 }
 
 .article-card-complete {
@@ -28,10 +29,32 @@
     width: 100%;
 }
 
+
+/* OK */
 .article-card-complete__task__panel-titulo {
     display: flex;
     flex-direction: row;
-    gap: 5%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-card-complete__task__panel__content {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.article-card-complete__task__panel__content__button {
+    width: auto;
+    display: flex;
+    align-items: stretch;
+    height: fit-content;
+}
+
+.article-card-complete__task__panel__content__button:hover {
+    background-color: var(--custom-color-green-hover);
+    border-radius: 99px;
 }
 
 .article-card-complete__task__panel__svg {

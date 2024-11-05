@@ -82,6 +82,7 @@ button {
     width: fit-content;
     color: var(--custom-color-h1-purple);
     font-weight: bold;
+    height: 100%;
 }
 
 .app-main__section__tasks__panel__section__titulo-Progreso {

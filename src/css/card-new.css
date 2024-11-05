@@ -1,6 +1,7 @@
 :root {
     --custom-color-white-smoke: #f5f5f5;
     --custom-color-purple: #6e64b6;
+    --custom-color-purple-hover: #E7E4F9;
 }
 
 .article-card-new {
@@ -30,7 +31,27 @@
 .article-card-new__task__panel-titulo {
     display: flex;
     flex-direction: row;
-    gap: 5%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-card-new__task__panel__content {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.article-card-new__task__panel__content__button {
+    width: auto;
+    display: flex;
+    align-items: stretch;
+    height: fit-content;
+}
+
+.article-card-new__task__panel__content__button:hover {
+    background-color: var(--custom-color-purple-hover);
+    border-radius: 99px;
 }
 
 .article-card-new__task__panel__svg {
