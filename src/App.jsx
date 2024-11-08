@@ -7,6 +7,8 @@ import { InProgress } from './Components/ContentPage/Tasks/inProgress'
 import { Header } from './Components/ContentPage/header'
 import { getTasks } from './database/query/select/getTasks'
 
+// import { Auth  } from './Components/Auth'
+
 import './App.css'
 
 function App() {
@@ -25,7 +27,6 @@ function App() {
 
     const getEstadoTask = async () => {
       const element = await getTasks({proyecto: proyecto})
-      console.log('Element: ', element)
       const result = element.map(item => item.estado)
       setDroppedStates(result)
     }
@@ -45,6 +46,7 @@ function App() {
   }
 
   return (
+    // <Auth />
     <main className='app-main'>
       <Menu onPromptChange={handlePromptChange} onPromptProyecto={handlePromptProyecto} />
       <section className={app_main_section}>
@@ -69,7 +71,6 @@ function App() {
                 ))
               }
             </section>
-
             <section className='app-main__section__tasks-panel__section'>
               <div className='app-main__section__tasks__panel__section__content__titulo'>
                 <h1 className='app-main__section__tasks__panel__section__titulo-Progreso'>EN PROGRESO</h1>
@@ -87,7 +88,6 @@ function App() {
                 ))
               }
             </section>
-
             <section className='app-main__section__tasks-panel__section'>
               <div className='app-main__section__tasks__panel__section__content__titulo'>
                 <h1 className='app-main__section__tasks__panel__section__titulo-Completo'>FINALIZADO</h1>

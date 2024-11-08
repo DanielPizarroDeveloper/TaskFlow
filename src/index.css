@@ -9,6 +9,10 @@
   --custom-box-shadow-focus: 0 0 8px rgba(15, 149, 205, 0.3);
 }
 
+html {
+  background-color: white;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -24,6 +28,9 @@ p,
 a,
 span,
 input[type='text'],
+input[type='email'],
+input[type='password'],
+button,
 select {
   font-family: var(--custom-font-family);
   font-optical-sizing: var(--custom-font-optical-sizing);
@@ -31,22 +38,22 @@ select {
   font-style: var(--custom-font-style);
 }
 
-input[type='text'], 
+input[type='text'],
+input[type='email'],
+input[type='password'],
 textarea,
 select, 
 button {
   outline: none;
 }
 
-input[type='text'], 
+input[type='text'],
+input[type='email'],
+input[type='password'],
 textarea,
-select {
-  padding: 2px;
+select {  
+  padding-left: 10px;
   border: 1px solid var(--custom-color-border);
-}
-
-input[type='text'] {
-  padding-left: 7px;
 }
 
 textarea {
@@ -54,6 +61,16 @@ textarea {
 }
 
 input[type='text']:focus {
+  border-color: var(--custom-color-border-focus);
+  box-shadow: var(--custom-box-shadow-focus);
+}
+
+input[type='email']:focus {
+  border-color: var(--custom-color-border-focus);
+  box-shadow: var(--custom-box-shadow-focus);
+}
+
+input[type='password']:focus {
   border-color: var(--custom-color-border-focus);
   box-shadow: var(--custom-box-shadow-focus);
 }

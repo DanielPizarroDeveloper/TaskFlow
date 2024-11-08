@@ -2,7 +2,7 @@
     --custom-color-new: #e7e4f9;
     --custom-color-progress: #d6e0ff;
     --custom-color-complete: #dcf2ea;
-    --custom-color-white-smoke: whitesmoke;
+    --custom-color-white: whitesmoke;
     --custom-color-h1-purple: #6e64b6;
     --custom-color-h1-blue: #2952cf;
     --custom-color-h1-green: #317159;
@@ -11,7 +11,7 @@
 }
 
 body {
-    background-color: var(--custom-color-white-smoke);
+    background-color: var(--custom-color-white);
 }
 
 h1,

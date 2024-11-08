@@ -1,0 +1,66 @@
+.article-auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+}
+
+.article-auth__signIn__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.article-auth__signIn__content__input {
+    width: 280px !important;
+    max-width: 280px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.article-auth__signIn__content__input-submit {
+    width: 280px !important;
+    max-width: 280px;
+    height: 30px;
+    border-radius: 10px;
+    border: 0;
+    border-color: #0E709A;
+    background-color: #0f95cd;
+    color: white;
+    height: 40px;
+}
+
+.article-auth__signIn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.article-auth__signIn-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid black;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    min-width: 265px;
+    border-radius: 5px;
+    border-color: #d8dae5; 
+    background-color: white;
+}
+
+.article-auth__logo {
+    width: 24px;
+    height: 24px;
+}
+
+.article-auth__signIn-span {
+    color: black;
+    text-align: start;
+}
