@@ -1,14 +1,24 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { DetalleTask } from './ModalTask/DetalleTask'
 import { CrearTask } from '../ContentPage/ModalTask/CrearTask'
+import { UseAuth } from '../Autenticacion/UseAuth';
 
 import '../../css/header.css'
 
 export function Header({proyecto}) {
+  const { user } = UseAuth()
+
   const [isTaskCreateVisible, setTaskCreateVisible] = useState(false)
   const [isTaskDetalleVisible, setTaskDetalleVisible] = useState(false)
-  
+  const [headerTitulo, setHeaderTitulo] = useState('header-main__section__bar-tool__elements none-titulo')
+
+  useEffect(() => {
+    if (proyecto !== null) {
+      setHeaderTitulo('header-main__section__bar-tool__elements')
+    }
+  }, [proyecto]);
+
   const handlerClickShownModalCreate = () => {
     var status = isTaskCreateVisible
     setTaskCreateVisible(!status)
@@ -21,7 +31,8 @@ export function Header({proyecto}) {
 
   return (
     <div className='header-main__section__bar-tool'>
-      <div className='header-main__section__bar-tool__elements'>
+      <h3>Bienvenido, { user }.</h3>
+      <div className={headerTitulo}>
         <button className='bar-tool__elements__button' onClick={() => handlerClickShownModalCreate()}>
           <svg className='bar-tool__elements__button-svg' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />

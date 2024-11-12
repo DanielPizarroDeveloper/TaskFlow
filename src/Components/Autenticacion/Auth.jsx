@@ -1,15 +1,29 @@
-import '../css/Auth/Auth.css'
+import { auth } from '../../database/conexion/firebaseConfig'
+import { GoogleAuthProvider, signInWithPopup, setPersistence, browserLocalPersistence } from 'firebase/auth'
+import { UseAuth } from './UseAuth'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
-import { auth } from '../database/conexion/firebaseConfig'
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import '../../css/Auth/Auth.css'
 
 export function Auth() {
-    //Pruebas de Inicio de sesión con Google.
+    const { user, setUser, setEmailVerificated } = UseAuth()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+      if (user) {
+        navigate('/', { replace: true });
+      }
+    }, [user, navigate]);
+
     const handleGoogleSignIn = async () => {
       const provider = new GoogleAuthProvider();
       try {
-        await signInWithPopup(auth, provider);
-        alert("Inicio de sesión con Google exitoso");
+        await setPersistence(auth, browserLocalPersistence);
+
+        const result = await signInWithPopup(auth, provider)
+            setUser(result.user.displayName)
+            setEmailVerificated(result.user.emailVerified)
       } catch (error) {
         console.error("Error en el inicio de sesión con Google", error.message);
       }
