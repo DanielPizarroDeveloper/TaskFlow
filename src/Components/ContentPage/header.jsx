@@ -8,7 +8,6 @@ import '../../css/header.css'
 
 export function Header({proyecto}) {
   const { user } = UseAuth()
-
   const [isTaskCreateVisible, setTaskCreateVisible] = useState(false)
   const [isTaskDetalleVisible, setTaskDetalleVisible] = useState(false)
   const [headerTitulo, setHeaderTitulo] = useState('header-main__section__bar-tool__elements none-titulo')
@@ -17,7 +16,8 @@ export function Header({proyecto}) {
     if (proyecto !== null) {
       setHeaderTitulo('header-main__section__bar-tool__elements')
     }
-  }, [proyecto]);
+  }, [proyecto])
+
 
   const handlerClickShownModalCreate = () => {
     var status = isTaskCreateVisible
@@ -51,10 +51,10 @@ export function Header({proyecto}) {
       </div>
 
       {
-        isTaskCreateVisible && <CrearTask changeStatus={isTaskCreateVisible} />
+        isTaskCreateVisible && <CrearTask changeStatus={isTaskCreateVisible} proyectoSeleccioando = {proyecto} />
       }
       {
-        isTaskDetalleVisible && <DetalleTask proyectoSeleccioando = {proyecto} changeStatus={isTaskDetalleVisible} />
+        isTaskDetalleVisible && <DetalleTask changeStatus={isTaskDetalleVisible} proyectoSeleccioando = {proyecto} />
       }
     </div>
   )

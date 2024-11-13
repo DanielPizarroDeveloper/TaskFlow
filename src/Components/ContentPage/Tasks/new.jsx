@@ -9,7 +9,7 @@ import '../../../css/card-new.css'
 
 export function New({droppedStates, idElement, id, titulo, responsable, estado, esfuerzo}) {
   const isFirstTime = useRef(true)
-  console.log(droppedStates)
+  
   useEffect(() => {
     if(isFirstTime.current) {
       isFirstTime.current = false

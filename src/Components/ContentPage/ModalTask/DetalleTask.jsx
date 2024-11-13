@@ -5,7 +5,7 @@ import { getProyecto } from '../../../database/query/select/getProyecto'
 
 import '../../../css/ModalTask/Proyecto/Detalle.css'
 
-export function DetalleTask({proyectoSeleccioando, changeStatus}) {
+export function DetalleTask({ changeStatus, proyectoSeleccioando }) {
   const [isShown, setIsShown] = useState(changeStatus)
   const [proyectoFirebase, setProyectoFirebase] = useState([])
 

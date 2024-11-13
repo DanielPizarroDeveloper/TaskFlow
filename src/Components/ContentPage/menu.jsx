@@ -13,11 +13,16 @@ export function Menu ({ onPromptChange, onPromptProyecto }) {
   var { pickList_open_proyecto, pickList_close_proyecto, article_proyecto } = Init_Desplegable_Proyecto(proyecto)
   var { appMainSection, aside_Menu, headerTitulo, articleContentProyecto, buttonShow, buttonHidden } = Init_Menu_Lateral(menu)
 
-
   useEffect(() => {
     const fetchProyectos = async () => {
       const loadedProyectos = await getProyectos()
-      setProyectosFirebase(loadedProyectos)
+
+      setProyectosFirebase(prevProyectos => {
+        if (JSON.stringify(prevProyectos) !== JSON.stringify(loadedProyectos)) {
+          return loadedProyectos;
+        }
+        return prevProyectos;
+      })
     }
     fetchProyectos()
   }, [])

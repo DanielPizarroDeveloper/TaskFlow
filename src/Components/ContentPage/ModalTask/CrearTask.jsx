@@ -1,31 +1,58 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Dialog, Pane } from 'evergreen-ui'
 import { createTask } from '../../../database/query/create/createTask'
 
 import '../../../css/ModalTask/Task/Crear.css'
+import { getNumberTasks } from '../../../database/query/select/getTasks'
+import { UseAuth } from '../../Autenticacion/UseAuth'
 
-export function CrearTask ({changeStatus}) {
+export function CrearTask ({changeStatus, proyectoSeleccioando}) {
   const [titulo, setTitulo] = useState('')
   const [estado, setEstado] = useState('NUEVO')
   const [esfuerzo, setEsfuerzo] = useState('1')
   const [descripcion, setDescripcion] = useState('')
-
+  const [taskID, setTaskID] = useState(0)
   const [isShown, setIsShown] = useState(changeStatus)
+  const [responsable, setResponsable] = useState('')
+
+  const { user } = UseAuth()
+
+  useEffect(() => {
+    const countTasks = async() => {
+      const taskCount = await getNumberTasks({proyectoSeleccioando})
+      setTaskID(taskCount)
+    }
+    countTasks()
+
+    const loadUser = async() => {
+      setResponsable(user)
+    }
+    
+    loadUser()
+  }, [proyectoSeleccioando])
 
   const handlerClick_New_Task= () => {
-    event.preventDefault();
-    console.log('Título: ', titulo)
-    console.log('Estado: ', estado)
-    console.log('Esfuerzo: ', esfuerzo)
-    console.log('descripcion: ', descripcion)
+    event.preventDefault()
 
-    let responsable = 'Daniel Pizarro Saavedra'
-    let color = 'purple'
-    let idTask = '0'
-    let proyecto = 'TaskFlow'
+    switch (estado) {
+      case 'NUEVO':
+        setEstado('NUEVO')
+        setDescripcion(descripcion)
+      break;
+      
+      case 'EN PROGRESO':
+        setEstado('EN PROGRESO')
+        setDescripcion(descripcion)
+      break
+      
+      case 'FINALIZADO':
+        setEstado('FINALIZADO')
+        setDescripcion(descripcion)
+      break
+    }
 
-    createTask({ titulo, responsable, estado, esfuerzo, color, idTask, proyecto, descripcion })
+    createTask({ titulo, responsable, estado, esfuerzo, taskID, proyectoSeleccioando, descripcion })
   }
 
   return (
