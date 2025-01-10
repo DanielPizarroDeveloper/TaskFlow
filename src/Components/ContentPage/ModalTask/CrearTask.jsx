@@ -33,8 +33,6 @@ export function CrearTask ({changeStatus, proyectoSeleccioando}) {
   }, [proyectoSeleccioando])
 
   const handlerClick_New_Task= () => {
-    event.preventDefault()
-
     switch (estado) {
       case 'NUEVO':
         setEstado('NUEVO')

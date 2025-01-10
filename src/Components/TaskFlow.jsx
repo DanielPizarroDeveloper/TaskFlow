@@ -19,7 +19,7 @@ export function TaskFlow () {
   const [app_main_section, setApp_main_section] = useState('app-main__section')
     
   useEffect(() => {
-    if(!proyecto) 
+    if(!proyecto)
     {
       return
     }
@@ -67,6 +67,7 @@ export function TaskFlow () {
               {
                 tasksFirebase.map((taskFB) => (
                   <New id={`NUEVO${taskFB.idTask}`} key={taskFB.id}
+                    proyecto={proyecto}
                     droppedStates = {droppedStates[taskFB.idTask]}
                     idElement={taskFB.id}
                     titulo={taskFB.titulo}
@@ -91,6 +92,7 @@ export function TaskFlow () {
                     responsable={taskFB.responsable}
                     estado={taskFB.estado}
                     esfuerzo={taskFB.esfuerzo}
+                    descripcion={taskFB.descripcion}
                   />
                 ))
               }
@@ -108,6 +110,7 @@ export function TaskFlow () {
                     responsable={taskFB.responsable}
                     estado={taskFB.estado}
                     esfuerzo={taskFB.esfuerzo}
+                    descripcion={taskFB.descripcion}
                   />
                 ))
               }

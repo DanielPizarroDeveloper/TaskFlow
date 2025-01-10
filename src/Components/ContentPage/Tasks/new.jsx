@@ -8,11 +8,11 @@ import { DeleteTask } from '../ModalTask/DeleteTask'
 
 import '../../../css/card-new.css'
 
-export function New({droppedStates, idElement, id, titulo, responsable, estado, esfuerzo}) {
+export function New({droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion}) {
   const isFirstTime = useRef(true);
   const [isTaskOption, setIsTaskOption] = useState(false);
   const [isActivate, setIsActivate] = useState(true);
-  
+  const categoriaColor = 'purple';
   
   useEffect(() => {
     if(isFirstTime.current) {
@@ -59,13 +59,13 @@ export function New({droppedStates, idElement, id, titulo, responsable, estado, 
                       </div>
                        
                       <div className='article-card-new__task__content-responsable'>
-                        <Avatar name={responsable} color="purple" size={40} zIndex={1} />
+                        <Avatar name={responsable} color={categoriaColor} size={40} zIndex={1} />
                         <span className='article-card-new__task__content-titulo'>{responsable}</span>
                       </div>
                        
                       <div className='article-card-new__task-content-estado'>
                         <span className='article-card-new__task__content_estado-titulo'>Estado</span>
-                        <Badge color="purple" marginRight={8}>
+                        <Badge color={categoriaColor} marginRight={8}>
                           {estado}
                         </Badge>
                       </div>
@@ -108,13 +108,13 @@ export function New({droppedStates, idElement, id, titulo, responsable, estado, 
                     </div>
                      
                     <div className='article-card-new__task__content-responsable'>
-                      <Avatar name={responsable} color="purple" size={40} zIndex={1} />
+                      <Avatar name={responsable} color={categoriaColor} size={40} zIndex={1} />
                       <span className='article-card-new__task__content-titulo'>{responsable}</span>
                     </div>
                      
                     <div className='article-card-new__task-content-estado'>
                       <span className='article-card-new__task__content_estado-titulo'>Estado</span>
-                      <Badge color="purple" marginRight={8}>
+                      <Badge color={categoriaColor} marginRight={8}>
                         {estado}
                       </Badge>
                     </div>
@@ -127,7 +127,15 @@ export function New({droppedStates, idElement, id, titulo, responsable, estado, 
                 </div>
               </article>
               {
-                isTaskOption && <DeleteTask isTalked={isTaskOption} onActivate={handlerActivate} />
+                isTaskOption && 
+                  <DeleteTask 
+                    tituloActividad={titulo} 
+                    color={categoriaColor}
+                    estado={estado}
+                    descripcion={descripcion}
+                    isTalked={isTaskOption}
+                    onActivate={handlerActivate} 
+                  />
               }
             </button>
           </div>

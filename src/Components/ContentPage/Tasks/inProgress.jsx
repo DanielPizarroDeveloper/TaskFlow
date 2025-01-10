@@ -8,11 +8,11 @@ import { DeleteTask } from '../ModalTask/DeleteTask'
 
 import '../../../css/card-progress.css'
 
-export function InProgress({ droppedStates, idElement, id, titulo, responsable, estado, esfuerzo }) {
+export function InProgress({ droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion }) {
   const isFirstTime = useRef(true)
   const [isTaskOption, setIsTaskOption] = useState (false);
   const [isActivate, setIsActivate] = useState(true);
-
+  const categoriaColor = 'blue'
   useEffect(() => {
     if(isFirstTime.current) {
       isFirstTime.current = false
@@ -58,13 +58,13 @@ export function InProgress({ droppedStates, idElement, id, titulo, responsable, 
                       </div>
               
                       <div className='article-card-progress__task__content-responsable'>
-                        <Avatar name={responsable} color={'blue'} size={40} />
+                        <Avatar name={responsable} color={categoriaColor} size={40} />
                         <span className='article-card-progress__task__content-titulo'>{responsable}</span>
                       </div>
               
                       <div className='article-card-progress__task-content-estado'>
                         <span className='article-card-progress__task__content_estado-titulo'>Estado</span>
-                        <Badge color="blue" marginRight={8}>
+                        <Badge color={categoriaColor} marginRight={8}>
                           {estado}
                         </Badge>
                       </div>
@@ -106,13 +106,13 @@ export function InProgress({ droppedStates, idElement, id, titulo, responsable, 
                     </div>
             
                     <div className='article-card-progress__task__content-responsable'>
-                      <Avatar name={responsable} color={'blue'} size={40} />
+                      <Avatar name={responsable} color={categoriaColor} size={40} />
                       <span className='article-card-progress__task__content-titulo'>{responsable}</span>
                     </div>
             
                     <div className='article-card-progress__task-content-estado'>
                       <span className='article-card-progress__task__content_estado-titulo'>Estado</span>
-                      <Badge color="blue" marginRight={8}>
+                      <Badge color={categoriaColor} marginRight={8}>
                         {estado}
                       </Badge>
                     </div>
@@ -125,7 +125,15 @@ export function InProgress({ droppedStates, idElement, id, titulo, responsable, 
                 </div>
               </article>
               {
-                isTaskOption && <DeleteTask isTalked={isTaskOption} onActivate={handlerActivate} />
+                isTaskOption && 
+                  <DeleteTask 
+                    tituloActividad={titulo} 
+                    color={categoriaColor}
+                    estado={estado}
+                    descripcion={descripcion}
+                    isTalked={isTaskOption} 
+                    onActivate={handlerActivate} 
+                  />
               }
             </button>
           </div>

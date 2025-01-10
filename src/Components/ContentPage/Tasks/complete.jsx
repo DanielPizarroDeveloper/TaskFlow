@@ -8,11 +8,11 @@ import { updateTask } from '../../../database/query/update/update'
 import '../../../css/card-complete.css'
 import { DeleteTask } from '../ModalTask/DeleteTask'
 
-export function Complete({ droppedStates, idElement, id, titulo, responsable, estado, esfuerzo }) {
+export function Complete({ droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion }) {
   const isFirstTime = useRef(true)
   const [isTaskOption, setIsTaskOption] = useState(false);
   const [isActivate, setIsActivate] = useState(true);
-
+  const categoriaColor = 'green';
   useEffect(() => {
     if(isFirstTime.current) {
       isFirstTime.current = false
@@ -59,13 +59,13 @@ export function Complete({ droppedStates, idElement, id, titulo, responsable, es
                       </div>
             
                       <div className='article-card-complete__task__content-responsable'>
-                        <Avatar name={responsable} color={'green'} size={40} />
+                        <Avatar name={responsable} color={categoriaColor} size={40} />
                         <span className='article-card-complete__task__content-titulo'>{responsable}</span>
                       </div>
             
                       <div className='article-card-complete__task-content-estado'>
                         <span className='article-card-complete__task__content_estado-titulo'>Estado</span>
-                        <Badge color="green" marginRight={8}>
+                        <Badge color={categoriaColor} marginRight={8}>
                           {estado}
                         </Badge>
                       </div>
@@ -106,13 +106,13 @@ export function Complete({ droppedStates, idElement, id, titulo, responsable, es
                     </div>
           
                     <div className='article-card-complete__task__content-responsable'>
-                      <Avatar name={responsable} color={'green'} size={40} />
+                      <Avatar name={responsable} color={categoriaColor} size={40} />
                       <span className='article-card-complete__task__content-titulo'>{responsable}</span>
                     </div>
           
                     <div className='article-card-complete__task-content-estado'>
                       <span className='article-card-complete__task__content_estado-titulo'>Estado</span>
-                      <Badge color="green" marginRight={8}>
+                      <Badge color={categoriaColor} marginRight={8}>
                         {estado}
                       </Badge>
                     </div>
@@ -125,7 +125,15 @@ export function Complete({ droppedStates, idElement, id, titulo, responsable, es
                 </div>
               </article>
               {
-                isTaskOption && <DeleteTask isTalked={isTaskOption} onActivate={handlerActivate} />
+                isTaskOption && 
+                  <DeleteTask
+                    tituloActividad={titulo} 
+                    color={categoriaColor}
+                    estado={estado}
+                    descripcion={descripcion}
+                    isTalked={isTaskOption} 
+                    onActivate={handlerActivate} 
+                  />
               }
             </button>
           </div>
