@@ -47,6 +47,7 @@
     display: flex;
     align-items: stretch;
     height: fit-content;
+    cursor: pointer;
 }
 
 .article-card-new__task__panel__content__button:hover {

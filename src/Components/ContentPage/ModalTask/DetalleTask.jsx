@@ -15,7 +15,6 @@ export function DetalleTask({ changeStatus, proyectoSeleccioando }) {
       setProyectoFirebase(loadedProyecto)
     }
     fetchGetProyecto()
-    
   }, [proyectoSeleccioando])
     
   return (
