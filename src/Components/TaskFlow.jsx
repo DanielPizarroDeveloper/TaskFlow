@@ -67,6 +67,7 @@ export function TaskFlow () {
               {
                 tasksFirebase.map((taskFB) => (
                   <New id={`NUEVO${taskFB.idTask}`} key={taskFB.id}
+                    taskID={taskFB.idTask}
                     proyecto={proyecto}
                     droppedStates = {droppedStates[taskFB.idTask]}
                     idElement={taskFB.id}
@@ -86,6 +87,8 @@ export function TaskFlow () {
               {
                 tasksFirebase.map((taskFB) => (
                   <InProgress id={`EN PROGRESO${taskFB.idTask}`} key={taskFB.id}
+                    taskID={taskFB.idTask}
+                    proyecto={proyecto}
                     droppedStates = {droppedStates[taskFB.idTask]}
                     idElement={taskFB.id}
                     titulo={taskFB.titulo}
@@ -104,6 +107,8 @@ export function TaskFlow () {
               {
                 tasksFirebase.map((taskFB) => (
                   <Complete id={`FINALIZADO${taskFB.idTask}`} key={taskFB.id}
+                    taskID={taskFB.idTask}
+                    proyecto={proyecto}
                     droppedStates = {droppedStates[taskFB.idTask]}
                     idElement={taskFB.id}
                     titulo={taskFB.titulo}

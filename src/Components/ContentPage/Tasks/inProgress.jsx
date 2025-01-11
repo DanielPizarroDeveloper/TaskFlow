@@ -8,7 +8,7 @@ import { DeleteTask } from '../ModalTask/DeleteTask'
 
 import '../../../css/card-progress.css'
 
-export function InProgress({ droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion }) {
+export function InProgress({ taskID, proyecto, droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion }) {
   const isFirstTime = useRef(true)
   const [isTaskOption, setIsTaskOption] = useState (false);
   const [isActivate, setIsActivate] = useState(true);
@@ -126,7 +126,10 @@ export function InProgress({ droppedStates, idElement, id, titulo, responsable, 
               </article>
               {
                 isTaskOption && 
-                  <DeleteTask 
+                  <DeleteTask
+                    taskID={taskID}
+                    ID={idElement}
+                    proyecto={proyecto}
                     tituloActividad={titulo} 
                     color={categoriaColor}
                     estado={estado}

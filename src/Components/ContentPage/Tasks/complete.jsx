@@ -8,7 +8,7 @@ import { updateTask } from '../../../database/query/update/update'
 import '../../../css/card-complete.css'
 import { DeleteTask } from '../ModalTask/DeleteTask'
 
-export function Complete({ droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion }) {
+export function Complete({ taskID, proyecto, droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion }) {
   const isFirstTime = useRef(true)
   const [isTaskOption, setIsTaskOption] = useState(false);
   const [isActivate, setIsActivate] = useState(true);
@@ -127,6 +127,9 @@ export function Complete({ droppedStates, idElement, id, titulo, responsable, es
               {
                 isTaskOption && 
                   <DeleteTask
+                    taskID={taskID}
+                    ID={idElement}
+                    proyecto={proyecto}
                     tituloActividad={titulo} 
                     color={categoriaColor}
                     estado={estado}

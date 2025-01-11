@@ -1,20 +1,29 @@
+/* eslint-disable react/prop-types */
 import { Dialog, Pane } from "evergreen-ui"
 import { useState } from "react"
 import { deleteTask } from "../../../database/query/delete/delete"
+import { updateTaskID } from "../../../database/query/update/update"
+import { getTasks } from "../../../database/query/select/getTasks"
 
 import '../../../css/ModalTask/Task/Eliminar.css'
 
-export function DeleteTask({ID, tituloActividad, color, estado, descripcion, isTalked, onActivate}) {
-  const [isShown, setIsShown] = useState(isTalked)
-  const [IDTask, setIDTask] = useState(ID) 
+export function DeleteTask({taskID, ID, proyecto, tituloActividad, color, estado, descripcion, isTalked, onActivate}) {
+  const [isShown] = useState(isTalked)
+  const [IDTask,] = useState(ID)
 
   const handleClose = () => {
     onActivate();
   }
 
-  const handler_Delete_Task = () => {
+  const handler_Delete_Task = async () => {
     onActivate();
-    deleteTask(IDTask);
+    const returnDelete = deleteTask(IDTask);
+    
+    if(returnDelete) {
+      const getTasksAll = await getTasks({proyecto: proyecto})
+      const sortedTasks = getTasksAll.sort((a, b) => a.idTask - b.idTask)
+      updateTaskID(sortedTasks, taskID)
+    }
   }
 
   return (

@@ -8,7 +8,7 @@ import { DeleteTask } from '../ModalTask/DeleteTask'
 
 import '../../../css/card-new.css'
 
-export function New({droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion}) {
+export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion}) {
   const isFirstTime = useRef(true);
   const [isTaskOption, setIsTaskOption] = useState(false);
   const [isActivate, setIsActivate] = useState(true);
@@ -129,7 +129,9 @@ export function New({droppedStates, idElement, id, titulo, responsable, estado, 
               {
                 isTaskOption && 
                   <DeleteTask
+                    taskID={taskID}
                     ID={idElement}
+                    proyecto={proyecto}
                     tituloActividad={titulo} 
                     color={categoriaColor}
                     estado={estado}
