@@ -24,6 +24,11 @@ span {
     font-weight: bold;
 }
 
+p {
+    font-family: monospace;
+    font-size: 14px;
+}
+
 button {
     border: 0;
     margin: 0;

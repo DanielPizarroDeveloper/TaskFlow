@@ -15,7 +15,6 @@ export function CrearTask ({changeStatus, proyectoSeleccioando}) {
   const [taskID, setTaskID] = useState(0)
   const [isShown, setIsShown] = useState(changeStatus)
   const [responsable, setResponsable] = useState('')
-
   const { user } = UseAuth()
 
   useEffect(() => {
@@ -32,7 +31,8 @@ export function CrearTask ({changeStatus, proyectoSeleccioando}) {
     loadUser()
   }, [proyectoSeleccioando])
 
-  const handlerClick_New_Task= () => {
+  const handlerClick_New_Task= (event) => {
+    event.preventDefault()
     switch (estado) {
       case 'NUEVO':
         setEstado('NUEVO')
@@ -61,8 +61,7 @@ export function CrearTask ({changeStatus, proyectoSeleccioando}) {
         onCloseComplete={() => setIsShown(false)}
         hasFooter={false}
       >
-        
-        <form action='form' onSubmit={handlerClick_New_Task} method='POST'>
+        <form onSubmit={handlerClick_New_Task} method='POST'>
           <article className='article-modal-create'>
             <div className='article-modal-create__content'>
               <span className='article-modal-create__content__span'>Título: </span>

@@ -128,7 +128,8 @@ export function New({droppedStates, idElement, id, titulo, responsable, estado, 
               </article>
               {
                 isTaskOption && 
-                  <DeleteTask 
+                  <DeleteTask
+                    ID={idElement}
                     tituloActividad={titulo} 
                     color={categoriaColor}
                     estado={estado}

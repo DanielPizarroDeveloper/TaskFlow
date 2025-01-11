@@ -1,11 +1,21 @@
 import { Dialog, Pane } from "evergreen-ui"
 import { useState } from "react"
+import { deleteTask } from "../../../database/query/delete/delete"
 
-export function DeleteTask({tituloActividad, color, estado, descripcion, isTalked, onActivate}) {
+import '../../../css/ModalTask/Task/Eliminar.css'
+
+export function DeleteTask({ID, tituloActividad, color, estado, descripcion, isTalked, onActivate}) {
   const [isShown, setIsShown] = useState(isTalked)
+  const [IDTask, setIDTask] = useState(ID) 
+
   const handleClose = () => {
     onActivate();
-  };
+  }
+
+  const handler_Delete_Task = () => {
+    onActivate();
+    deleteTask(IDTask);
+  }
 
   return (
     <Pane>
@@ -17,24 +27,23 @@ export function DeleteTask({tituloActividad, color, estado, descripcion, isTalke
         onCloseComplete={handleClose}
         onCancel={handleClose}
         hasCancel={false}
+        onConfirm={handler_Delete_Task}
       >
-        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-          <p style={{fontFamily: 'monospace', fontSize: '14px'}}>¿Estas seguro de que quieres eliminar la siguiente actividad?</p>
-          <div style={{display: 'flex', flexDirection: 'row', gap: '10px'}}>
-            <p style={{fontFamily: 'monospace', fontSize: '14px', color: color}}><strong>Actividad:</strong></p>
-            <p style={{fontFamily: 'monospace', fontSize: '14px'}}>{tituloActividad}</p>
+        <article className="article-pane-eliminar">
+          <p>¿Estas seguro de que quieres eliminar la siguiente actividad?</p>
+          <div className="pane-content">
+            <p style={{color: color}}><strong>Actividad:</strong></p>
+            <p>{tituloActividad}</p>
           </div>
-
-          <div style={{display: 'flex', flexDirection: 'row', gap: '10px'}}>
-            <p style={{fontFamily: 'monospace', fontSize: '14px', color: color}}><strong>Estado:</strong></p>
-            <p style={{fontFamily: 'monospace', fontSize: '14px'}}>{estado}</p>
+          <div className="pane-content">
+            <p style={{color: color}}><strong>Estado:</strong></p>
+            <p>{estado}</p>
           </div>
-
-          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-            <p style={{fontFamily: 'monospace', fontSize: '14px', color: color}}><strong>Descripción</strong></p>
-            <p style={{fontFamily: 'monospace', fontSize: '14px'}}>{descripcion}</p>
+          <div className="pane-content-description">
+            <p style={{color: color}}><strong>Descripción</strong></p>
+            <p>{descripcion}</p>
           </div>
-        </div>
+        </article>
       </Dialog>
     </Pane>
   )
