@@ -9,7 +9,7 @@ import '../../../css/ModalTask/Task/Eliminar.css'
 
 export function DeleteTask({taskID, ID, proyecto, tituloActividad, color, estado, descripcion, isTalked, onActivate}) {
   const [isShown] = useState(isTalked)
-  const [IDTask,] = useState(ID)
+  const [IDTask] = useState(ID)
 
   const handleClose = () => {
     onActivate();

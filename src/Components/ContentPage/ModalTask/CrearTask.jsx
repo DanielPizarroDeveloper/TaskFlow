@@ -50,6 +50,7 @@ export function CrearTask ({changeStatus, proyectoSeleccioando}) {
       break
     }
 
+    setIsShown((prevState) => !prevState)
     createTask({ titulo, responsable, estado, esfuerzo, taskID, proyectoSeleccioando, descripcion })
   }
 
@@ -58,7 +59,7 @@ export function CrearTask ({changeStatus, proyectoSeleccioando}) {
       <Dialog
         isShown={isShown}
         title="Creación nueva tarea"
-        onCloseComplete={() => setIsShown(false)}
+        onConfirm={isShown}
         hasFooter={false}
       >
         <form onSubmit={handlerClick_New_Task} method='POST'>
