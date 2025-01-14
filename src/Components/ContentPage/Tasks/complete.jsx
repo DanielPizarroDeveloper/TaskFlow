@@ -8,7 +8,7 @@ import { updateTask } from '../../../database/query/update/update'
 import '../../../css/card-complete.css'
 import { DeleteTask } from '../ModalTask/DeleteTask'
 
-export function Complete({ taskID, proyecto, droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion }) {
+export function Complete({ taskID, proyecto, droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion, callbackFunction }) {
   const isFirstTime = useRef(true)
   const [isTaskOption, setIsTaskOption] = useState(false);
   const [isActivate, setIsActivate] = useState(true);
@@ -135,7 +135,8 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
                     estado={estado}
                     descripcion={descripcion}
                     isTalked={isTaskOption} 
-                    onActivate={handlerActivate} 
+                    onActivate={handlerActivate}
+                    callbackFunction={callbackFunction}
                   />
               }
             </button>

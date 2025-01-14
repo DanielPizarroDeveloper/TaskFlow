@@ -10,6 +10,7 @@ import { UseAuth } from './Autenticacion/UseAuth';
 import { useNavigate } from 'react-router-dom';
 
 export function TaskFlow () {
+
   const { user } = UseAuth()
   const navigate = useNavigate()
 
@@ -17,7 +18,8 @@ export function TaskFlow () {
   const [tasksFirebase, setTasksFirebase] = useState([])
   const [droppedStates, setDroppedStates] = useState([null])
   const [app_main_section, setApp_main_section] = useState('app-main__section')
-    
+  const [taskRefresh, setTaskRefresh] = useState(false)
+  
   useEffect(() => {
     if(!proyecto)
     {
@@ -26,22 +28,27 @@ export function TaskFlow () {
     else 
     {
       const getAllTasks = async () => {
-        const getTasksAll = await getTasks({proyecto: proyecto})
-        const sortedTasks = getTasksAll.sort((a, b) => a.idTask - b.idTask)
-        setTasksFirebase(sortedTasks)
-        const estado = getTasksAll.map(item => item.estado)
-        setDroppedStates(estado)
+        const getTasksAll = await getTasks({proyecto: proyecto});
+        const sortedTasks = getTasksAll.sort((a, b) => a.idTask - b.idTask);
+        setTasksFirebase(sortedTasks);
+        const estado = getTasksAll.map(item => item.estado);
+        setDroppedStates(estado);
       }
-      getAllTasks()
+      getAllTasks();
     }
+    setTaskRefresh(false)
   }
-  , [proyecto])
+  , [proyecto, taskRefresh])
 
   useEffect(() => {
     if (!user) {
       navigate('/Auth', { replace: true });
     }
   }, [user, navigate])
+
+  const callBack_Refresh = (callbackRefresh) => {
+    setTaskRefresh(callbackRefresh);
+  }
 
   //Método Callback que realiza el envió del prompt desde el Hijo al componente Padre
   const handlePromptChange = (newPrompt) => {
@@ -57,7 +64,7 @@ export function TaskFlow () {
     <main className='app-main'>
       <Menu onPromptChange={handlePromptChange} onPromptProyecto={handlePromptProyecto} />
       <section className={app_main_section}>
-        <Header proyecto={proyecto} />
+        <Header proyecto={proyecto} callbackFunction={callBack_Refresh} />
         <article className='app-main__section__tasks-panel'>
           <DndContext onDragEnd={handleDragEnd}>
             <section className='app-main__section__tasks-panel__section'>
@@ -76,6 +83,7 @@ export function TaskFlow () {
                     estado={taskFB.estado}
                     esfuerzo={taskFB.esfuerzo}
                     descripcion={taskFB.descripcion}
+                    callbackFunction={callBack_Refresh}
                   />
                 ))
               }
@@ -96,6 +104,7 @@ export function TaskFlow () {
                     estado={taskFB.estado}
                     esfuerzo={taskFB.esfuerzo}
                     descripcion={taskFB.descripcion}
+                    callbackFunction={callBack_Refresh}
                   />
                 ))
               }
@@ -116,6 +125,7 @@ export function TaskFlow () {
                     estado={taskFB.estado}
                     esfuerzo={taskFB.esfuerzo}
                     descripcion={taskFB.descripcion}
+                    callbackFunction={callBack_Refresh}
                   />
                 ))
               }

@@ -2,12 +2,12 @@
 import { useEffect, useState } from 'react'
 import { Dialog, Pane } from 'evergreen-ui'
 import { createTask } from '../../../database/query/create/createTask'
-
-import '../../../css/ModalTask/Task/Crear.css'
 import { getNumberTasks } from '../../../database/query/select/getTasks'
 import { UseAuth } from '../../Autenticacion/UseAuth'
 
-export function CrearTask ({changeStatus, proyectoSeleccioando}) {
+import '../../../css/ModalTask/Task/Crear.css'
+
+export function CrearTask ({changeStatus, proyectoSeleccioando, callbackFunction}) {
   const [titulo, setTitulo] = useState('')
   const [estado, setEstado] = useState('NUEVO')
   const [esfuerzo, setEsfuerzo] = useState('1')
@@ -15,6 +15,7 @@ export function CrearTask ({changeStatus, proyectoSeleccioando}) {
   const [taskID, setTaskID] = useState(0)
   const [isShown, setIsShown] = useState(changeStatus)
   const [responsable, setResponsable] = useState('')
+
   const { user } = UseAuth()
 
   useEffect(() => {
@@ -50,8 +51,9 @@ export function CrearTask ({changeStatus, proyectoSeleccioando}) {
       break
     }
 
-    setIsShown((prevState) => !prevState)
-    createTask({ titulo, responsable, estado, esfuerzo, taskID, proyectoSeleccioando, descripcion })
+    setIsShown((prevState) => !prevState);
+    createTask({ titulo, responsable, estado, esfuerzo, taskID, proyectoSeleccioando, descripcion });
+    callbackFunction(true);
   }
 
   return (

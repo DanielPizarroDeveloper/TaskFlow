@@ -6,7 +6,7 @@ import { UseAuth } from '../Autenticacion/UseAuth';
 
 import '../../css/header.css'
 
-export function Header({proyecto}) {
+export function Header({proyecto, callbackFunction}) {
   const { user } = UseAuth()
   const [isTaskCreateVisible, setTaskCreateVisible] = useState(false)
   const [isTaskDetalleVisible, setTaskDetalleVisible] = useState(false)
@@ -49,12 +49,11 @@ export function Header({proyecto}) {
           </svg>
         </button> 
       </div>
-
       {
-        isTaskCreateVisible && <CrearTask changeStatus={isTaskCreateVisible} proyectoSeleccioando = {proyecto} />
+        isTaskCreateVisible && <CrearTask callbackFunction={callbackFunction} changeStatus={isTaskCreateVisible} proyectoSeleccioando={proyecto} />
       }
       {
-        isTaskDetalleVisible && <DetalleTask changeStatus={isTaskDetalleVisible} proyectoSeleccioando = {proyecto} />
+        isTaskDetalleVisible && <DetalleTask changeStatus={isTaskDetalleVisible} proyectoSeleccioando={proyecto} />
       }
     </div>
   )
