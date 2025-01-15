@@ -17,6 +17,18 @@
     border: 0;
 }
 
+.blur-out {
+    animation:blur-out 0.4s linear both
+} 
+
+@keyframes blur-out {
+    0% {
+        filter:blur(.01px);
+    } 100% {
+        filter:blur(12px);opacity:0
+    }
+}
+
 .article-card-progress__task-bar {
     width: 2%;
     background-color: var(--custom-color-blue);

@@ -12,7 +12,13 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
   const isFirstTime = useRef(true)
   const [isTaskOption, setIsTaskOption] = useState (false);
   const [isActivate, setIsActivate] = useState(true);
-  const categoriaColor = 'blue'
+  const [effectCard, setEffectCard] = useState(false);
+  const categoriaColor = 'blue';
+  
+  const deleteTaskSelected = (deleteTaskSelected) => {
+    setEffectCard(deleteTaskSelected);
+  }
+
   useEffect(() => {
     if(isFirstTime.current) {
       isFirstTime.current = false
@@ -38,7 +44,7 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
         isActivate ? (
           <Droppable id={id} key={idElement}>
             {droppedStates === 'EN PROGRESO' ? (
-              <Draggable id={id} key={idElement}>
+              <Draggable id={id} key={idElement} effectCard={effectCard} taskID={id}>
                 <article className='article-card-progress'>
                   <div className='article-card-progress__task'>
                     <div className='article-card-progress__task-bar'></div>
@@ -137,6 +143,7 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
                     isTalked={isTaskOption} 
                     onActivate={handlerActivate}
                     callbackFunction={callbackFunction}
+                    deleteTaskSelected={deleteTaskSelected}
                   />
               }
             </button>

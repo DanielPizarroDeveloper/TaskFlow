@@ -7,7 +7,7 @@ import { getTasks } from "../../../database/query/select/getTasks"
 
 import '../../../css/ModalTask/Task/Eliminar.css'
 
-export function DeleteTask({taskID, ID, proyecto, tituloActividad, color, estado, descripcion, isTalked, onActivate, callbackFunction}) {
+export function DeleteTask({taskID, ID, proyecto, tituloActividad, color, estado, descripcion, isTalked, onActivate, callbackFunction, deleteTaskSelected}) {
   const [isShown] = useState(isTalked)
   const [IDTask] = useState(ID)
 
@@ -23,7 +23,11 @@ export function DeleteTask({taskID, ID, proyecto, tituloActividad, color, estado
       const getTasksAll = await getTasks({proyecto: proyecto})
       const sortedTasks = getTasksAll.sort((a, b) => a.idTask - b.idTask)
       updateTaskID(sortedTasks, taskID)
-      callbackFunction(true);
+      deleteTaskSelected(true);
+
+      setTimeout(() => { 
+        callbackFunction(true);
+      }, 1500);
     }
   }
 

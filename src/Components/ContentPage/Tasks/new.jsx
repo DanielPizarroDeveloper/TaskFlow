@@ -12,8 +12,13 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
   const isFirstTime = useRef(true);
   const [isTaskOption, setIsTaskOption] = useState(false);
   const [isActivate, setIsActivate] = useState(true);
+  const [effectCard, setEffectCard] = useState(false);
   const categoriaColor = 'purple';
-  
+
+  const deleteTaskSelected = (deleteTaskSelected) => {
+    setEffectCard(deleteTaskSelected);
+  }
+
   useEffect(() => {
     if(isFirstTime.current) {
       isFirstTime.current = false;
@@ -38,8 +43,8 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
         isActivate ? (
           <Droppable id={id} key={idElement}>
             {droppedStates === 'NUEVO' ? (
-              <Draggable id={id}  key={idElement}>
-                <article className='article-card-new'>
+              <Draggable id={id} key={idElement} effectCard={effectCard} taskID={id}>
+                <article className='article-card-new '>
                   <div className='article-card-new__task'>
                     <div className='article-card-new__task-bar'></div>
                     <div className='article-card-new__task-content'>   
@@ -139,6 +144,7 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
                     isTalked={isTaskOption}
                     onActivate={handlerActivate}
                     callbackFunction={callbackFunction}
+                    deleteTaskSelected={deleteTaskSelected}
                   />
               }
             </button>

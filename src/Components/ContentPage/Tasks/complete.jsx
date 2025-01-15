@@ -12,7 +12,13 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
   const isFirstTime = useRef(true)
   const [isTaskOption, setIsTaskOption] = useState(false);
   const [isActivate, setIsActivate] = useState(true);
+  const [effectCard, setEffectCard] = useState(false);
   const categoriaColor = 'green';
+
+  const deleteTaskSelected = (deleteTaskSelected) => {
+    setEffectCard(deleteTaskSelected);
+  }
+
   useEffect(() => {
     if(isFirstTime.current) {
       isFirstTime.current = false
@@ -38,7 +44,7 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
         isActivate ? (
           <Droppable id={id} key={idElement}>
             { droppedStates  === 'FINALIZADO' ? 
-              <Draggable id={id} key={idElement}>
+              <Draggable id={id} key={idElement}  effectCard={effectCard} taskID={id}>
                 <article className='article-card-complete'>
                   <div className='article-card-complete__task'>
                     <div className='article-card-complete__task-bar'></div>
@@ -137,6 +143,7 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
                     isTalked={isTaskOption} 
                     onActivate={handlerActivate}
                     callbackFunction={callbackFunction}
+                    deleteTaskSelected={deleteTaskSelected}
                   />
               }
             </button>
