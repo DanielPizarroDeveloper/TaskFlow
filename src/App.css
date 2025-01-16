@@ -100,22 +100,22 @@ button {
     font-weight: bold;
 }
 
+.app-main__section__tasks-panel__section {
+    min-height: 100dvh;
+    min-height: 100vh;
+    height: 100%;
+}
+
 .app-main__section__tasks-panel__section:nth-child(1) {
     background-color: var(--custom-color-new);
-    height: 100dvh;
-    height: 100vh;
 }
 
 .app-main__section__tasks-panel__section:nth-child(2) {
     background-color: var(--custom-color-progress);
-    height: 100dvh;
-    height: 100vh;
 }
 
 .app-main__section__tasks-panel__section:nth-child(3) {
     background-color: var(--custom-color-complete);
-    height: 100dvh;
-    height: 100vh;
 }
 
 /* Keyframes - Panel Task */
