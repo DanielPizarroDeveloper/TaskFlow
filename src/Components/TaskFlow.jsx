@@ -11,14 +11,14 @@ import { useNavigate } from 'react-router-dom';
 
 export function TaskFlow () {
 
-  const { user } = UseAuth()
-  const navigate = useNavigate()
+  const { user } = UseAuth();
+  const navigate = useNavigate();
 
-  const [proyecto, setProyecto] = useState(null)
-  const [tasksFirebase, setTasksFirebase] = useState([])
-  const [droppedStates, setDroppedStates] = useState([null])
-  const [app_main_section, setApp_main_section] = useState('app-main__section')
-  const [taskRefresh, setTaskRefresh] = useState(false)
+  const [proyecto, setProyecto] = useState(null);
+  const [tasksFirebase, setTasksFirebase] = useState([]);
+  const [droppedStates, setDroppedStates] = useState([null]);
+  // const [app_main_section, setApp_main_section] = useState('app-main__section')
+  const [taskRefresh, setTaskRefresh] = useState(false);
   
   useEffect(() => {
     if(!proyecto)
@@ -51,9 +51,9 @@ export function TaskFlow () {
   }
 
   //Método Callback que realiza el envió del prompt desde el Hijo al componente Padre
-  const handlePromptChange = (newPrompt) => {
-    setApp_main_section(newPrompt);
-  }
+  // const handlePromptChange = (newPrompt) => {
+  //   setApp_main_section(newPrompt);
+  // }
 
   //Método Callback que realiza el envió del proyecto seleccionado desde el componente hijo
   const handlePromptProyecto = (setApp_main_section) => {
@@ -62,8 +62,9 @@ export function TaskFlow () {
 
   return(
     <main className='app-main'>
-      <Menu onPromptChange={handlePromptChange} onPromptProyecto={handlePromptProyecto} />
-      <section className={app_main_section}>
+      {/* <Menu onPromptChange={handlePromptChange} onPromptProyecto={handlePromptProyecto} /> */}
+      <Menu onPromptProyecto={handlePromptProyecto} />
+      <section className='app-main__section'>
         <Header proyecto={proyecto} callbackFunction={callBack_Refresh} />
         <article className='app-main__section__tasks-panel'>
           <DndContext onDragEnd={handleDragEnd}>
