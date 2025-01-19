@@ -1,11 +1,21 @@
+:root {
+    --custom-color-light-blue: #0F95CD;
+}
+
+.article-modal-create-proyecto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .modal-create-nombre__proyecto {
     display: flex;
     flex-direction: row;
-    align-items: 'center';
+    align-items: center;
     justify-content: space-between;
 }
 
 .modal-create__span {
-    color:#0F95CD;
+    color: var(--custom-color-light-blue);
     width: max-content;
 }

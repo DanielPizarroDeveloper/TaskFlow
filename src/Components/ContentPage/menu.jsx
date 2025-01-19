@@ -1,17 +1,18 @@
-import { useEffect, useState } from 'react'
-import { getProyectos } from '../../database/query/select/getProyectos'
-import { Init_Desplegable_Proyecto } from '../../js/Init'
-import { CrearProyecto } from '../ContentPage/ModalTask/CrearProyecto'
+import { useEffect, useState } from 'react';
+import { Init_Desplegable_Proyecto } from '../../js/Init';
+import { getProyectos } from '../../database/query/select/getProyectos';
+import { CrearProyecto } from '../ContentPage/ModalTask/CrearProyecto';
 
-import '../../css/menu.css'
+import '../../css/menu.css';
 
 // eslint-disable-next-line react/prop-types
 export function Menu ({ onPromptProyecto }) {
   const [proyecto, setProyecto] = useState(true);
   const [isCreateVisible, setIsCreateVisible] = useState(false);
   const [proyectosFirebase, setProyectosFirebase] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
-  var { pickList_open_proyecto, pickList_close_proyecto, article_proyecto } = Init_Desplegable_Proyecto(proyecto)
+  var { pickList_open_proyecto, pickList_close_proyecto, article_proyecto } = Init_Desplegable_Proyecto(proyecto);
 
   useEffect(() => {
     const fetchProyectos = async () => {
@@ -24,8 +25,12 @@ export function Menu ({ onPromptProyecto }) {
         return prevProyectos;
       })
     }
-    fetchProyectos()
-  }, [])
+    fetchProyectos();
+  }, [refresh])
+
+  const callbackRefresh = (callbackRefresh) => {
+    setRefresh(callbackRefresh)
+  }
 
   // Envia el proyecto seleccionado
   const sendProyectoSeleccionado = (proyectoSeleccionado) => { 
@@ -91,7 +96,7 @@ export function Menu ({ onPromptProyecto }) {
         </div>
 
         {
-          isCreateVisible && <CrearProyecto changeStatus={isCreateVisible} />
+          isCreateVisible && <CrearProyecto changeStatus={isCreateVisible} callbackRefresh={callbackRefresh} />
         }
 
       </section>

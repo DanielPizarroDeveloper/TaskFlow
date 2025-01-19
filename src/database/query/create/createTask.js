@@ -11,8 +11,7 @@ export const createTask = async({titulo, responsable, estado, esfuerzo, taskID, 
             idTask: taskID,
             proyecto: proyectoSeleccioando,
             descripcion: descripcion
-        })
-        console.log('Actividad Creada')   
+        }) 
     } catch (error) {
         console.error('Mensajes de error, ', error)
     }

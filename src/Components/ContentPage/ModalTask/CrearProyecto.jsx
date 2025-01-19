@@ -1,14 +1,24 @@
 import { useState } from 'react'
 import { Dialog, Pane } from "evergreen-ui"
 import { UseAuth } from '../../Autenticacion/UseAuth';
-
+import { createProject } from '../../../database/query/create/createProject';
 import '../../../css/ModalTask/Proyecto/Crear.css';
 
 // eslint-disable-next-line react/prop-types
-export function CrearProyecto ({changeStatus}) {
+export function CrearProyecto ({changeStatus, callbackRefresh}) {
     const { user } = UseAuth();
     const [isShown, setIsShown] = useState(changeStatus);
+
+    const [nombreProyecto, setNombreProyecto] = useState(null);
+    const [descripcionProyecto, setDescripcionProyecto] = useState(null);
       
+    const crearNuevoProyecto = (event) => {
+      event.preventDefault();
+      createProject({nombreProyecto, user, descripcionProyecto});
+      setIsShown((prevState) => !prevState);
+      callbackRefresh((prevState) => !prevState);
+    }
+
     return (
       <Pane>
         <Dialog
@@ -19,21 +29,21 @@ export function CrearProyecto ({changeStatus}) {
           hasCancel={false}
           hasFooter={false}
         >
-            <form method='POST'>
-              <article className='article-modal-create'>
+            <form method='POST' onSubmit={crearNuevoProyecto}>
+              <article className='article-modal-create-proyecto'>
                 <div className='modal-create-nombre__proyecto'>
                   <span className='modal-create__span'>Nombre Proyecto: </span>
-                  <input style={{width: '320px', borderRadius: '5px', height:'25px'}} name='titulo' type='text' placeholder='Nombre de la actividad' />
+                  <input style={{width: '320px', borderRadius: '5px', height:'25px'}} onChange={(e) => setNombreProyecto(e.target.value)} name='nombreProyecto' type='text' placeholder='Nombre de la actividad' />
                 </div>
 
                 <div className='modal-create-nombre__proyecto'>
                   <span className='modal-create__span'>Responsable: </span>
-                  <input style={{width: '320px', borderRadius: '5px', height:'25px'}} name='titulo' type='text' value={user} disabled={true} />
+                  <input style={{width: '320px', borderRadius: '5px', height:'25px'}} name='responsable' type='text' value={user} disabled={true} />
                 </div>
 
                 <div className='article-modal-create__content__descripcion'>
                   <span className='modal-create__span'>Descripción: </span>
-                  <textarea className='article-modal-create__content__text-area' name='descripcion' placeholder='Descripción de la actividad...'></textarea>
+                  <textarea className='article-modal-create__content__text-area' onChange={(e) => setDescripcionProyecto(e.target.value)} name='descripcionProyecto' placeholder='Descripción de la actividad...'></textarea>
                 </div>
 
                 <div className='article-modal-create__content__submit'>

@@ -113,7 +113,6 @@
 
 .menu-section__lateral__article__lu {
     position: relative;
-    /* right: 25px; */
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -140,6 +139,7 @@
     background-color: transparent;
     border: 0;
     width: 100%;
+    min-width: 280px;
     height: 45px;
     border-radius: 10px;
     position: relative;
