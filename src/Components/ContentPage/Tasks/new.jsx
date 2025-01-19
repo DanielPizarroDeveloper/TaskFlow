@@ -44,7 +44,7 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
           <Droppable id={id} key={idElement}>
             {droppedStates === 'NUEVO' ? (
               <Draggable id={id} key={idElement} effectCard={effectCard} taskID={id}>
-                <article className='article-card-new '>
+                <article className='article-card-new'>
                   <div className='article-card-new__task'>
                     <div className='article-card-new__task-bar'></div>
                     <div className='article-card-new__task-content'>   
@@ -78,6 +78,11 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
                       <div className='article-card-new__task-content-esfuerzo'>
                         <span className='article-card-new__task__content__esfuerzo-span'>Esfuerzo</span>
                         <span className='article-card-new__task__content__esfuerzo-span'>{esfuerzo}</span>
+                      </div>
+
+                      <div className='article-card-new__task-content-esfuerzo'>
+                        <span className='article-card-new__task__content__esfuerzo-span'>Descripción</span>
+                        <span className='article-card-new__task__content__esfuerzo-span span__descripcion' title={descripcion}>{descripcion}</span>
                       </div>
                     </div>
                   </div>

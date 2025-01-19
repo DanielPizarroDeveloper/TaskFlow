@@ -31,7 +31,7 @@
 .article-card-new__task-bar {
     width: 2%;
     background-color: var(--custom-color-purple);
-    height: 175px;
+    height: 205px;
     margin: 1%;
 }
 
@@ -116,6 +116,14 @@
     color: var(--custom-color-purple);
     height: fit-content;
     font-size: 15px;
+}
+
+.span__descripcion {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    width: 200px;
+    margin-right: 4% !important;
 }
 
 .article-card-new__task__content__esfuerzo-span:last-child {
