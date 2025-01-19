@@ -17,7 +17,6 @@ export function TaskFlow () {
   const [proyecto, setProyecto] = useState(null);
   const [tasksFirebase, setTasksFirebase] = useState([]);
   const [droppedStates, setDroppedStates] = useState([null]);
-  // const [app_main_section, setApp_main_section] = useState('app-main__section')
   const [taskRefresh, setTaskRefresh] = useState(false);
   
   useEffect(() => {
@@ -50,11 +49,6 @@ export function TaskFlow () {
     setTaskRefresh(callbackRefresh);
   }
 
-  //Método Callback que realiza el envió del prompt desde el Hijo al componente Padre
-  // const handlePromptChange = (newPrompt) => {
-  //   setApp_main_section(newPrompt);
-  // }
-
   //Método Callback que realiza el envió del proyecto seleccionado desde el componente hijo
   const handlePromptProyecto = (setApp_main_section) => {
     setProyecto(setApp_main_section)
@@ -62,7 +56,6 @@ export function TaskFlow () {
 
   return(
     <main className='app-main'>
-      {/* <Menu onPromptChange={handlePromptChange} onPromptProyecto={handlePromptProyecto} /> */}
       <Menu onPromptProyecto={handlePromptProyecto} />
       <section className='app-main__section'>
         <Header proyecto={proyecto} callbackFunction={callBack_Refresh} />

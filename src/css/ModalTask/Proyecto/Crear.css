@@ -1,0 +1,11 @@
+.modal-create-nombre__proyecto {
+    display: flex;
+    flex-direction: row;
+    align-items: 'center';
+    justify-content: space-between;
+}
+
+.modal-create__span {
+    color:#0F95CD;
+    width: max-content;
+}

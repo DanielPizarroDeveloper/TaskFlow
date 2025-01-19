@@ -7,10 +7,10 @@ import { UseAuth } from '../Autenticacion/UseAuth';
 import '../../css/header.css'
 
 export function Header({proyecto, callbackFunction}) {
-  const { user } = UseAuth()
-  const [isTaskCreateVisible, setTaskCreateVisible] = useState(false)
-  const [isTaskDetalleVisible, setTaskDetalleVisible] = useState(false)
-  const [headerTitulo, setHeaderTitulo] = useState('header-main__section__bar-tool__elements none-titulo')
+  const { user } = UseAuth();
+  const [isTaskCreateVisible, setTaskCreateVisible] = useState(false);
+  const [isTaskDetalleVisible, setTaskDetalleVisible] = useState(false);
+  const [headerTitulo, setHeaderTitulo] = useState('header-main__section__bar-tool__elements none-titulo');
 
   useEffect(() => {
     if (proyecto !== null) {
@@ -31,7 +31,7 @@ export function Header({proyecto, callbackFunction}) {
 
   return (
     <div className='header-main__section__bar-tool'>
-      <h3>Bienvenido, { user }.</h3>
+      <h3>Bienvenido, { user }</h3>
       <div className={headerTitulo}>
         <button className='bar-tool__elements__button' onClick={() => handlerClickShownModalCreate()}>
           <svg className='bar-tool__elements__button-svg' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

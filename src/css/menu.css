@@ -60,6 +60,12 @@
     color: var(--custom-color-white);
 }
 
+.menu-add-proyecto {
+    background-color: transparent;
+    width: fit-content;
+    border: 0;
+}
+
 .menu-section__lateral__header-titulo-proyecto {
     display: flex; 
     flex-direction: row; 

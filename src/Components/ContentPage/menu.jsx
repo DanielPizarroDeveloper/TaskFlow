@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
 import { getProyectos } from '../../database/query/select/getProyectos'
 import { Init_Desplegable_Proyecto } from '../../js/Init'
+import { CrearProyecto } from '../ContentPage/ModalTask/CrearProyecto'
 
 import '../../css/menu.css'
 
 // eslint-disable-next-line react/prop-types
 export function Menu ({ onPromptProyecto }) {
-  const [proyecto, setProyecto] = useState(true)
-  const [proyectosFirebase, setProyectosFirebase] = useState([])
+  const [proyecto, setProyecto] = useState(true);
+  const [isCreateVisible, setIsCreateVisible] = useState(false);
+  const [proyectosFirebase, setProyectosFirebase] = useState([]);
 
   var { pickList_open_proyecto, pickList_close_proyecto, article_proyecto } = Init_Desplegable_Proyecto(proyecto)
 
@@ -32,11 +34,16 @@ export function Menu ({ onPromptProyecto }) {
 
   const handlerClickProyecto = () => {
     var status = proyecto
-    setProyecto(!status)
+    setProyecto(!status);
   }
 
   const handlerClickSendProyecto = (proyectoSeleccionado) => {
-    sendProyectoSeleccionado(proyectoSeleccionado)
+    sendProyectoSeleccionado(proyectoSeleccionado);
+  }
+
+  const handlerClick_CrearProyecto = () => {
+    var statusModal = isCreateVisible;
+    setIsCreateVisible(!statusModal);
   }
 
   return (
@@ -57,9 +64,11 @@ export function Menu ({ onPromptProyecto }) {
 
           <h4>PROYECTOS</h4>
 
-          <svg className='SVG-format' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-          </svg>
+          <button className='menu-add-proyecto' onClick={handlerClick_CrearProyecto}>
+            <svg className='SVG-format' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </button>
         </header>
 
         <div>
@@ -80,6 +89,11 @@ export function Menu ({ onPromptProyecto }) {
             </ul>
           </article>
         </div>
+
+        {
+          isCreateVisible && <CrearProyecto changeStatus={isCreateVisible} />
+        }
+
       </section>
     </aside>
   )
