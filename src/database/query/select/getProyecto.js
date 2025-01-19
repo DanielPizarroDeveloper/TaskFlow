@@ -14,3 +14,12 @@ export const getProyecto = async (proyectoFiltro) => {
         console.error('Msj: ', error)
     }
 }
+
+export const getProyectos = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "Proyectos"));
+      return querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    } catch (error) {
+      console.error('Msj: ', error)
+    }
+  }

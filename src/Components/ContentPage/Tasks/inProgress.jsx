@@ -26,7 +26,7 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
     }
 
     const updateTaskID = async () => {
-      updateTask({idElement, estado})
+      updateTask({idElement, estado, proyecto})
     }
 
     updateTaskID()
@@ -78,6 +78,11 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
                       <div className='article-card-progress__task-content-esfuerzo'>
                         <span className='article-card-progress__task__content__esfuerzo-span'>Esfuerzo</span>
                         <span className='article-card-progress__task__content__esfuerzo-span'>{esfuerzo}</span>
+                      </div>
+
+                      <div className='article-card-progress__task-content-esfuerzo'>
+                        <span className='article-card-progress__task__content__esfuerzo-span'>Descripcion</span>
+                        <span className='article-card-progress__task__content__esfuerzo-span span__descripcion' title={descripcion}>{descripcion}</span>
                       </div>
                     </div>
                   </div>

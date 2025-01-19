@@ -26,7 +26,7 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
     }
 
     const updateTaskID = async () => {
-      updateTask({idElement, estado})
+      updateTask({idElement, estado, proyecto})
     }
 
     updateTaskID()
@@ -79,6 +79,11 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
                       <div className='article-card-complete__task-content-esfuerzo'>
                         <span className='article-card-complete__task__content__esfuerzo-span'>Esfuerzo</span>
                         <span className='article-card-complete__task__content__esfuerzo-span'>{esfuerzo}</span>
+                      </div>
+
+                      <div className='article-card-complete__task-content-esfuerzo'>
+                        <span className='article-card-complete__task__content__esfuerzo-span'>Descripción</span>
+                        <span className='article-card-complete__task__content__esfuerzo-span span__descripcion' title={descripcion}>{descripcion}</span>
                       </div>
                     </div>
                   </div>

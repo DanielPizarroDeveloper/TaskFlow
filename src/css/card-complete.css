@@ -33,7 +33,7 @@
 .article-card-complete__task-bar {
     width: 2%;
     background-color: var(--custom-color-green);
-    height: 175px;
+    height: 205px;
     margin: 1%;
 }
 
@@ -128,4 +128,12 @@
 .droppable-content {
     width: 80%;
     height: 200px;
+}
+
+.span__descripcion {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    width: 200px;
+    margin-right: 4% !important;
 }

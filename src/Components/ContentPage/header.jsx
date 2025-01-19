@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
-import { DetalleTask } from './ModalTask/DetalleTask'
+import { DetalleProyecto } from './ModalTask/DetalleProyecto'
 import { CrearTask } from '../ContentPage/ModalTask/CrearTask'
 import { UseAuth } from '../Autenticacion/UseAuth';
 
@@ -53,7 +53,7 @@ export function Header({proyecto, callbackFunction}) {
         isTaskCreateVisible && <CrearTask callbackFunction={callbackFunction} changeStatus={isTaskCreateVisible} proyectoSeleccioando={proyecto} />
       }
       {
-        isTaskDetalleVisible && <DetalleTask changeStatus={isTaskDetalleVisible} proyectoSeleccioando={proyecto} />
+        isTaskDetalleVisible && <DetalleProyecto changeStatus={isTaskDetalleVisible} proyectoSeleccioando={proyecto} />
       }
     </div>
   )

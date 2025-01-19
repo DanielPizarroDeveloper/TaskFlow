@@ -4,7 +4,7 @@ import { collection, getDocs, query, where } from 'firebase/firestore'
 export const getTasks = async ({proyecto}) => {
     try {
         const getQuery = query(
-            collection(db, 'Proyectos/TaskFlow/taskNew'),
+            collection(db, `Proyectos/${proyecto}/tasks`),
             where('proyecto', '==', proyecto)
         )
     
@@ -18,7 +18,7 @@ export const getTasks = async ({proyecto}) => {
 export const getNumberTasks = async ({proyectoSeleccioando}) => {
     try {
         const getQuery = query(
-            collection(db, 'Proyectos/TaskFlow/taskNew'),
+            collection(db, `Proyectos/${proyectoSeleccioando}/tasks`),
             where("proyecto", "==", proyectoSeleccioando)
         )
     

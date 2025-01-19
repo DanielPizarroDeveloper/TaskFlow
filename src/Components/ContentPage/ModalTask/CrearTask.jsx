@@ -61,7 +61,6 @@ export function CrearTask ({changeStatus, proyectoSeleccioando, callbackFunction
       <Dialog
         isShown={isShown}
         title="Creación nueva tarea"
-        onConfirm={isShown}
         hasFooter={false}
       >
         <form onSubmit={handlerClick_New_Task} method='POST'>

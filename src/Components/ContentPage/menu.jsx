@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Init_Desplegable_Proyecto } from '../../js/Init';
-import { getProyectos } from '../../database/query/select/getProyectos';
+import { getProyectos } from '../../database/query/select/getProyecto';
 import { CrearProyecto } from '../ContentPage/ModalTask/CrearProyecto';
 
 import '../../css/menu.css';

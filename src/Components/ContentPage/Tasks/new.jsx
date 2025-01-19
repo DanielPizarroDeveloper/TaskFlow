@@ -9,6 +9,7 @@ import { DeleteTask } from '../ModalTask/DeleteTask'
 import '../../../css/card-new.css'
 
 export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion, callbackFunction}) {
+
   const isFirstTime = useRef(true);
   const [isTaskOption, setIsTaskOption] = useState(false);
   const [isActivate, setIsActivate] = useState(true);
@@ -26,7 +27,7 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
     }
     
     const updateTaskID = async () => {
-      updateTask({idElement, estado})
+      updateTask({idElement, estado, proyecto})
     }
     updateTaskID()
   }, [droppedStates])
@@ -132,6 +133,11 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
                     <div className='article-card-new__task-content-esfuerzo'>
                       <span className='article-card-new__task__content__esfuerzo-span'>Esfuerzo</span>
                       <span className='article-card-new__task__content__esfuerzo-span'>{esfuerzo}</span>
+                    </div>
+
+                    <div className='article-card-new__task-content-esfuerzo'>
+                      <span className='article-card-new__task__content__esfuerzo-span'>Descripción</span>
+                      <span className='article-card-new__task__content__esfuerzo-span span__descripcion' title={descripcion}>{descripcion}</span>
                     </div>
                   </div>
                 </div>

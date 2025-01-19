@@ -17,12 +17,12 @@ export function DeleteTask({taskID, ID, proyecto, tituloActividad, color, estado
 
   const handler_Delete_Task = async () => {
     onActivate();
-    const returnDelete = deleteTask(IDTask);
+    const returnDelete = deleteTask(IDTask, proyecto);
     
     if(returnDelete) {
       const getTasksAll = await getTasks({proyecto: proyecto})
       const sortedTasks = getTasksAll.sort((a, b) => a.idTask - b.idTask)
-      updateTaskID(sortedTasks, taskID)
+      updateTaskID(sortedTasks, taskID, proyecto)
       deleteTaskSelected((prevState) => !prevState);
 
       setTimeout(() => { 

@@ -35,6 +35,7 @@ export function TaskFlow () {
       }
       getAllTasks();
     }
+    
     setTaskRefresh(false)
   }
   , [proyecto, taskRefresh])
