@@ -56,4 +56,28 @@
     padding: 5%;
 }
 
+.header-main__section__user {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.header-main__button__logout {
+    display: block;
+    border: 0;
+    background-color: transparent;
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 0;
+    line-height: 35px;
+}
+
+.header-main-button__svg__logout {
+    color: white;
+    width: 30px;
+}
+
 /* Media Query para la Bar Tool 1400px */

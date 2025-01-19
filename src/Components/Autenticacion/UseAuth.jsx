@@ -6,7 +6,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 const AuthContext = createContext()
 
 export function UseAuth () {
-    return useContext(AuthContext)
+    return useContext(AuthContext);
 }
 
 export function AuthProvider({ children }) {
@@ -35,3 +35,5 @@ export function AuthProvider({ children }) {
         </AuthContext.Provider>
     )
 }
+
+export { AuthContext };

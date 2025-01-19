@@ -39,6 +39,7 @@
 
 .article-card-complete__task-content {
     margin-left: 5%;
+    min-width: 250px;
     width: 100%;
 }
 

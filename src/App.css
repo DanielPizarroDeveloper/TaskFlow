@@ -34,7 +34,7 @@ button {
     margin: 0;
     padding: 0;
     background-color: var(--custom-color-white-smoke);
-    width: 80%;
+    width: 90%;
     min-width: max-content;
     margin-bottom: 2px;
     border: 1px solid var(--custom-color-white-smoke);

@@ -5,33 +5,48 @@ import { CrearTask } from '../ContentPage/ModalTask/CrearTask'
 import { UseAuth } from '../Autenticacion/UseAuth';
 
 import '../../css/header.css'
+import { LogoutAuth } from '../Autenticacion/AuthLogout';
 
 export function Header({proyecto, callbackFunction}) {
+
   const { user } = UseAuth();
   const [isTaskCreateVisible, setTaskCreateVisible] = useState(false);
   const [isTaskDetalleVisible, setTaskDetalleVisible] = useState(false);
   const [headerTitulo, setHeaderTitulo] = useState('header-main__section__bar-tool__elements none-titulo');
+  const [logoutStatus, setLogoutStatus] = useState(false);
 
   useEffect(() => {
     if (proyecto !== null) {
       setHeaderTitulo('header-main__section__bar-tool__elements')
     }
-  }, [proyecto])
+  }, [proyecto, user])
 
 
   const handlerClickShownModalCreate = () => {
     var status = isTaskCreateVisible
-    setTaskCreateVisible(!status)
+    setTaskCreateVisible(!status);
   }
 
   const handlerClickShownModalDetalle = () => {
     var status = isTaskDetalleVisible
-    setTaskDetalleVisible(!status)
+    setTaskDetalleVisible(!status);
+  }
+
+  const handlerClick_logout = () => {
+    var status = logoutStatus;
+    setLogoutStatus(!status);
   }
 
   return (
     <div className='header-main__section__bar-tool'>
-      <h3>Bienvenido, { user }</h3>
+      <div className='header-main__section__user'>
+        <h3>Bienvenido, { user }</h3>
+        <button className='header-main__button__logout' onClick={handlerClick_logout}>
+          <svg className='header-main-button__svg__logout' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+        </button>
+      </div>
       <div className={headerTitulo}>
         <button className='bar-tool__elements__button' onClick={() => handlerClickShownModalCreate()}>
           <svg className='bar-tool__elements__button-svg' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,6 +69,9 @@ export function Header({proyecto, callbackFunction}) {
       }
       {
         isTaskDetalleVisible && <DetalleProyecto changeStatus={isTaskDetalleVisible} proyectoSeleccioando={proyecto} />
+      }
+      {
+        logoutStatus && <LogoutAuth changeStatus={logoutStatus} />
       }
     </div>
   )
