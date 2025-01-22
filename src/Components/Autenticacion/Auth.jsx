@@ -31,14 +31,19 @@ export function Auth() {
 
     return(
         <article className='article-auth'>
-            <h1 style={{color: 'red'}}>Bienvenidos</h1>
+            <h1 className='article-auth__titulo'>Welcome!</h1>
             <div className='article-auth__signIn__content'>
                 <input className='article-auth__signIn__content__input' type="email" placeholder="Correo"/>
                 <input className='article-auth__signIn__content__input' type="password" placeholder="Contraseña" />
                 <button className='article-auth__signIn__content__input-submit'>Iniciar Sesión</button>
             </div>
-            <div>
-                <span style={{color: 'black'}}>----------- o -----------</span>
+            
+            <div className='article-auth__content'>
+              <div className='article-auth__content-space'></div>
+              <div>
+                  <span className='article-auth__content-span'>o</span>
+              </div>
+              <div className='article-auth__content-space'></div>
             </div>
             
             <div className='article-auth__signIn'>
