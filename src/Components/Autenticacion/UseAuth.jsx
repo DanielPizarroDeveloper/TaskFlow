@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { auth } from '../../database/conexion/firebaseConfig'
-import { onAuthStateChanged } from 'firebase/auth'
-import { createContext, useContext, useEffect, useState } from 'react'
+import { auth } from '../../database/conexion/firebaseConfig';
+import { onAuthStateChanged } from 'firebase/auth';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 const AuthContext = createContext()
 

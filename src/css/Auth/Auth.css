@@ -6,18 +6,13 @@
     background-color: white;
 }
 
-.article-auth__titulo {
-    color: red;
-    margin-top: 10%;
-}
-
 .article-auth__signIn__content {
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
     width: 100%;
-    margin-top: 2.5%;
+    /* margin-top: 2.5%; */
 }
 
 .article-auth__signIn__content__input {

@@ -6,7 +6,7 @@ import { auth } from '../../database/conexion/firebaseConfig'
 
 export function LogoutAuth({changeStatus}) {
     const [isShown, setIsShown] = useState(changeStatus);
-    const { setUser, setEmailVerificated } = useContext(AuthContext);1
+    const { setUser, setEmailVerificated } = useContext(AuthContext);
 
     const handlerLogout = () => {
         signOut(auth)

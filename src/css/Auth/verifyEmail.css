@@ -1,0 +1,17 @@
+.article-verify {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.article-verify-content-span {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5%;
+    align-items: center;
+}
+
+.auth-image {
+    width: 280px;
+}
