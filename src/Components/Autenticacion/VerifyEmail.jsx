@@ -5,7 +5,7 @@ export function VerifyEmail() {
     const navigate = useNavigate();
 
     const handlerRedirect = () => {
-        navigate('/Authorize');
+        navigate('/Authorize', { replace: true });
     }
 
     return(

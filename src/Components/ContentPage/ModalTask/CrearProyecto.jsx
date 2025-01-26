@@ -6,15 +6,14 @@ import '../../../css/ModalTask/Proyecto/Crear.css';
 
 // eslint-disable-next-line react/prop-types
 export function CrearProyecto ({changeStatus, callbackRefresh}) {
-    const { user } = UseAuth();
+    const { user, email } = UseAuth();
     const [isShown, setIsShown] = useState(changeStatus);
-
     const [nombreProyecto, setNombreProyecto] = useState(null);
     const [descripcionProyecto, setDescripcionProyecto] = useState(null);
       
     const crearNuevoProyecto = (event) => {
       event.preventDefault();
-      createProject({nombreProyecto, user, descripcionProyecto});
+      createProject({nombreProyecto, user, descripcionProyecto, email});
       setIsShown((prevState) => !prevState);
       callbackRefresh((prevState) => !prevState);
     }

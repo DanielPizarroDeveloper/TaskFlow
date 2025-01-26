@@ -23,7 +23,7 @@ export function RegisterAccount () {
                 sendEmailVerification(user)
                 .then(() => {
                     console.log('Correo de verificación enviado.')
-                    navigate('/Verify-email')
+                    navigate('/Verify-email', { replace: true });
                 })
                 .catch((error) => {
                     console.log('Error al enviar un correo de verificación.')
@@ -38,16 +38,16 @@ export function RegisterAccount () {
 
     return (
         <article className='article-auth'>
-          <form onSubmit={handlerSignUp}>
             <img style={{width: '280px', aspectRatio: '1:1'}} src="public\img\Logo.png" alt="Logo" />
-            <div className='article-auth__signIn__content'>
-            <input className='article-auth__signIn__content__input' type="text" placeholder="Nombre Usuario" onChange={(e) => setUserName(e.target.value)} />
-                  <input className='article-auth__signIn__content__input' type="email" placeholder="Correo electronico" onChange={(e) => setEmail(e.target.value)} />
-                  <input className='article-auth__signIn__content__input' type="password" placeholder="Contraseña" onChange={(e) => setPassword(e.target.value)} />
-            </div>
-            <br />
-            <button className='article-auth__signIn__content__input-submit'>Crear Cuenta</button>
-          </form>
+            <form onSubmit={handlerSignUp}>
+              <div className='article-auth__signIn__content'>
+              <input className='article-auth__signIn__content__input' type="text" placeholder="Nombre Usuario" onChange={(e) => setUserName(e.target.value)} />
+                    <input className='article-auth__signIn__content__input' type="email" placeholder="Correo electronico" onChange={(e) => setEmail(e.target.value)} />
+                    <input className='article-auth__signIn__content__input' type="password" placeholder="Contraseña" onChange={(e) => setPassword(e.target.value)} />
+              </div>
+              <br />
+              <button className='article-auth__signIn__content__input-submit'>Crear Cuenta</button>
+            </form>
         </article>
     )
 }

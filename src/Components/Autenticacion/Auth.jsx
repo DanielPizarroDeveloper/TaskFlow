@@ -1,8 +1,8 @@
 import { auth } from '../../database/conexion/firebaseConfig'
-import { GoogleAuthProvider, signInWithPopup, setPersistence, browserLocalPersistence, signInWithEmailAndPassword } from 'firebase/auth'
 import { UseAuth } from './UseAuth'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { GoogleAuthProvider, signInWithPopup, setPersistence, browserLocalPersistence, signInWithEmailAndPassword } from 'firebase/auth'
 
 import '../../css/Auth/Auth.css'
 
@@ -12,29 +12,36 @@ export function Auth() {
     const [password, setPassword] = useState('');
 
     //Google Sesión
-    const { user, setUser, setEmailVerificated } = UseAuth();
+    const { user, setUser, emailVerificated, setEmailVerificated } = UseAuth();
     const navigate = useNavigate();
 
     
     useEffect(() => {
-      if (user) {
+      if (!user) {
+        navigate('/Authorize', { replace: true });
+      }
+      else if (user && !emailVerificated) {
+        navigate('/Verify-email', { replace: true });
+      }
+      else {
         navigate('/', { replace: true });
       }
     }, [user, navigate]);
 
     const handlerSignIn = (e) => {
-      e.preventDefault();
-
+      // e.preventDefault();
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
 
-          if(user.emailVerified) {
-            navigate('/');
-          }
-          else {
-            navigate('/Verify-email');
-          }
+          user.reload().then(() => {
+            if (user.emailVerified) {
+              navigate('/', { replace: true });
+              e.pre
+            } else {
+              navigate('/Verify-email', { replace: true });
+            }
+          });
         })
         .catch((error) => {
           console.log('Error en el inicio de sesión: ', error.message);
@@ -42,7 +49,7 @@ export function Auth() {
     }
 
     const handlerRedirect = () => {
-      navigate('/CreateAccount');
+      navigate('/CreateAccount', { replace: true });
     }
 
     //Google Sesión

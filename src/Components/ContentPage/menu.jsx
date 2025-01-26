@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react';
 import { Init_Desplegable_Proyecto } from '../../js/Init';
 import { getProyectos } from '../../database/query/select/getProyecto';
 import { CrearProyecto } from '../ContentPage/ModalTask/CrearProyecto';
+import { UseAuth } from '../Autenticacion/UseAuth';
 
 import '../../css/menu.css';
 
+
 // eslint-disable-next-line react/prop-types
 export function Menu ({ onPromptProyecto }) {
+  const { email } = UseAuth();
   const [proyecto, setProyecto] = useState(true);
   const [isCreateVisible, setIsCreateVisible] = useState(false);
   const [proyectosFirebase, setProyectosFirebase] = useState([]);
@@ -16,7 +19,7 @@ export function Menu ({ onPromptProyecto }) {
 
   useEffect(() => {
     const fetchProyectos = async () => {
-      const loadedProyectos = await getProyectos()
+      const loadedProyectos = await getProyectos(email);
 
       setProyectosFirebase(prevProyectos => {
         if (JSON.stringify(prevProyectos) !== JSON.stringify(loadedProyectos)) {

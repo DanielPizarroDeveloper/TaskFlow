@@ -15,11 +15,15 @@ export const getProyecto = async (proyectoFiltro) => {
     }
 }
 
-export const getProyectos = async () => {
-    try {
-      const querySnapshot = await getDocs(collection(db, "Proyectos"));
-      return querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    } catch (error) {
-      console.error('Msj: ', error)
-    }
+export const getProyectos = async (email) => {
+  try {
+    const proyectosQuery = query(
+      collection(db, "Proyectos"),
+      where("email", "==", email)
+    );
+    const querySnapshot = await getDocs(proyectosQuery);
+    return querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  } catch (error) {
+    console.error('Msj: ', error);
   }
+};

@@ -10,8 +10,9 @@ export function UseAuth () {
 }
 
 export function AuthProvider({ children }) {
-    const [user, setUser] = useState(null)
-    const [emailVerificated, setEmailVerificated] = useState(false)
+    const [user, setUser] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [emailVerificated, setEmailVerificated] = useState(false);
 
     useEffect(() => {
         // Configura el observador de cambios en la autenticación
@@ -19,9 +20,11 @@ export function AuthProvider({ children }) {
             if (currentUser) {
                 setUser(currentUser.displayName);  // Puedes guardar toda la info de `currentUser` si la necesitas
                 setEmailVerificated(currentUser.emailVerified);
+                setEmail(currentUser.email);
             } else {
                 setUser(null);
                 setEmailVerificated(false);
+                setEmail(null);
             }
         });
 
@@ -30,7 +33,7 @@ export function AuthProvider({ children }) {
     }, []);
 
     return(
-        <AuthContext.Provider value={{ user, setUser, emailVerificated, setEmailVerificated }}>
+        <AuthContext.Provider value={{ user, setUser, email, setEmail, emailVerificated, setEmailVerificated }}>
             {children}
         </AuthContext.Provider>
     )

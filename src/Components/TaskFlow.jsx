@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 export function TaskFlow () {
 
-  const { user } = UseAuth();
+  const { user, emailVerificated } = UseAuth();
   const navigate = useNavigate();
 
   const [proyecto, setProyecto] = useState(null);
@@ -42,7 +42,13 @@ export function TaskFlow () {
 
   useEffect(() => {
     if (!user) {
-      navigate('/Auth', { replace: true });
+      navigate('/Authorize', { replace: true });
+    }
+    else if (user && !emailVerificated) {
+      navigate('/Verify-email', { replace: true });
+    }
+    else {
+      navigate('/', { replace: true });
     }
   }, [user, navigate])
 

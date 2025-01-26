@@ -3,17 +3,21 @@ import { AuthContext } from './UseAuth';
 import { Dialog, Pane } from 'evergreen-ui';
 import { useContext, useState } from 'react';
 import { auth } from '../../database/conexion/firebaseConfig'
+import { useNavigate } from 'react-router-dom';
 
 export function LogoutAuth({changeStatus}) {
+    const navigate = useNavigate();
     const [isShown, setIsShown] = useState(changeStatus);
-    const { setUser, setEmailVerificated } = useContext(AuthContext);
+    const { setUser, setEmailVerificated, setEmail } = useContext(AuthContext);
 
     const handlerLogout = () => {
         signOut(auth)
         .then(() => {
             setUser(null);
             setEmailVerificated(false);
+            setEmail(null);
             setIsShown(false);
+            navigate('/Authorize', { replace: true });
         })
         .catch((error) => {
             console.log('Error del cierre de sesión. ', error)
