@@ -1,5 +1,10 @@
 import { setDoc, doc } from "firebase/firestore";
 import { db } from '../../conexion/firebaseConfig';
+import { NotificacionesProyecto } from '../../../notification/Notificaciones'
+import { toaster } from "evergreen-ui";
+
+const successMsj = NotificacionesProyecto().success;
+const dangerMsj = NotificacionesProyecto().danger;
 
 export const createProject = async ({nombreProyecto, user, descripcionProyecto, email}) => {
     try {
@@ -10,7 +15,14 @@ export const createProject = async ({nombreProyecto, user, descripcionProyecto, 
             descripcionProyecto: descripcionProyecto,
             email: email
         });
+
+        toaster.success(successMsj[0], {
+          description: successMsj[1],
+        });
+
     } catch (error) {
-        console.error('Mensajes de error: ', error);
+        toaster.danger(dangerMsj[0], {
+          description: dangerMsj[1],
+        });
     }
 };

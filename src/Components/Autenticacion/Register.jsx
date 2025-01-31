@@ -26,7 +26,7 @@ export function RegisterAccount () {
                     navigate('/Verify-email', { replace: true });
                 })
                 .catch((error) => {
-                    console.log('Error al enviar un correo de verificación.')
+                    console.log('Error al enviar un correo de verificación.', error.message);
                 })
             })
             .catch((error) => {

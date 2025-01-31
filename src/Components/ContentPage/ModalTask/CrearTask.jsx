@@ -21,12 +21,12 @@ export function CrearTask ({changeStatus, proyectoSeleccioando, callbackFunction
   useEffect(() => {
     const countTasks = async() => {
       const taskCount = await getNumberTasks({proyectoSeleccioando})
-      setTaskID(taskCount)
+      setTaskID(taskCount);
     }
-    countTasks()
+    countTasks();
 
     const loadUser = async() => {
-      setResponsable(user)
+      setResponsable(user);
     }
     
     loadUser()

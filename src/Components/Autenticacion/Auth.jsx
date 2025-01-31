@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { GoogleAuthProvider, signInWithPopup, setPersistence, browserLocalPersistence, signInWithEmailAndPassword } from 'firebase/auth'
 
 import '../../css/Auth/Auth.css'
+import { toaster } from 'evergreen-ui'
 
 export function Auth() {
     //Usuario - Contraseña
@@ -29,7 +30,7 @@ export function Auth() {
     }, [user, navigate]);
 
     const handlerSignIn = (e) => {
-      // e.preventDefault();
+      e.preventDefault();
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
@@ -37,7 +38,6 @@ export function Auth() {
           user.reload().then(() => {
             if (user.emailVerified) {
               navigate('/', { replace: true });
-              e.pre
             } else {
               navigate('/Verify-email', { replace: true });
             }
@@ -45,7 +45,7 @@ export function Auth() {
         })
         .catch((error) => {
           console.log('Error en el inicio de sesión: ', error.message);
-        })
+        });
     }
 
     const handlerRedirect = () => {

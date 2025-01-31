@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Dialog, Pane } from "evergreen-ui"
+import { Dialog, Pane, toaster } from "evergreen-ui"
 import { useState } from "react"
 import { deleteTask } from "../../../database/query/delete/delete"
 import { updateTaskID } from "../../../database/query/update/update"
