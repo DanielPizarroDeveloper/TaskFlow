@@ -1,6 +1,9 @@
-import { db } from "../../conexion/firebaseConfig"
-import { updateDoc, doc } from "firebase/firestore"
+import { db } from '../../conection/conn.js';
+import { updateDoc, doc } from 'firebase/firestore'
 
+//UPDATE - PROYECTOS
+
+//UPDATE - TAREAS
 export const updateTask = async ({idElement, estado, proyecto}) => {
     try {
         const taskDoc = doc(db, `Proyectos/${proyecto}/tasks`, idElement)

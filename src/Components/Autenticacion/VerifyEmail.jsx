@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+
 import '../../css/Auth/verifyEmail.css';
 
 export function VerifyEmail() {
@@ -10,7 +11,7 @@ export function VerifyEmail() {
 
     return(
         <article className='article-verify'>
-            <img className='auth-image' src="public\img\Logo.png" alt="Logo" />
+            <img className='auth-image' src='public\img\Logo.png' alt='Logo' />
             <div className='article-verify-content-span'>
                 <h4 style={{color: 'black'}}>Se ha enviado un correo para realizar la verificación de su cuenta</h4>
             </div>

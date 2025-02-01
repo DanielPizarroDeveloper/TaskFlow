@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useDroppable } from "@dnd-kit/core";
+import { useDroppable } from '@dnd-kit/core';
 
 export function Droppable ({ id, children }) {
   const { setNodeRef } = useDroppable({

@@ -1,7 +1,7 @@
-import { toaster } from "evergreen-ui";
-import { auth } from "../database/conexion/firebaseConfig";
-import { NotificacionesUsuario } from "../notification/Notificaciones";
-import { browserLocalPersistence, setPersistence, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
+import { toaster } from 'evergreen-ui';
+import { auth } from '../database/conection/conn.js';
+import { NotificacionesUsuario } from '../../notification/Notificaciones';
+import { browserLocalPersistence, setPersistence, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
 
 const dangerMsj = NotificacionesUsuario().dangerGoogle;
 const dangerAccountMsj = NotificacionesUsuario().dangerAccount;

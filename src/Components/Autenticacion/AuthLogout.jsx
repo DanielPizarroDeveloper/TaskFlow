@@ -2,9 +2,10 @@ import { signOut } from 'firebase/auth';
 import { AuthContext } from './UseAuth';
 import { Dialog, Pane } from 'evergreen-ui';
 import { useContext, useState } from 'react';
-import { auth } from '../../database/conexion/firebaseConfig'
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../../js/database/conection/conn.js';
 
+// eslint-disable-next-line react/prop-types
 export function LogoutAuth({changeStatus}) {
     const navigate = useNavigate();
     const [isShown, setIsShown] = useState(changeStatus);
@@ -32,7 +33,7 @@ export function LogoutAuth({changeStatus}) {
         <Pane>
             <Dialog
               isShown={isShown}
-              title="Cerrar sesión"
+              title='Cerrar sesión'
               hasFooter={false}
             >
               <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>

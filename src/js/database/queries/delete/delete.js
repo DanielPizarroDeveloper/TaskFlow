@@ -1,11 +1,14 @@
-import { db } from "../../conexion/firebaseConfig";
-import { doc, deleteDoc } from "firebase/firestore";
-import { NotificacionesTareas } from '../../../notification/Notificaciones'
-import { toaster } from "evergreen-ui";
+import { toaster } from 'evergreen-ui';
+import { db } from '../../conection/conn.js';
+import { doc, deleteDoc } from 'firebase/firestore';
+import { NotificacionesTareas } from '../../../../notification/Notificaciones.js';
 
 const successMsj = NotificacionesTareas().successDelete;
 const dangerMsj = NotificacionesTareas().dangerDelete;
 
+//DELETE - PROYECTOS
+
+//DELETE - TAREAS
 export const deleteTask = async (IDTask, proyecto) => {
     try {
         const taskDoc = doc(db, `Proyectos/${proyecto}/tasks`, IDTask);

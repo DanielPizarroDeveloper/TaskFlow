@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Dialog, Pane } from "evergreen-ui"
+import { Dialog, Pane } from 'evergreen-ui'
 import { UseAuth } from '../../Autenticacion/UseAuth';
-import { createProject } from '../../../database/query/create/createProject';
+import { createProject } from '../../../js/database/queries/create/create.js';
+
 import '../../../css/ModalTask/Proyecto/Crear.css';
 
 // eslint-disable-next-line react/prop-types
@@ -24,7 +25,7 @@ export function CrearProyecto ({changeStatus, callbackRefresh}) {
           isShown={isShown}
           title='Creación de un proyecto'
           onCloseComplete={() => setIsShown(false)}
-          confirmLabel="Crear"
+          confirmLabel='Crear'
           hasCancel={false}
           hasFooter={false}
         >

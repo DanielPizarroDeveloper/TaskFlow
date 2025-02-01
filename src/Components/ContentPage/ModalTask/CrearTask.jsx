@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react'
-import { Dialog, Pane } from 'evergreen-ui'
-import { createTask } from '../../../database/query/create/createTask'
-import { getNumberTasks } from '../../../database/query/select/getTasks'
-import { UseAuth } from '../../Autenticacion/UseAuth'
+import { useEffect, useState } from 'react';
+import { Dialog, Pane } from 'evergreen-ui';
+import { UseAuth } from '../../Autenticacion/UseAuth';
+import { createTask } from '../../../js/database/queries/create/create.js';
+import { getNumberTasks } from '../../../js/database/queries/select/select.js';
 
 import '../../../css/ModalTask/Task/Crear.css'
 
@@ -30,7 +30,7 @@ export function CrearTask ({changeStatus, proyectoSeleccioando, callbackFunction
     }
     
     loadUser()
-  }, [proyectoSeleccioando])
+  }, [proyectoSeleccioando, user])
 
   const handlerClick_New_Task= (event) => {
     event.preventDefault()
@@ -60,7 +60,7 @@ export function CrearTask ({changeStatus, proyectoSeleccioando, callbackFunction
     <Pane>
       <Dialog
         isShown={isShown}
-        title="Creación nueva tarea"
+        title='Creación nueva tarea'
         hasFooter={false}
       >
         <form onSubmit={handlerClick_New_Task} method='POST'>
@@ -73,22 +73,22 @@ export function CrearTask ({changeStatus, proyectoSeleccioando, callbackFunction
             <div className='article-modal-create__content'>
               <span className='article-modal-create__content__span'>Estado: </span>
               <select 
-                id="estado" 
-                name="estado"
+                id='estado' 
+                name='estado'
                 onChange={(e) => setEstado(e.target.value)}
                 className='article-modal-create__content__input'
               >
-                <option value="NUEVO">NUEVO</option>
-                <option value="EN PROGRESO">EN PROGRESO</option>
-                <option value="FINALIZADO">FINALIZADO</option>
+                <option value='NUEVO'>NUEVO</option>
+                <option value='EN PROGRESO'>EN PROGRESO</option>
+                <option value='FINALIZADO'>FINALIZADO</option>
               </select>
             </div>
 
             <div className='article-modal-create__content'>
               <span className='article-modal-create__content__span'>Esfuerzo: </span>
               <select 
-                id="esfuerzo" 
-                name="esfuerzo"
+                id='esfuerzo' 
+                name='esfuerzo'
                 onChange={(e) => setEsfuerzo(e.target.value)}
                 className='article-modal-create__content__input'
               >

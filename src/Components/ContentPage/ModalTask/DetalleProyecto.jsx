@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { Dialog, Pane } from 'evergreen-ui'
-import { useState, useEffect } from 'react'
-import { getProyecto } from '../../../database/query/select/getProyecto'
+import { Dialog, Pane } from 'evergreen-ui';
+import { useState, useEffect } from 'react';
+import { getProyecto } from '../../../js/database/queries/select/select.js';
 
-import '../../../css/ModalTask/Proyecto/Detalle.css'
+import '../../../css/ModalTask/Proyecto/Detalle.css';
 
 export function DetalleProyecto({ changeStatus, proyectoSeleccioando }) {
   const [isShown, setIsShown] = useState(changeStatus)
@@ -21,7 +21,7 @@ export function DetalleProyecto({ changeStatus, proyectoSeleccioando }) {
     <Pane>
       <Dialog
         isShown={isShown}
-        title="Información Proyecto"
+        title='Información Proyecto'
         onCloseComplete={() => setIsShown(false)}
         hasCancel={false}
         hasFooter={false}

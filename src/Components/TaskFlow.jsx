@@ -1,13 +1,13 @@
-import { DndContext } from '@dnd-kit/core';
-import { Header } from './ContentPage/header';
 import { Menu } from './ContentPage/menu';
-import { New } from './ContentPage/Tasks/new';
-import { InProgress } from './ContentPage/Tasks/inProgress';
-import { Complete } from './ContentPage/Tasks/complete';
+import { DndContext } from '@dnd-kit/core';
 import { useEffect, useState } from 'react';
-import { getTasks } from '../database/query/select/getTasks';
-import { UseAuth } from './Autenticacion/UseAuth';
+import { Header } from './ContentPage/header';
+import { New } from './ContentPage/Tasks/new';
 import { useNavigate } from 'react-router-dom';
+import { UseAuth } from './Autenticacion/UseAuth';
+import { Complete } from './ContentPage/Tasks/complete';
+import { InProgress } from './ContentPage/Tasks/inProgress';
+import { getTasks } from '../js/database/queries/select/select.js';
 
 export function TaskFlow () {
 
@@ -50,7 +50,7 @@ export function TaskFlow () {
     else {
       navigate('/', { replace: true });
     }
-  }, [user, navigate])
+  }, [user, navigate, emailVerificated])
 
   const callBack_Refresh = (callbackRefresh) => {
     setTaskRefresh(callbackRefresh);

@@ -1,11 +1,10 @@
 import { UseAuth } from './UseAuth';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../database/conexion/firebaseConfig';
-import { signInGoogle, signInAccount } from '../../Auth/Authentications'
+import { auth } from '../../js/database/conection/conn.js';
+import { signInGoogle, signInAccount } from '../../js/Auth/Authentications.js';
 
 import '../../css/Auth/Auth.css'
-
 
 export function Auth() {
     //Usuario - Contraseña
@@ -44,11 +43,11 @@ export function Auth() {
 
     return(
       <article className='article-auth'>
-        <img style={{width: '280px', aspectRatio: '1:1'}} src="public\img\Logo.png" alt="Logo" />
+        <img style={{width: '280px', aspectRatio: '1:1'}} src='public\img\Logo.png' alt='Logo' />
         <form onSubmit={handlerSignIn}>
           <div className='article-auth__signIn__content'>
-              <input className='article-auth__signIn__content__input' type="email" placeholder="Correo electronico" onChange={(e) => setEmail(e.target.value)}/>
-              <input className='article-auth__signIn__content__input' type="password" placeholder="Contraseña" onChange={(e) => setPassword(e.target.value)} />
+              <input className='article-auth__signIn__content__input' type='email' placeholder='Correo electronico' onChange={(e) => setEmail(e.target.value)}/>
+              <input className='article-auth__signIn__content__input' type='password' placeholder='Contraseña' onChange={(e) => setPassword(e.target.value)} />
               <button className='article-auth__signIn__content__input-submit'>Iniciar Sesión</button>
               <span style={{color: 'black'}}>¿No tienes una cuenta?, <a style={{color: '#0f95cd', cursor:'pointer'}} onClick={handlerRedirect}><strong>Registrate aquí</strong></a></span>
           </div>
@@ -64,12 +63,12 @@ export function Auth() {
           
         <div className='article-auth__signIn'>
             <button className='article-auth__signIn-option' onClick={handleGoogleSignIn}>
-                <img className='article-auth__logo' src="public\svg\Auth\google.svg" alt="Logo de google para inicio de sesión" />
+                <img className='article-auth__logo' src='public\svg\Auth\google.svg' alt='Logo de google para inicio de sesión' />
                 <span className='article-auth__signIn-span'>Continuar con Google</span>
             </button>
         
             <button className='article-auth__signIn-option'>
-                <img className='article-auth__logo' src="public\svg\Auth\Microsoft.svg" alt="Logo de google para inicio de sesión" />
+                <img className='article-auth__logo' src='public\svg\Auth\Microsoft.svg' alt='Logo de google para inicio de sesión' />
                 <span className='article-auth__signIn-span'>Continuar con una cuenta de Microsoft</span>
             </button>
         </div>
