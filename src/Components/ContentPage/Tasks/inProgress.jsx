@@ -30,7 +30,7 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
     }
 
     updateTaskID()
-  }, [droppedStates])
+  }, [droppedStates, estado, idElement, proyecto])
 
   //Este método va a cambiar el valor del useState de False a True cuando el valor cambie
   const handlerActivate = () => {

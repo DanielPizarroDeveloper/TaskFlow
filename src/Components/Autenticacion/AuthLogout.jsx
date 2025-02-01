@@ -1,9 +1,8 @@
-import { signOut } from 'firebase/auth';
 import { AuthContext } from './UseAuth';
 import { Dialog, Pane } from 'evergreen-ui';
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../js/database/conection/conn.js';
+import { logout } from '../../js/Auth/Authentications.js';
 
 // eslint-disable-next-line react/prop-types
 export function LogoutAuth({changeStatus}) {
@@ -12,17 +11,7 @@ export function LogoutAuth({changeStatus}) {
     const { setUser, setEmailVerificated, setEmail } = useContext(AuthContext);
 
     const handlerLogout = () => {
-        signOut(auth)
-        .then(() => {
-            setUser(null);
-            setEmailVerificated(false);
-            setEmail(null);
-            setIsShown(false);
-            navigate('/Authorize', { replace: true });
-        })
-        .catch((error) => {
-            console.log('Error del cierre de sesión. ', error)
-        })
+        logout({setUser, setEmailVerificated, setEmail, setIsShown, navigate});
     }
 
     const handlerCancel = () => {

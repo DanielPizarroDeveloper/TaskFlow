@@ -44,3 +44,16 @@ export const NotificacionesUsuario = () => {
 
     return {dangerGoogle, dangerAccount}
 }
+
+export const NotificacionesCreacionCuenta = () => {
+    let warningAccount = [];
+    let dangerAccount = [];
+
+    warningAccount[0] = 'Cuenta ya registrada';
+    warningAccount[1] = 'El correo ingresado ya está asociado a una cuenta. Inicia sesión o usa otra dirección de correo. 🔄';
+
+    dangerAccount[0] = 'Error al crear la cuenta';
+    dangerAccount[1] = 'Ocurrió un problema inesperado y no se pudo completar el registro. Inténtalo nuevamente más tarde. 🔄';
+
+    return{warningAccount, dangerAccount}
+}

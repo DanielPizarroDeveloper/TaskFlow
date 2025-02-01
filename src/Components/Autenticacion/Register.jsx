@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { getAuth } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { app } from '../../js/database/conection/conn.js';
-import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from 'firebase/auth';
+import { createAccount } from '../../js/Auth/CreateAccounts.js';
 
 export function RegisterAccount () {
     const auth = getAuth(app);
@@ -12,28 +13,7 @@ export function RegisterAccount () {
 
     const handlerSignUp = (e) => {
         e.preventDefault();
-
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                updateProfile(user, {
-                    displayName: userName
-                });
-
-                sendEmailVerification(user)
-                .then(() => {
-                    console.log('Correo de verificación enviado.')
-                    navigate('/Verify-email', { replace: true });
-                })
-                .catch((error) => {
-                    console.log('Error al enviar un correo de verificación.', error.message);
-                })
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log('Error en el registro: ', errorCode, errorMessage);
-            })
+        createAccount({auth, userName, email, password, navigate});
     }
 
     return (

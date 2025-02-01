@@ -27,7 +27,6 @@ export function AuthProvider({ children }) {
                 setEmail(null);
             }
         });
-
         // Limpia el observador cuando el componente se desmonte
         return unsubscribe;
     }, []);

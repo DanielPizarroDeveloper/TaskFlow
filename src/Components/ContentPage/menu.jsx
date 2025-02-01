@@ -28,7 +28,7 @@ export function Menu ({ onPromptProyecto }) {
       })
     }
     fetchProyectos();
-  }, [refresh])
+  }, [refresh, email])
 
   const callbackRefresh = (callbackRefresh) => {
     setRefresh(callbackRefresh)

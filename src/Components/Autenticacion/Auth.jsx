@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from '../../js/database/conection/conn.js';
 import { signInGoogle, signInAccount } from '../../js/Auth/Authentications.js';
 
-import '../../css/Auth/Auth.css'
+import '../../css/Auth/Auth.css';
 
 export function Auth() {
     //Usuario - Contraseña

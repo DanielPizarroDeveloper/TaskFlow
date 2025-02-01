@@ -1,11 +1,12 @@
 import { toaster } from 'evergreen-ui';
 import { auth } from '../database/conection/conn.js';
 import { NotificacionesUsuario } from '../../notification/Notificaciones';
-import { browserLocalPersistence, setPersistence, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
+import { browserLocalPersistence, setPersistence, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
 const dangerMsj = NotificacionesUsuario().dangerGoogle;
 const dangerAccountMsj = NotificacionesUsuario().dangerAccount;
 
+//Google
 export const signInGoogle = async ({setUser, setEmailVerificated}) => {
   const provider = new GoogleAuthProvider();
 
@@ -23,6 +24,7 @@ export const signInGoogle = async ({setUser, setEmailVerificated}) => {
     }
 }
 
+//Accounts
 export const signInAccount = ({auth, email, password, navigate}) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -42,4 +44,21 @@ export const signInAccount = ({auth, email, password, navigate}) => {
         description: dangerAccountMsj[1]
       });
     });
+}
+
+//Outlook
+
+//Cierre Sesión
+export const logout = ({setUser, setEmailVerificated, setEmail, setIsShown, navigate}) => {
+  signOut(auth)
+    .then(() => {
+        setUser(null);
+        setEmailVerificated(false);
+        setEmail(null);
+        setIsShown(false);
+        navigate('/Authorize', { replace: true });
+    })
+    .catch((error) => {
+        console.log('Error del cierre de sesión. ', error)
+    })
 }
