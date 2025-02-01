@@ -33,5 +33,14 @@ export const NotificacionesProyecto = () => {
 }
 
 export const NotificacionesUsuario = () => {
+    let dangerGoogle = [];
+    let dangerAccount = [];
 
+    dangerGoogle[0] = 'Error de autenticación con Google';
+    dangerGoogle[1] = 'Hubo un problema al intentar iniciar sesión con Google. Por favor, verifica tu conexión e inténtalo nuevamente. 🚀';
+
+    dangerAccount[0] = 'Error de autenticación';
+    dangerAccount[1] = 'Hubo un problema al iniciar sesión. Verifica tus credenciales e inténtalo nuevamente. Si el problema persiste, restablece tu contraseña o contacta al soporte. 🔄';
+
+    return {dangerGoogle, dangerAccount}
 }
