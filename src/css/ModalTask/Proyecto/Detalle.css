@@ -1,7 +1,3 @@
-:root {
-    --custom-color-span: #0F95CD;
-}
-
 .article-modal {
     display: flex;
     flex-direction: column;

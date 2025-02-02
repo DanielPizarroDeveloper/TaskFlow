@@ -1,16 +1,79 @@
 :root {
+  /* Colors */
+  --custom-color-purple-light: #e7e4f9;
+  --custom-color-purple-dark: #6e64b6;
+  --custom-color-blue-light: #d6dfff;
+  --custom-color-blue-dark: #2952cf;
+  --custom-color-green-light: #dcf2ea;
+  --custom-color-green-dark: #317159;
+  --custom-color-blue-bright: #0f95cd;
+  --custom-color-white-smoke: #f5f5f5;
+  --custom-color-white-default: #ffffff;
+  --custom-color-black-default: #000000;
+  --custom-color-blue-steel: #0E709A;
+  --custom-color-light-gray: #d8dae5;
+  --custom-color-red: #d14343;
+
+  /* General */
   --custom-font-family: monospace, sans-serif;
   --custom-font-optical-sizing: auto;
   --custom-font-weight: 100;
   --custom-font-style: normal;
   --custom-section-min-width: 100%;
+
+  /* Inputs styles */
   --custom-color-border: #d8dae5;
-  --custom-color-border-focus: #0f95cd;
+  --custom-color-border-focus: var(--custom-color-blue-bright);
   --custom-box-shadow-focus: 0 0 8px rgba(15, 149, 205, 0.3);
+
+  /* Menu.jsx - Header.jsx */
+  --custom-color-menu-header: var(--custom-color-blue-bright);
+  --custom-color-shadow: rgba(0, 0, 0, 0.86);
+  --custom-color-li-hover: var(--custom-color-blue-steel);
+
+  /* New.jsx */
+  --custom-color-new: var(--custom-color-purple-light);
+  --custom-color-h1-purple: var(--custom-color-purple-dark);
+  --custom-color-purple: var(--custom-color-purple-dark);
+  --custom-color-purple-hover: var(--custom-color-purple-light);
+
+  /* InProgress.jsx */
+  --custom-color-progress: var(--custom-color-blue-light);
+  --custom-color-h1-blue: var(--custom-color-blue-dark);
+  --custom-color-blue: var(--custom-color-blue-dark);
+  --custom-color-blue-hover: var(--custom-color-blue-light);
+
+  /* Complete.jsx */
+  --custom-color-complete: var(--custom-color-green-light);
+  --custom-color-h1-green: var(--custom-color-green-dark);
+  --custom-color-green: var(--custom-color-green-dark);
+  --custom-color-green-hover: var(--custom-color-green-light);
+
+  /* Modal - Task */
+  /* Eliminar.jsx */
+  --custom-color-text-button: var(--custom-color-white-default);
+  --custom-color-button-danger: var(--custom-color-red);
+  
+  /* Crear.jsx */
+  --custom-color-button: var(--custom-color-blue-bright);
+  --custom-color-border-button: var(--custom-color-dark-blue);
+  --custom-color-text-button: var(--custom-color-white-default);
+  
+  /* Modal - Proyecto */
+  /* Crear.jsx - Detalle.jsx */
+  --custom-color-span: var(--custom-color-blue-bright);
+
+  /* Auth.jsx - Register.jsx */
+  --custom-color-auth-button-border: var(--custom-color-blue-steel);
+  --custom-color-auth-button: var(--custom-color-blue-bright);
+  --custom-color-auth-button-border-others-sign-in: var(--custom-color-light-gray);
+
+  /* SVG */
+  --custom-color-white: var(--custom-color-white-default);
 }
 
 html {
-  background-color: white;
+  background-color: var(--custom-color-white-default);
 }
 
 body {

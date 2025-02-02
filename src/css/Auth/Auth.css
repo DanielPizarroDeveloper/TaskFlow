@@ -3,7 +3,12 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    background-color: white;
+    background-color: var(--custom-color-white-default);
+}
+
+.article-auth-img {
+    width: 280px; 
+    aspect-ratio: '1:1';
 }
 
 .article-auth__signIn__content {
@@ -12,7 +17,6 @@
     gap: 20px;
     align-items: center;
     width: 100%;
-    /* margin-top: 2.5%; */
 }
 
 .article-auth__signIn__content__input {
@@ -24,14 +28,13 @@
 
 .article-auth__signIn__content__input-submit {
     width: 370px;
-    background-color: red;
     max-width: 370px;
     height: 30px;
     border-radius: 5px;
     border: 0;
-    border-color: #0E709A;
-    background-color: #0f95cd;
-    color: white;
+    border-color: var(--custom-color-auth-button-border);
+    background-color: var(--custom-color-auth-button);
+    color: var(--custom-color-white-default);
     height: 50px;
 }
 
@@ -47,15 +50,15 @@
     flex-direction: row;
     align-items: center;
     gap: 20px;
-    border: 1px solid black;
+    border: 1px solid var(--custom-color-black-default);
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 10px;
     padding-bottom: 15px;
     min-width: 265px;
     border-radius: 5px;
-    border-color: #d8dae5; 
-    background-color: white;
+    border-color: var(--custom-color-auth-button-border-others-sign-in);
+    background-color: var(--custom-color-white-default);
 }
 
 .article-auth__logo {
@@ -64,7 +67,7 @@
 }
 
 .article-auth__signIn-span {
-    color: black;
+    color: var(--custom-color-black-default);
     text-align: start;
     font-size: 15px;
 }
@@ -79,12 +82,12 @@
 
 .article-auth__content-space {
     display: inline-block;
-    border-top: 1px solid lightgray;
+    border-top: 1px solid var(--custom-color-auth-button-border-others-sign-in);;
     width: 150px;
     line-height: 42px;
     vertical-align: middle;
 }
 
 .article-auth__content-span {
-    color: black;
+    color: var(--custom-color-black-default);
 }

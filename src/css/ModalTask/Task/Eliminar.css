@@ -1,8 +1,3 @@
-:root {
-    --custom-color-danger: #D14343;
-    --custom-color-white: white;
-}
-
 .article-pane-eliminar {
     display: flex;
     flex-direction: column;
@@ -27,8 +22,8 @@
     border: 0;
     margin-top: 2%;
     margin-bottom: 2%;
-    background-color: var(--custom-color-danger);
-    border-color: var(--custom-color-danger);
-    color: var(--custom-color-white);
+    background-color: var(--custom-color-button-danger);
+    border-color: var(--custom-color-button-danger);
+    color: var(--custom-color-text-button);
     border-radius: 10px;
 }

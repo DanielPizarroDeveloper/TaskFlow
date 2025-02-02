@@ -43,7 +43,7 @@ export function Auth() {
 
     return(
       <article className='article-auth'>
-        <img style={{width: '280px', aspectRatio: '1:1'}} src='public\img\Logo.png' alt='Logo' />
+        <img className='article-auth-img' src='public\img\Logo.png' alt='Logo' />
         <form onSubmit={handlerSignIn}>
           <div className='article-auth__signIn__content'>
               <input className='article-auth__signIn__content__input' type='email' placeholder='Correo electronico' onChange={(e) => setEmail(e.target.value)}/>

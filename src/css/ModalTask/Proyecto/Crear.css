@@ -1,7 +1,3 @@
-:root {
-    --custom-color-light-blue: #0F95CD;
-}
-
 .article-modal-create-proyecto {
     display: flex;
     flex-direction: column;
@@ -16,6 +12,6 @@
 }
 
 .modal-create__span {
-    color: var(--custom-color-light-blue);
+    color: var(--custom-color-span);
     width: max-content;
 }

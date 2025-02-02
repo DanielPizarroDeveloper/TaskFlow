@@ -1,15 +1,3 @@
-:root {
-    --custom-color-new: #e7e4f9;
-    --custom-color-progress: #d6e0ff;
-    --custom-color-complete: #dcf2ea;
-    --custom-color-white: whitesmoke;
-    --custom-color-h1-purple: #6e64b6;
-    --custom-color-h1-blue: #2952cf;
-    --custom-color-h1-green: #317159;
-    --custom-color-aside: #0f95cd;
-    --custom-color-shadow: rgba(0, 0, 0, 0.86)
-}
-
 body {
     background-color: var(--custom-color-white);
 }
@@ -119,7 +107,6 @@ button {
 }
 
 /* Keyframes - Panel Task */
-
 @keyframes slide-left-panel-task {
     0% {
         transform:translateX(100px);

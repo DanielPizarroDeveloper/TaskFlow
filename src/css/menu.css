@@ -1,10 +1,3 @@
-:root {
-    --custom-color-white: white;
-    --custom-color-aside: #0f95cd;
-    --custom-color-li-hover: #0E709A;
-    --custom-color-shadow: rgba(0, 0, 0, 0.86);
-}
-
 .aside-menu {
     position: fixed;
     display: flex;
@@ -13,7 +6,7 @@
     width: 18%;
     height: 100dvh;
     height: 100vh;
-    background-color: var(--custom-color-aside);
+    background-color: var(--custom-color-menu-header);
     box-shadow: 0px 3px 10px -2px var(--custom-color-shadow);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -50,14 +43,6 @@
     position: relative;
     top: 86px;
     left: -12px;
-}
-
-.SVG-states {
-    position: relative;
-    top: 1.5px;
-    left: 1.5px;
-    width: 20px;
-    color: var(--custom-color-white);
 }
 
 .menu-add-proyecto {

@@ -5,7 +5,7 @@ import { LogoutAuth } from '../Autenticacion/AuthLogout';
 import { DetalleProyecto } from './ModalTask/DetalleProyecto';
 import { CrearTask } from '../ContentPage/ModalTask/CrearTask';
 
-import '../../css/header.css'
+import '../../css/header.css';
 
 export function Header({proyecto, callbackFunction}) {
 

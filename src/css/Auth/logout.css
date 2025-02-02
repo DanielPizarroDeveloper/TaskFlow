@@ -1,0 +1,36 @@
+.article-logout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.article-logout-container {
+    gap: 20px;
+    display: flex;
+    padding-top: 30px;
+    flex-direction: row;
+}
+
+.article-logout-button {
+    width: 100px;
+    height: 40px;
+    border: 0;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: var(--custom-color-blue-bright);
+    color: var(--custom-color-text-button);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.article-logout-cancel {
+    width: 100px;
+    height: 40px;
+    border: 0;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: var(--custom-color-red);
+    color: var(--custom-color-text-button);
+    border-radius: 10px;
+    padding: 10px;
+}
