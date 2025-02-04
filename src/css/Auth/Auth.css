@@ -55,7 +55,7 @@
     padding-right: 30px;
     padding-top: 10px;
     padding-bottom: 15px;
-    min-width: 265px;
+    max-width: 368px;
     border-radius: 5px;
     border-color: var(--custom-color-auth-button-border-others-sign-in);
     background-color: var(--custom-color-white-default);

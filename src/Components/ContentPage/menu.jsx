@@ -53,6 +53,10 @@ export function Menu ({ onPromptProyecto }) {
     setIsCreateVisible(!statusModal);
   }
 
+  const handlerClickModal = () => {
+    alert('OK!');
+  }
+
   return (
     <aside className='aside-menu'>
       <section className='menu-section__lateral'>
@@ -89,6 +93,12 @@ export function Menu ({ onPromptProyecto }) {
                         <path d='M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25' />
                       </svg>
                       <span>{proyecto.nombreProyecto}</span>
+                    </button>
+                    
+                    <button className='menu-section__lateral_article__li__button__option' onClick={() => handlerClickModal()}>
+                      <svg className='menu-section__lateral_article__li__button__option__svg' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                        <path d='M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z' />
+                      </svg>
                     </button>
                   </li> 
                 ))

@@ -61,16 +61,11 @@ export function Auth() {
           <div className='article-auth__content-space'></div>
         </div>
           
-        <div className='article-auth__signIn'>
-            <button className='article-auth__signIn-option' onClick={handleGoogleSignIn}>
-                <img className='article-auth__logo' src='public\svg\Auth\google.svg' alt='Logo de google para inicio de sesión' />
-                <span className='article-auth__signIn-span'>Continuar con Google</span>
-            </button>
-        
-            <button className='article-auth__signIn-option'>
-                <img className='article-auth__logo' src='public\svg\Auth\Microsoft.svg' alt='Logo de google para inicio de sesión' />
-                <span className='article-auth__signIn-span'>Continuar con una cuenta de Microsoft</span>
-            </button>
+        <div className='article-auth__signIn__content'>
+          <button className='article-auth__signIn-option' onClick={handleGoogleSignIn}>
+              <img className='article-auth__logo' src='public\svg\Auth\google.svg' alt='Logo de google para inicio de sesión' />
+              <span className='article-auth__signIn-span'>Continuar con Google</span>
+          </button>
         </div>
       </article>
     )
