@@ -10,10 +10,9 @@ import { InProgress } from './ContentPage/Tasks/inProgress';
 import { getTasks } from '../js/database/queries/select/select.js';
 
 export function TaskFlow () {
-
-  const { user, emailVerificated } = UseAuth();
   const navigate = useNavigate();
 
+  const { user, emailVerificated } = UseAuth();
   const [proyecto, setProyecto] = useState(null);
   const [tasksFirebase, setTasksFirebase] = useState([]);
   const [droppedStates, setDroppedStates] = useState([null]);
@@ -28,15 +27,20 @@ export function TaskFlow () {
     {
       const getAllTasks = async () => {
         const getTasksAll = await getTasks({proyecto: proyecto});
-        const sortedTasks = getTasksAll.sort((a, b) => a.idTask - b.idTask);
-        setTasksFirebase(sortedTasks);
-        const estado = getTasksAll.map(item => item.estado);
-        setDroppedStates(estado);
+        if (getTasksAll == null) {
+          return
+        }
+        else {
+          const sortedTasks = getTasksAll.sort((a, b) => a.idTask - b.idTask);
+          setTasksFirebase(sortedTasks);
+          const estado = getTasksAll.map(item => item.estado);
+          setDroppedStates(estado);
+        } 
       }
       getAllTasks();
     }
     
-    setTaskRefresh(false)
+    setTaskRefresh(false);
   }
   , [proyecto, taskRefresh])
 

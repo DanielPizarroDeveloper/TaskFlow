@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { UseAuth } from '../Autenticacion/UseAuth';
 import { Init_Desplegable_Proyecto } from '../../js/css/Init';
 import { getProyectos } from '../../js/database/queries/select/select';
-import { CrearProyecto } from '../ContentPage/ModalTask/CrearProyecto';
+import { Crear } from '../ContentPage/ModalProyecto/Crear';
 
 import '../../css/menu.css';
 
@@ -108,7 +108,7 @@ export function Menu ({ onPromptProyecto }) {
         </div>
 
         {
-          isCreateVisible && <CrearProyecto changeStatus={isCreateVisible} callbackRefresh={callbackRefresh} />
+          isCreateVisible && <Crear changeStatus={isCreateVisible} callbackRefresh={callbackRefresh} />
         }
 
       </section>

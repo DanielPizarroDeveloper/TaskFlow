@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Dialog, Pane } from 'evergreen-ui';
-import { UseAuth } from '../../Autenticacion/UseAuth';
+import { UseAuth } from '../../Autenticacion/UseAuth.jsx';
 import { createProject } from '../../../js/database/queries/create/create.js';
 
 import '../../../css/ModalTask/Proyecto/Crear.css';
 
 // eslint-disable-next-line react/prop-types
-export function CrearProyecto ({changeStatus, callbackRefresh}) {
+export function Crear ({changeStatus, callbackRefresh}) {
   const { user, email } = UseAuth();
   const [isShown, setIsShown] = useState(changeStatus);
   const [nombreProyecto, setNombreProyecto] = useState(null);

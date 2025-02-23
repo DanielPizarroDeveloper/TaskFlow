@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import { Avatar, Badge } from 'evergreen-ui';
+import { Opcion } from '../ModalTask/opcion';
 import { useEffect, useRef, useState } from 'react';
-import { DeleteTask } from '../ModalTask/DeleteTask';
 import { Droppable } from '../../Arrastrable/Droppable';
 import { Draggable } from '../../Arrastrable/Draggable';
 import { updateTask } from '../../../js/database/queries/update/update.js';
 
 import '../../../css/card-progress.css';
+import { getTasks } from '../../../js/database/queries/select/select.js';
 
 export function InProgress({ taskID, proyecto, droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion, callbackFunction }) {
   const isFirstTime = useRef(true)
@@ -26,7 +27,14 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
     }
 
     const updateTaskID = async () => {
-      updateTask({idElement, estado, proyecto})
+      const getTasksAll = await getTasks({proyecto: proyecto});
+      if (getTasksAll.length === 0) {
+        return
+      }
+      else {
+        updateTask({idElement, estado, proyecto});
+      }
+      // updateTask({idElement, estado, proyecto})
     }
 
     updateTaskID()
@@ -88,7 +96,7 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
                   </div>
                 </article>
                 {
-                  isTaskOption && <DeleteTask isTalked={isTaskOption} onActivate={handlerActivate} />
+                  isTaskOption && <Opcion isTalked={isTaskOption} onActivate={handlerActivate} />
                 }
               </Draggable>
             ) : (
@@ -132,12 +140,17 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
                       <span className='article-card-progress__task__content__esfuerzo-span'>Esfuerzo</span>
                       <span className='article-card-progress__task__content__esfuerzo-span'>{esfuerzo}</span>
                     </div>
+
+                    <div className='article-card-progress__task-content-esfuerzo'>
+                      <span className='article-card-progress__task__content__esfuerzo-span'>Descripcion</span>
+                      <span className='article-card-progress__task__content__esfuerzo-span span__descripcion' title={descripcion}>{descripcion}</span>
+                    </div>
                   </div>
                 </div>
               </article>
               {
                 isTaskOption && 
-                  <DeleteTask
+                  <Opcion 
                     taskID={taskID}
                     ID={idElement}
                     proyecto={proyecto}

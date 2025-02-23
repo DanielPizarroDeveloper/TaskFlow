@@ -82,7 +82,6 @@
 
 .menu-section__lateral__article__content_block {
     margin-top: 10%;
-    margin-left: 5%;
 }
 
 .menu-section__lateral__article__content_none {
@@ -141,11 +140,11 @@
 }
 
 .menu-section__lateral__article__lu__li {
-    width: calc(80% + 10%);
+    width: calc(80% + 15%);
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
+    gap: 45px;
 }
 
 .menu-section__lateral_article__li__button__option__svg {

@@ -46,8 +46,8 @@ export function Auth() {
         <img className='article-auth-img' src='public\img\Logo.png' alt='Logo' />
         <form onSubmit={handlerSignIn}>
           <div className='article-auth__signIn__content'>
-              <input className='article-auth__signIn__content__input' type='email' placeholder='Correo electronico' onChange={(e) => setEmail(e.target.value)}/>
-              <input className='article-auth__signIn__content__input' type='password' placeholder='Contraseña' onChange={(e) => setPassword(e.target.value)} />
+              <input className='article-auth__signIn__content__input' type='email' placeholder='Correo electronico' autoComplete='username' onChange={(e) => setEmail(e.target.value)}/>
+              <input className='article-auth__signIn__content__input' type='password' placeholder='Contraseña' autoComplete='current-password' onChange={(e) => setPassword(e.target.value)} />
               <button className='article-auth__signIn__content__input-submit'>Iniciar Sesión</button>
               <span style={{color: 'black'}}>¿No tienes una cuenta?, <a style={{color: '#0f95cd', cursor:'pointer'}} onClick={handlerRedirect}><strong>Registrate aquí</strong></a></span>
           </div>

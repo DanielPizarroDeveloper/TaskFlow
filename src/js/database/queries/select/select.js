@@ -24,6 +24,7 @@ export const getProyectos = async (email) => {
     );
     const querySnapshot = await getDocs(proyectosQuery);
     return querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    
   } catch (error) {
     console.error('Msj: ', error);
   }

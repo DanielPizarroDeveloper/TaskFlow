@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react';
 import { UseAuth } from '../Autenticacion/UseAuth';
 import { LogoutAuth } from '../Autenticacion/AuthLogout';
-import { DetalleProyecto } from './ModalTask/DetalleProyecto';
-import { CrearTask } from '../ContentPage/ModalTask/CrearTask';
+import { Detalle } from './ModalProyecto/Detalle';
+import { Crear } from '../ContentPage/ModalTask/Crear';
 
 import '../../css/header.css';
 
@@ -65,10 +65,10 @@ export function Header({proyecto, callbackFunction}) {
         </button> 
       </div>
       {
-        isTaskCreateVisible && <CrearTask callbackFunction={callbackFunction} changeStatus={isTaskCreateVisible} proyectoSeleccioando={proyecto} />
+        isTaskCreateVisible && <Crear callbackFunction={callbackFunction} changeStatus={isTaskCreateVisible} proyectoSeleccioando={proyecto} />
       }
       {
-        isTaskDetalleVisible && <DetalleProyecto changeStatus={isTaskDetalleVisible} proyectoSeleccioando={proyecto} />
+        isTaskDetalleVisible && <Detalle changeStatus={isTaskDetalleVisible} proyectoSeleccioando={proyecto} />
       }
       {
         logoutStatus && <LogoutAuth changeStatus={logoutStatus} />

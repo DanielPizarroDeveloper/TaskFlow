@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
 import { Avatar, Badge } from 'evergreen-ui';
+import { Opcion } from '../ModalTask/opcion';
 import { useEffect, useRef, useState } from 'react';
-import { DeleteTask } from '../ModalTask/DeleteTask';
 import { Droppable } from '../../Arrastrable/Droppable';
 import { Draggable } from '../../Arrastrable/Draggable';
+import { getTasks } from '../../../js/database/queries/select/select.js';
 import { updateTask } from '../../../js/database/queries/update/update.js';
 
 import '../../../css/card-new.css';
 
 export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, responsable, estado, esfuerzo, descripcion, callbackFunction}) {
-
   const isFirstTime = useRef(true);
   const [isTaskOption, setIsTaskOption] = useState(false);
   const [isActivate, setIsActivate] = useState(true);
@@ -27,7 +27,13 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
     }
     
     const updateTaskID = async () => {
-      updateTask({idElement, estado, proyecto})
+      const getTasksAll = await getTasks({proyecto: proyecto});
+      if (getTasksAll.length === 0) {
+        return
+      }
+      else {
+        updateTask({idElement, estado, proyecto});
+      }
     }
     updateTaskID()
   }, [droppedStates, estado, idElement, proyecto])
@@ -89,7 +95,7 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
                   </div>
                 </article>
                 {
-                  isTaskOption && <DeleteTask isTalked={isTaskOption} onActivate={handlerActivate} />
+                  isTaskOption && <Opcion isTalked={isTaskOption} onActivate={handlerActivate} />
                 }
               </Draggable>
             ) : (
@@ -144,7 +150,7 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
               </article>
               {
                 isTaskOption && 
-                  <DeleteTask
+                  <Opcion 
                     taskID={taskID}
                     ID={idElement}
                     proyecto={proyecto}
@@ -152,7 +158,7 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
                     color={categoriaColor}
                     estado={estado}
                     descripcion={descripcion}
-                    isTalked={isTaskOption}
+                    isTalked={isTaskOption} 
                     onActivate={handlerActivate}
                     callbackFunction={callbackFunction}
                     deleteTaskSelected={deleteTaskSelected}
