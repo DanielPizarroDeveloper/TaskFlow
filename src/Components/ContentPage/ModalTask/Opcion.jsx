@@ -12,19 +12,12 @@ export function Opcion({taskID, ID, proyecto, tituloActividad, color, estado, de
 
     const [tabs] = useState(['Detalle Actividad', 'Actualizar Actividad', 'Eliminar Actividad']);
     const [selectedIndex, setSelectedIndex] = useState(0)
-
-    const handleClose = () => {
-      onActivate();
-    }
-
     return (
         <Dialog
           isShown={isShown}
-          header={close}
+          title='Opciones de la actividad'
           intent='danger'
           confirmLabel='Eliminar'
-          onCloseComplete={handleClose}
-          onCancel={handleClose}
           hasCancel={false}
           hasFooter={false}
         >
