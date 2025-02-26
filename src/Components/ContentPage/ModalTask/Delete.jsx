@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { getTasks } from '../../../js/database/queries/select/select.js';
-import { deleteTask } from '../../../js/database/queries/delete/delete.js';
-import { updateTaskID } from '../../../js/database/queries/update/update.js';
+import { getTasks } from '../../../js/database/queries/select/select';
+import { deleteTask } from '../../../js/database/queries/delete/delete';
+import { updateTaskID } from '../../../js/database/queries/update/update';
 
-import '../../../css/ModalTask/Task/Eliminar.css';
+import '../../../css/Dialog/option.css';
 
 export function Delete({taskID, ID, proyecto, tituloActividad, estado, descripcion, callbackFunction, deleteTaskSelected, onActivate}) {
   const [IDTask] = useState(ID);
@@ -27,22 +27,25 @@ export function Delete({taskID, ID, proyecto, tituloActividad, estado, descripci
 
   return (
     <form onSubmit={handler_Delete_Task}>
-      <article className='article-pane-eliminar'>
-        <p>¿Estas seguro de que quieres eliminar la siguiente actividad?</p>
-        <div className='pane-content'>
-          <p style={{color: '#0f95cd'}}><strong>Actividad:</strong></p>
-          <p>{tituloActividad}</p>
+      <article className='article-dialog'>
+      <p>¿Estas seguro de que quieres eliminar la siguiente actividad?</p>
+        <div className='dialog-proyecto__content'>
+          <span className='content-span__title'>Actividad</span>
+          <span className='content-span__dynamic_span'>{tituloActividad}</span>
         </div>
-        <div className='pane-content'>
-          <p style={{color: '#0f95cd'}}><strong>Estado:</strong></p>
-          <p>{estado}</p>
+
+        <div className='dialog-proyecto__content'>
+          <span className='content-span__title'>Estado</span>
+          <span className='content-span__dynamic_span'>{estado}</span>
         </div>
-        <div className='pane-content-description'>
-          <p style={{color: '#0f95cd'}}><strong>Descripción</strong></p>
+
+        <div className='dialog-proyecto__content'>
+          <span className='content-span__title'>Descripción</span>
           <p>{descripcion}</p>
         </div>
-        <div>
-          <button className='pane-content-submit__delete' type='submit'>Eliminar</button>
+
+        <div className='dialog-button'>
+          <button className='dialog-button-submit delete' type='submit'>Eliminar</button>
         </div>
       </article>
     </form>

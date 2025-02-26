@@ -5,8 +5,6 @@ import { Detalle } from './Detalle';
 import { Actualizar } from './Actualizar';
 import { Dialog, Pane, Tab, Tablist } from 'evergreen-ui';
 
-import '../../../css/ModalTask/Task/Eliminar.css';
-
 export function Opcion ({taskID, ID, proyecto, tituloActividad, estado, descripcion, isTalked, onActivate, callbackFunction, deleteTaskSelected}) {
     const [isShown] = useState(isTalked);
 
@@ -21,7 +19,7 @@ export function Opcion ({taskID, ID, proyecto, tituloActividad, estado, descripc
           hasCancel={false}
           hasFooter={false}
         >
-            <Tablist marginBottom={16} display={'flex'} justifyContent={'center'} flexBasis={240} marginRight={24}>
+            <Tablist marginBottom={16} display={'flex'} justifyContent={'space-evenly'} flexBasis={240}>
               {tabs.map((tab, index) => (
                 <Tab
                   aria-controls={`panel-${tab}`}

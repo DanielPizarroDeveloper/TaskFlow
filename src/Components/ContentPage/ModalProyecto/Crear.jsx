@@ -3,7 +3,7 @@ import { Dialog, Pane } from 'evergreen-ui';
 import { UseAuth } from '../../Autenticacion/UseAuth';
 import { createProject } from '../../../js/database/queries/create/create';
 
-import '../../../css/ModalTask/Proyecto/Crear.css';
+import '../../../css/Dialog/project/create.css';
 
 // eslint-disable-next-line react/prop-types
 export function Crear ({changeStatus, callbackRefresh}) {

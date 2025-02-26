@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getProyecto } from '../../../js/database/queries/select/select.js';
 
-import '../../../css/ModalTask/Proyecto/Detalle.css';
+import '../../../css/Dialog/option.css';
 
 export function Detalle({ proyectoSeleccioando }) {
   const [proyectoFirebase, setProyectoFirebase] = useState([]);
@@ -16,20 +16,20 @@ export function Detalle({ proyectoSeleccioando }) {
 
   return (
     proyectoFirebase.map((proyectoFB) => (
-      <article key={proyectoFB.id} style={{display: 'flex', flexDirection: 'column', gap: '20px', alignContent: 'center'}}>
-        <div style={{display: 'flex', flexDirection:'column', alignItems: 'center', gap: '10px'}}>
-            <span style={{color: '#0f95cd'}}>Proyecto</span>
-            <span style={{fontSize: '14px', color: 'black'}}>{proyectoFB.nombreProyecto}</span>
+      <article className='article-dialog' key={proyectoFB.id}>
+        <div className='dialog-proyecto__content'>
+            <span className='content-span__title'>Proyecto</span>
+            <span className='content-span__dynamic_span'>{proyectoFB.nombreProyecto}</span>
         </div>
 
-        <div style={{display: 'flex', flexDirection:'column', alignItems: 'center', gap: '10px'}}>
-            <span style={{color: '#0f95cd'}}>Responsable</span>
-            <span style={{fontSize: '14px', color: 'black'}}>{proyectoFB.responsableProyecto}</span>
+        <div className='dialog-proyecto__content'>
+            <span className='content-span__title'>Responsable</span>
+            <span className='content-span__dynamic_span'>{proyectoFB.responsableProyecto}</span>
         </div>
 
-        <div style={{display: 'flex', flexDirection:'column', alignItems: 'center', gap: '10px'}}>
-            <span style={{color: '#0f95cd'}}>Descripción general</span>
-            <p style={{fontSize: '14px', color: 'black'}}>{proyectoFB.descripcionProyecto}</p>
+        <div className='dialog-proyecto__content'>
+            <span className='content-span__title'>Descripción general</span>
+            <p className='content-span__dynamic_span'>{proyectoFB.descripcionProyecto}</p>
         </div>
       </article>
     ))

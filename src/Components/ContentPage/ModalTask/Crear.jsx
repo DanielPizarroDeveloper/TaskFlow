@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import { Dialog, Pane } from 'evergreen-ui';
-import { UseAuth } from '../../Autenticacion/UseAuth.jsx';
-import { createTask } from '../../../js/database/queries/create/create.js';
-import { getNumberTasks } from '../../../js/database/queries/select/select.js';
+import { UseAuth } from '../../Autenticacion/UseAuth';
+import { createTask } from '../../../js/database/queries/create/create';
+import { getNumberTasks } from '../../../js/database/queries/select/select';
 
-import '../../../css/ModalTask/Task/Crear.css'
+import '../../../css/Dialog/task/create.css'
 
 export function Crear ({changeStatus, proyectoSeleccioando, callbackFunction}) {
   const [titulo, setTitulo] = useState('');

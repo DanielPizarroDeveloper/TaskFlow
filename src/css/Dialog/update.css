@@ -1,0 +1,39 @@
+.content-update__description {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+.content-button__svg {
+    width: 20px;
+}
+
+.content-description__button {
+    background: var(--custom-color-transparent);
+    border: 0;
+    width: auto;
+}
+
+.content-span__dynamic_span {
+    font-size: 14px;
+    color: var(--custom-color-black-default);
+}
+
+.content__text-area {
+    height: 50px;
+    width: 480px;
+    border-radius: 10px;
+}
+
+.update {
+    background-color: var(--custom-color-button);
+}
+
+.none {
+    display: none;
+}
+
+.block {
+    display: block;
+}

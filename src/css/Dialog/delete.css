@@ -16,14 +16,6 @@
     align-items: center;
 }
 
-.pane-content-submit__delete {
-    width: 100px;
-    height: 40px;
-    border: 0;
-    margin-top: 2%;
-    margin-bottom: 2%;
+.delete {
     background-color: var(--custom-color-button-danger);
-    border-color: var(--custom-color-button-danger);
-    color: var(--custom-color-text-button);
-    border-radius: 10px;
 }

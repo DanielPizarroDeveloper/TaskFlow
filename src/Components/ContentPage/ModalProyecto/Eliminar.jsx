@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { getProyecto } from '../../../js/database/queries/select/select';
 import { deleteProject } from '../../../js/database/queries/delete/delete';
 
-import '../../../css/ModalTask/Proyecto/Eliminar.css';
+import '../../../css/Dialog/option.css';
+import '../../../css/Dialog/delete.css';
 
 export function Eliminar ({proyectoSeleccioando, callbackRefresh, changeIsShown}) {
   const [proyectoFirebase, setProyectoFirebase] = useState([]);
@@ -24,21 +25,21 @@ export function Eliminar ({proyectoSeleccioando, callbackRefresh, changeIsShown}
   
   return (
     proyectoFirebase.map((proyectoFB) => (
-      <article className='article-dialog__Elimiar' key={proyectoFB.id}>
-          <div className='dialog-proyecto-delete__content'>
-              <span className='content-span-delete__title'>Proyecto</span>
-              <span className='content-span-delete__dynamic_span'>{proyectoFB.nombreProyecto}</span>
+      <article className='article-dialog' key={proyectoFB.id}>
+          <div className='dialog-proyecto__content'>
+              <span className='content-span__title'>Proyecto</span>
+              <span className='content-span__dynamic_span'>{proyectoFB.nombreProyecto}</span>
           </div>    
-          <div className='dialog-proyecto-delete__content'>
-              <span className='content-span-delete__title'>Responsable</span>
-              <span className='content-span-delete__dynamic_span'>{proyectoFB.responsableProyecto}</span>
+          <div className='dialog-proyecto__content'>
+              <span className='content-span__title'>Responsable</span>
+              <span className='content-span__dynamic_span'>{proyectoFB.responsableProyecto}</span>
           </div>
-          <div className='dialog-proyecto-delete__content'>
-              <span className='content-span-delete__title'>Descripción general</span>
-              <p className='content-span-delete__dynamic_span'>{proyectoFB.descripcionProyecto}</p>
+          <div className='dialog-proyecto__content'>
+              <span className='content-span__title'>Descripción general</span>
+              <p className='content-span__dynamic_span'>{proyectoFB.descripcionProyecto}</p>
           </div>
-          <div className='dialog-delete-button'>
-              <button className='pane-content-submit__delete' type='submit' onClick={handlerClick_DeleteProject}>Eliminar</button>
+          <div className='dialog-button'>
+              <button className='dialog-button-submit delete' type='submit' onClick={handlerClick_DeleteProject}>Eliminar</button>
           </div>
       </article>
     ))
