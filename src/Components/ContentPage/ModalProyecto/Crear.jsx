@@ -11,8 +11,8 @@ export function Crear ({changeStatus, callbackRefresh}) {
   const [isShown, setIsShown] = useState(changeStatus);
   const [nombreProyecto, setNombreProyecto] = useState(null);
   const [descripcionProyecto, setDescripcionProyecto] = useState(null);
-      
-  const crearNuevoProyecto = (event) => {
+
+  const crearNuevoProyecto = async(event) => {
     event.preventDefault();
     createProject({nombreProyecto, user, descripcionProyecto, email});
     setIsShown((prevState) => !prevState);

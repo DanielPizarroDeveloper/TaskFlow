@@ -10,7 +10,8 @@ export const getProyecto = async (proyectoFiltro) => {
         );
     
         const querySnapshot = await getDocs(getQuery)
-        return querySnapshot.docs.map((doc) => ({... doc.data(), id: doc.id }))
+        return querySnapshot.docs.map((doc) => ({... doc.data(), id: doc.id }));
+
     } catch (error) {
         console.error('Msj: ', error)
     }
@@ -22,6 +23,7 @@ export const getProyectos = async (email) => {
       collection(db, 'Proyectos'),
       where('email', '==', email)
     );
+
     const querySnapshot = await getDocs(proyectosQuery);
     return querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     
@@ -29,7 +31,6 @@ export const getProyectos = async (email) => {
     console.error('Msj: ', error);
   }
 };
-
 
 //SELECT - TAREAS DE PROYECTOS
 export const getTasks = async ({proyecto}) => {
@@ -55,6 +56,7 @@ export const getNumberTasks = async ({proyectoSeleccioando}) => {
     
         const taskSnapshot = await getDocs(getQuery)
         return taskSnapshot.size
+        
     } catch (error) {
         console.error('Msj: ', error)
     }

@@ -8,13 +8,13 @@ import { getNumberTasks } from '../../../js/database/queries/select/select.js';
 import '../../../css/ModalTask/Task/Crear.css'
 
 export function Crear ({changeStatus, proyectoSeleccioando, callbackFunction}) {
-  const [titulo, setTitulo] = useState('')
-  const [estado, setEstado] = useState('NUEVO')
-  const [esfuerzo, setEsfuerzo] = useState('1')
-  const [descripcion, setDescripcion] = useState('')
-  const [taskID, setTaskID] = useState(0)
-  const [isShown, setIsShown] = useState(changeStatus)
-  const [responsable, setResponsable] = useState('')
+  const [titulo, setTitulo] = useState('');
+  const [estado, setEstado] = useState('NUEVO');
+  const [esfuerzo, setEsfuerzo] = useState('1');
+  const [descripcion, setDescripcion] = useState('');
+  const [taskID, setTaskID] = useState(0);
+  const [isShown, setIsShown] = useState(changeStatus);
+  const [responsable, setResponsable] = useState('');
 
   const { user } = UseAuth()
 

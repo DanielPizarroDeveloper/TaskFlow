@@ -23,6 +23,9 @@ export const NotificacionesProyecto = () => {
     let success = [];
     let successUpdate = [];
     let successDelete = [];
+
+    let warning = [];
+
     let danger = [];
     let dangerUpdate = [];
     let dangerDelete = [];
@@ -33,8 +36,11 @@ export const NotificacionesProyecto = () => {
     successUpdate[0] = 'Proyecto actualizado exitosamente';
     successUpdate[1] = 'La descripción de tu proyecto se ha actualizado correctamente. 🎉';
 
-    successDelete[0] = 'Proyecto Eliminado existosamente';
+    successDelete[0] = 'Proyecto eliminado existosamente';
     successDelete[1] = 'Se ha eliminado el proyecto correctamente. 🎉';
+
+    warning[0] = 'Proyecto previamente registrado';
+    warning[1] = 'El proyecto que esta creando ya existe en los registros. Por favor, ingresar otro nombre a su proyecto. 🔄';
 
     danger[0] = 'Error al crear el proyecto';
     danger[1] = 'Ocurrió un problema al intentar agregar tu proyecto. Por favor, inténtalo nuevamente. 🚨';
@@ -45,7 +51,7 @@ export const NotificacionesProyecto = () => {
     dangerUpdate[0] = 'Error al actualizar el proyecto';
     dangerUpdate[1] = 'Ocurrió un problema al intentar actualizar la descripción. Por favor, inténtalo nuevamente. 🚨';
 
-    return {success, successUpdate, successDelete, danger, dangerUpdate, dangerDelete };
+    return {success, successUpdate, successDelete, warning, danger, dangerUpdate, dangerDelete };
 }
 
 export const NotificacionesUsuario = () => {

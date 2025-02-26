@@ -34,15 +34,15 @@ export function Menu ({ onPromptProyecto }) {
   }, [refresh, email])
 
   const callbackRefresh = (callbackRefresh) => {
-    setRefresh(callbackRefresh)
+    setRefresh(callbackRefresh);
   }
 
   const sendProyectoSeleccionado = (proyectoSeleccionado) => { 
-    onPromptProyecto(proyectoSeleccionado)
+    onPromptProyecto(proyectoSeleccionado);
   }
 
   const handlerClickProyecto = () => {
-    var status = statusProyecto
+    var status = statusProyecto;
     setStatusProyecto(!status);
   }
 

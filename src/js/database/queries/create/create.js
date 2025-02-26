@@ -1,10 +1,11 @@
 import { toaster } from 'evergreen-ui';
 import { db } from '../../conection/conn';
+import { getProyecto } from '../select/select';
 import { setDoc, doc, addDoc, collection } from 'firebase/firestore';
-import { NotificacionesTareas } from '../../../../notification/Notificaciones';
-import { NotificacionesProyecto } from '../../../../notification/Notificaciones';
+import { NotificacionesProyecto, NotificacionesTareas } from '../../../../notification/Notificaciones';
 
 const successMsjProyecto = NotificacionesProyecto().success;
+const warningMsjProyecto = NotificacionesProyecto().warning;
 const dangerMsjProyecto = NotificacionesProyecto().danger;
 
 const successMsjTarea = NotificacionesTareas().success;
@@ -13,23 +14,32 @@ const dangerMsjTarea = NotificacionesTareas().danger;
 //CREATE - PROYECTOS
 export const createProject = async ({nombreProyecto, user, descripcionProyecto, email}) => {
     try {
-        const docRef = doc(db, 'Proyectos', nombreProyecto);
-        await setDoc(docRef, {
-            nombreProyecto: nombreProyecto,
-            responsableProyecto: user,
-            descripcionProyecto: descripcionProyecto,
-            email: email
-        });
-
-        toaster.success(successMsjProyecto[0], {
-          description: successMsjProyecto[1],
-        });
-
-    // eslint-disable-next-line no-unused-vars
+        let check = await getProyecto(nombreProyecto);
+        
+        if (check.length === 0) {
+            const docRef = doc(db, 'Proyectos', nombreProyecto);
+            await setDoc(docRef, {
+                nombreProyecto: nombreProyecto,
+                responsableProyecto: user,
+                descripcionProyecto: descripcionProyecto,
+                email: email
+            });
+            
+            toaster.success(successMsjProyecto[0], {
+              description: successMsjProyecto[1],
+            });
+        }
+        else {
+            toaster.warning(warningMsjProyecto[0], {
+              description: warningMsjProyecto[1],
+            });
+        }
     } catch (error) {
         toaster.danger(dangerMsjProyecto[0], {
           description: dangerMsjProyecto[1],
         });
+
+        console.error(error);
     }
 };
 
