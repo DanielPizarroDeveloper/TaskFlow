@@ -154,8 +154,7 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
                     taskID={taskID}
                     ID={idElement}
                     proyecto={proyecto}
-                    tituloActividad={titulo} 
-                    color={categoriaColor}
+                    tituloActividad={titulo}
                     estado={estado}
                     descripcion={descripcion}
                     isTalked={isTaskOption} 

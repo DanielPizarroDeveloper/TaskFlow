@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Dialog, Pane } from 'evergreen-ui';
-import { UseAuth } from '../../Autenticacion/UseAuth.jsx';
-import { createProject } from '../../../js/database/queries/create/create.js';
+import { UseAuth } from '../../Autenticacion/UseAuth';
+import { createProject } from '../../../js/database/queries/create/create';
 
 import '../../../css/ModalTask/Proyecto/Crear.css';
 

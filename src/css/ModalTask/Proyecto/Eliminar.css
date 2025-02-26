@@ -1,0 +1,28 @@
+.article-dialog__Elimiar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    align-content: center;
+}
+
+.dialog-proyecto-delete__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.content-span-delete__title {
+    color: var(--custom-color-blue-bright);
+}
+
+.content-span-delete__dynamic_span {
+    font-size: 14px;
+    color: var(--custom-color-black-default);
+}
+
+.dialog-delete-button {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around;
+}

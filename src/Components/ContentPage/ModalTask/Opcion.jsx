@@ -7,10 +7,10 @@ import { Dialog, Pane, Tab, Tablist } from 'evergreen-ui';
 
 import '../../../css/ModalTask/Task/Eliminar.css';
 
-export function Opcion({taskID, ID, proyecto, tituloActividad, color, estado, descripcion, isTalked, onActivate, callbackFunction, deleteTaskSelected}) {
+export function Opcion ({taskID, ID, proyecto, tituloActividad, estado, descripcion, isTalked, onActivate, callbackFunction, deleteTaskSelected}) {
     const [isShown] = useState(isTalked);
 
-    const [tabs] = useState(['Detalle Actividad', 'Actualizar Actividad', 'Eliminar Actividad']);
+    const [tabs] = useState(['Detalle', 'Actualizar', 'Eliminar']);
     const [selectedIndex, setSelectedIndex] = useState(0)
     return (
         <Dialog
@@ -28,7 +28,7 @@ export function Opcion({taskID, ID, proyecto, tituloActividad, color, estado, de
                   isSelected={index === selectedIndex}
                   key={tab}
                   onSelect={() => setSelectedIndex(index)}
-                  style={{color: color}}
+                  style={{color: '#0f95cd'}}
                 >
                   {tab}
                 </Tab>
@@ -42,26 +42,24 @@ export function Opcion({taskID, ID, proyecto, tituloActividad, color, estado, de
                 role="tabpanel"
                 display={index === selectedIndex ? 'block' : 'none'}
               >
-                {tab === 'Eliminar Actividad' ? (
+                {tab === 'Eliminar' ? (
                   <Delete 
                       taskID={taskID}
                       ID={ID}
                       proyecto={proyecto}
                       tituloActividad={tituloActividad}
-                      color={color}
                       estado={estado}
                       descripcion={descripcion}
                       callbackFunction={callbackFunction} 
                       deleteTaskSelected={deleteTaskSelected}
                       onActivate={onActivate}
                   />
-                ) : tab === 'Actualizar Actividad' ? (
+                ) : tab === 'Actualizar' ? (
                   <Actualizar 
                     taskID={taskID}
                     ID={ID}
                     proyecto={proyecto}
                     tituloActividad={tituloActividad}
-                    color={color}
                     estado={estado}
                     descripcion={descripcion}
                     callbackFunction={callbackFunction} 
@@ -72,7 +70,6 @@ export function Opcion({taskID, ID, proyecto, tituloActividad, color, estado, de
                   <Detalle
                     proyecto={proyecto}
                     tituloActividad={tituloActividad}
-                    color={color}
                     estado={estado}
                     descripcion={descripcion}
                   />

@@ -154,8 +154,7 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
                     taskID={taskID}
                     ID={idElement}
                     proyecto={proyecto}
-                    tituloActividad={titulo} 
-                    color={categoriaColor}
+                    tituloActividad={titulo}
                     estado={estado}
                     descripcion={descripcion}
                     isTalked={isTaskOption} 

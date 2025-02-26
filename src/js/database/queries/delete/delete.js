@@ -1,12 +1,32 @@
 import { toaster } from 'evergreen-ui';
-import { db } from '../../conection/conn.js';
+import { db } from '../../conection/conn';
 import { doc, deleteDoc } from 'firebase/firestore';
-import { NotificacionesTareas } from '../../../../notification/Notificaciones.js';
+import { NotificacionesTareas, NotificacionesProyecto } from '../../../../notification/Notificaciones';
 
 const successMsj = NotificacionesTareas().successDelete;
 const dangerMsj = NotificacionesTareas().dangerDelete;
 
+const successDeleteMsj = NotificacionesProyecto().successDelete;
+const dangerDeleteMsj = NotificacionesProyecto().dangerDelete;
+
 //DELETE - PROYECTOS
+export const deleteProject = async (proyecto) => {
+    try {
+        const taskDoc = doc(db, `Proyectos/${proyecto}`);
+        await deleteDoc(taskDoc);
+
+        toaster.success(successDeleteMsj[0], {
+          description: successDeleteMsj[1],
+        });
+
+    } catch (error) {
+        toaster.danger(dangerDeleteMsj[0], {
+            description: dangerDeleteMsj[1],
+        });
+
+        console.error(error);
+    }
+}
 
 //DELETE - TAREAS
 export const deleteTask = async (IDTask, proyecto) => {

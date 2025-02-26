@@ -1,9 +1,8 @@
 import { toaster } from 'evergreen-ui';
-import { db } from '../../conection/conn.js';
-import { setDoc, doc } from 'firebase/firestore';
-import { addDoc, collection } from 'firebase/firestore';
-import { NotificacionesTareas } from '../../../../notification/Notificaciones.js';
-import { NotificacionesProyecto } from '../../../../notification/Notificaciones.js';
+import { db } from '../../conection/conn';
+import { setDoc, doc, addDoc, collection } from 'firebase/firestore';
+import { NotificacionesTareas } from '../../../../notification/Notificaciones';
+import { NotificacionesProyecto } from '../../../../notification/Notificaciones';
 
 const successMsjProyecto = NotificacionesProyecto().success;
 const dangerMsjProyecto = NotificacionesProyecto().danger;

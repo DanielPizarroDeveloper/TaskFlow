@@ -6,7 +6,7 @@ import { updateTaskID } from '../../../js/database/queries/update/update.js';
 
 import '../../../css/ModalTask/Task/Eliminar.css';
 
-export function Actualizar({taskID, ID, proyecto, tituloActividad, color, estado, descripcion, callbackFunction, deleteTaskSelected, onActivate}) {
+export function Actualizar({taskID, ID, proyecto, tituloActividad, estado, descripcion, callbackFunction, deleteTaskSelected, onActivate}) {
   const [IDTask] = useState(ID);
 
   const handler_Delete_Task = async () => {
@@ -30,15 +30,15 @@ export function Actualizar({taskID, ID, proyecto, tituloActividad, color, estado
       <article className='article-pane-eliminar'>
         <p>¿Estas seguro de que quieres actualizar la siguiente actividad?</p>
         <div className='pane-content'>
-          <p style={{color: color}}><strong>Actividad:</strong></p>
+          <p style={{color: '#0f95cd'}}><strong>Actividad:</strong></p>
           <p>{tituloActividad}</p>
         </div>
         <div className='pane-content'>
-          <p style={{color: color}}><strong>Estado:</strong></p>
+          <p style={{color: '#0f95cd'}}><strong>Estado:</strong></p>
           <p>{estado}</p>
         </div>
         <div className='pane-content-description'>
-          <p style={{color: color}}><strong>Descripción</strong></p>
+          <p style={{color: '#0f95cd'}}><strong>Descripción</strong></p>
           <p>{descripcion}</p>
         </div>
         <div>

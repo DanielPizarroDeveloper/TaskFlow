@@ -41,7 +41,8 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
     updateTaskID()
   }, [droppedStates, estado, idElement, proyecto])
 
-  //Este método va a cambiar el valor del useState de False a True cuando el valor cambie
+  //Este método va a cambiar el valor del useState de False a True cuando el valor cambie.
+  //Su función es renderizar las actividades de las columnas
   const handlerActivate = () => {
     setIsTaskOption((prevState) => !prevState);
     setIsActivate((prevState) => !prevState);
@@ -155,8 +156,7 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
                     taskID={taskID}
                     ID={idElement}
                     proyecto={proyecto}
-                    tituloActividad={titulo} 
-                    color={categoriaColor}
+                    tituloActividad={titulo}
                     estado={estado}
                     descripcion={descripcion}
                     isTalked={isTaskOption} 

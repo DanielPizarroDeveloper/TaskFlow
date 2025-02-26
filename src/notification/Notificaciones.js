@@ -21,15 +21,31 @@ export const NotificacionesTareas = () => {
 
 export const NotificacionesProyecto = () => {
     let success = [];
+    let successUpdate = [];
+    let successDelete = [];
     let danger = [];
+    let dangerUpdate = [];
+    let dangerDelete = [];
 
     success[0] = 'Proyecto creado exitosamente';
     success[1] = 'Tu proyecto ha sido agregado correctamente. 🎉';
 
+    successUpdate[0] = 'Proyecto actualizado exitosamente';
+    successUpdate[1] = 'La descripción de tu proyecto se ha actualizado correctamente. 🎉';
+
+    successDelete[0] = 'Proyecto Eliminado existosamente';
+    successDelete[1] = 'Se ha eliminado el proyecto correctamente. 🎉';
+
     danger[0] = 'Error al crear el proyecto';
     danger[1] = 'Ocurrió un problema al intentar agregar tu proyecto. Por favor, inténtalo nuevamente. 🚨';
 
-    return {success, danger};
+    dangerDelete[0] = 'Error al eliminar el proyecto';
+    dangerDelete[1] = 'Ocurrió un problema al intentar eliminar tu proyecto. Por favor, inténtalo nuevamente. 🚨';
+
+    dangerUpdate[0] = 'Error al actualizar el proyecto';
+    dangerUpdate[1] = 'Ocurrió un problema al intentar actualizar la descripción. Por favor, inténtalo nuevamente. 🚨';
+
+    return {success, successUpdate, successDelete, danger, dangerUpdate, dangerDelete };
 }
 
 export const NotificacionesUsuario = () => {

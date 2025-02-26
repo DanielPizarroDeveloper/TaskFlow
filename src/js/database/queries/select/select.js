@@ -1,4 +1,4 @@
-import { db } from '../../conection/conn.js';
+import { db } from '../../conection/conn';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
 //SELECT - PROYECTOS

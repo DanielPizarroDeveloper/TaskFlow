@@ -1,20 +1,23 @@
 import { useEffect, useState } from 'react';
+import { Opcion } from './ModalProyecto/Opcion';
 import { UseAuth } from '../Autenticacion/UseAuth';
+import { Crear } from '../ContentPage/ModalProyecto/Crear';
 import { Init_Desplegable_Proyecto } from '../../js/css/Init';
 import { getProyectos } from '../../js/database/queries/select/select';
-import { Crear } from '../ContentPage/ModalProyecto/Crear';
 
 import '../../css/menu.css';
 
 // eslint-disable-next-line react/prop-types
 export function Menu ({ onPromptProyecto }) {
   const { email } = UseAuth();
-  const [proyecto, setProyecto] = useState(true);
+  const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
+  const [statusProyecto, setStatusProyecto] = useState(true);
   const [isCreateVisible, setIsCreateVisible] = useState(false);
   const [proyectosFirebase, setProyectosFirebase] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const [isOption, setIsOption] = useState(false);
 
-  var { pickList_open_proyecto, pickList_close_proyecto, article_proyecto } = Init_Desplegable_Proyecto(proyecto);
+  var { pickList_open_proyecto, pickList_close_proyecto, article_proyecto } = Init_Desplegable_Proyecto(statusProyecto);
 
   useEffect(() => {
     const fetchProyectos = async () => {
@@ -25,7 +28,7 @@ export function Menu ({ onPromptProyecto }) {
           return loadedProyectos;
         }
         return prevProyectos;
-      })
+      });
     }
     fetchProyectos();
   }, [refresh, email])
@@ -34,14 +37,13 @@ export function Menu ({ onPromptProyecto }) {
     setRefresh(callbackRefresh)
   }
 
-  // Envia el proyecto seleccionado
   const sendProyectoSeleccionado = (proyectoSeleccionado) => { 
     onPromptProyecto(proyectoSeleccionado)
   }
 
   const handlerClickProyecto = () => {
-    var status = proyecto
-    setProyecto(!status);
+    var status = statusProyecto
+    setStatusProyecto(!status);
   }
 
   const handlerClickSendProyecto = (proyectoSeleccionado) => {
@@ -53,8 +55,9 @@ export function Menu ({ onPromptProyecto }) {
     setIsCreateVisible(!statusModal);
   }
 
-  const handlerClickModal = () => {
-    alert('OK!');
+  const handlerClickModal = (clickProyecto) => {
+    setProyectoSeleccionado(clickProyecto);
+    setIsOption((prevState) => !prevState);
   }
 
   return (
@@ -95,7 +98,7 @@ export function Menu ({ onPromptProyecto }) {
                       <span>{proyecto.nombreProyecto}</span>
                     </button>
                     
-                    <button className='menu-section__lateral_article__li__button__option' onClick={() => handlerClickModal()}>
+                    <button className='menu-section__lateral_article__li__button__option' onClick={() => handlerClickModal(proyecto.nombreProyecto)}>
                       <svg className='menu-section__lateral_article__li__button__option__svg' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                         <path d='M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z' />
                       </svg>
@@ -106,9 +109,12 @@ export function Menu ({ onPromptProyecto }) {
             </ul>
           </article>
         </div>
-
         {
           isCreateVisible && <Crear changeStatus={isCreateVisible} callbackRefresh={callbackRefresh} />
+        }
+
+        {
+          isOption && <Opcion isOption={isOption} setIsOption={setIsOption} proyecto={proyectoSeleccionado} callbackRefresh={callbackRefresh} />
         }
 
       </section>
