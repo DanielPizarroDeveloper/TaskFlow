@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Avatar, Badge } from 'evergreen-ui';
-import { Opcion } from '../ModalTask/opcion';
+import { Opcion } from '../ModalTask/Opcion';
 import { useEffect, useRef, useState } from 'react';
 import { Droppable } from '../../Arrastrable/Droppable';
 import { Draggable } from '../../Arrastrable/Draggable';
@@ -29,10 +29,9 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
         return;
       }
       else {
-        updateTask({idElement, estado, proyecto});
+        updateTask({idElement, proyecto, titulo, estado, esfuerzo, descripcion});
       }
     }
-
     updateTaskID();
   }, [droppedStates, estado, idElement, proyecto])
 
@@ -160,6 +159,7 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
                     proyecto={proyecto}
                     tituloActividad={titulo}
                     estado={estado}
+                    esfuerzo={esfuerzo}
                     descripcion={descripcion}
                     isTalked={isTaskOption} 
                     onActivate={handlerActivate}

@@ -30,12 +30,12 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
         return
       }
       else {
-        updateTask({idElement, estado, proyecto});
+        updateTask({idElement, proyecto, titulo, estado, esfuerzo, descripcion});
       }
     }
 
     updateTaskID()
-  }, [droppedStates, estado, idElement, proyecto])
+  }, [droppedStates, estado, idElement, proyecto, descripcion, esfuerzo, titulo])
 
   //Este método va a cambiar el valor del useState de False a True cuando el valor cambie.
   //Su función es renderizar las actividades de las columnas
@@ -158,6 +158,7 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
                     proyecto={proyecto}
                     tituloActividad={titulo}
                     estado={estado}
+                    esfuerzo={esfuerzo}
                     descripcion={descripcion}
                     isTalked={isTaskOption} 
                     onActivate={handlerActivate}

@@ -92,6 +92,7 @@ span,
 input[type='text'],
 input[type='email'],
 input[type='password'],
+input[type='number'],
 button,
 select {
   font-family: var(--custom-font-family);
@@ -103,6 +104,7 @@ select {
 input[type='text'],
 input[type='email'],
 input[type='password'],
+input[type='number'],
 textarea,
 select, 
 button {
@@ -112,6 +114,7 @@ button {
 input[type='text'],
 input[type='email'],
 input[type='password'],
+input[type='number'],
 textarea,
 select {  
   padding-left: 10px;
@@ -133,6 +136,11 @@ input[type='email']:focus {
 }
 
 input[type='password']:focus {
+  border-color: var(--custom-color-border-focus);
+  box-shadow: var(--custom-box-shadow-focus);
+}
+
+input[type='number']:focus {
   border-color: var(--custom-color-border-focus);
   box-shadow: var(--custom-box-shadow-focus);
 }

@@ -6,7 +6,7 @@ import { updateTaskID } from '../../../js/database/queries/update/update';
 
 import '../../../css/Dialog/option.css';
 
-export function Delete({taskID, ID, proyecto, tituloActividad, estado, descripcion, callbackFunction, deleteTaskSelected, onActivate}) {
+export function Delete({taskID, ID, proyecto, tituloActividad, estado, esfuerzo, descripcion, callbackFunction, deleteTaskSelected, onActivate}) {
   const [IDTask] = useState(ID);
 
   const handler_Delete_Task = async () => {
@@ -37,6 +37,11 @@ export function Delete({taskID, ID, proyecto, tituloActividad, estado, descripci
         <div className='dialog-proyecto__content'>
           <span className='content-span__title'>Estado</span>
           <span className='content-span__dynamic_span'>{estado}</span>
+        </div>
+
+        <div className='dialog-proyecto__content'>
+          <span className='content-span__title'>Esfuerzo</span>
+          <span className='content-span__dynamic_span'>{esfuerzo}</span>
         </div>
 
         <div className='dialog-proyecto__content'>

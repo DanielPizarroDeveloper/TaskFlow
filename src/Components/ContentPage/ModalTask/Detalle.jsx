@@ -1,7 +1,7 @@
 
 import '../../../css/Dialog/option.css';
 
-export function Detalle ({proyecto, tituloActividad, color, estado, descripcion}) {
+export function Detalle ({proyecto, tituloActividad, color, estado, esfuerzo, descripcion}) {
   return(
     <article className='article-dialog'>
       <div className='dialog-proyecto__content'>
@@ -12,6 +12,11 @@ export function Detalle ({proyecto, tituloActividad, color, estado, descripcion}
       <div className='dialog-proyecto__content'>
         <span className='content-span__title'>Estado</span>
         <span className='content-span__dynamic_span'>{estado}</span>
+      </div>
+
+      <div className='dialog-proyecto__content'>
+        <span className='content-span__title'>Esfuerzo</span>
+        <span className='content-span__dynamic_span'>{esfuerzo}</span>
       </div>
 
       <div className='dialog-proyecto__content'>

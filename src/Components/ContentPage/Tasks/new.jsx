@@ -29,7 +29,7 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
         return
       }
       else {
-        updateTask({idElement, estado, proyecto});
+        updateTask({idElement, proyecto, titulo, estado, esfuerzo, descripcion});
       }
     }
     updateTaskID()
@@ -159,6 +159,7 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
                     proyecto={proyecto}
                     tituloActividad={titulo}
                     estado={estado}
+                    esfuerzo={esfuerzo}
                     descripcion={descripcion}
                     isTalked={isTaskOption} 
                     onActivate={handlerActivate}

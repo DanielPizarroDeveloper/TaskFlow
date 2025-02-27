@@ -1,11 +1,15 @@
 export const NotificacionesTareas = () => {
     let success = [];
+    let successUpdate = [];
     let successDelete = [];
     let danger = [];
     let dangerDelete = [];
 
     success[0] = 'Tarea creada exitosamente';
     success[1] = 'Tu nueva tarea ha sido agregada correctamente. 🎉';
+
+    successUpdate[0] = 'Tarea actualizada exitosamente';
+    successUpdate[1] = 'La tarea ha sido actualiza con éxito. 🎉';
 
     successDelete[0] = 'Tarea eliminada correctamente';
     successDelete[1] = 'La tarea ha sido eliminada con éxito. 🗑️';
@@ -16,7 +20,7 @@ export const NotificacionesTareas = () => {
     dangerDelete[0] = 'Error al eliminar la tarea';
     dangerDelete[1] = 'Ocurrió un problema al intentar eliminar tu tarea. Por favor, inténtalo nuevamente. 🚨';
 
-    return {success, successDelete, danger, dangerDelete};
+    return {success, successUpdate, successDelete, danger, dangerDelete};
 }
 
 export const NotificacionesProyecto = () => {

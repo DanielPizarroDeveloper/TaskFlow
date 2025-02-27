@@ -5,7 +5,7 @@ import { Detalle } from './Detalle';
 import { Actualizar } from './Actualizar';
 import { Dialog, Pane, Tab, Tablist } from 'evergreen-ui';
 
-export function Opcion ({taskID, ID, proyecto, tituloActividad, estado, descripcion, isTalked, onActivate, callbackFunction, deleteTaskSelected}) {
+export function Opcion ({taskID, ID, proyecto, tituloActividad, estado, esfuerzo, descripcion, isTalked, onActivate, callbackFunction, deleteTaskSelected}) {
   const [isShown] = useState(isTalked);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [tabs] = useState(['Detalle', 'Actualizar', 'Eliminar']);
@@ -50,6 +50,7 @@ export function Opcion ({taskID, ID, proyecto, tituloActividad, estado, descripc
                   proyecto={proyecto}
                   tituloActividad={tituloActividad}
                   estado={estado}
+                  esfuerzo={esfuerzo}
                   descripcion={descripcion}
                   callbackFunction={callbackFunction} 
                   deleteTaskSelected={deleteTaskSelected}
@@ -62,9 +63,9 @@ export function Opcion ({taskID, ID, proyecto, tituloActividad, estado, descripc
                 proyecto={proyecto}
                 tituloActividad={tituloActividad}
                 estado={estado}
+                esfuerzo={esfuerzo}
                 descripcion={descripcion}
                 callbackFunction={callbackFunction} 
-                deleteTaskSelected={deleteTaskSelected}
                 onActivate={onActivate}
               />
             ) : (
@@ -72,6 +73,7 @@ export function Opcion ({taskID, ID, proyecto, tituloActividad, estado, descripc
                 proyecto={proyecto}
                 tituloActividad={tituloActividad}
                 estado={estado}
+                esfuerzo={esfuerzo}
                 descripcion={descripcion}
               />
             )}
