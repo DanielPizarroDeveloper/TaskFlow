@@ -9,10 +9,9 @@ export function Draggable(props) {
   const style = transform ? {
     transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
   } : undefined;
-
   
   return (
-    <button className={props.id === props.taskID && props.effectCard ? 'blur-out' : ''} ref={setNodeRef} style={style} {...listeners} {...attributes}>
+    <button className={props.id === props.taskID && props.effectCard ? 'blur-out' : undefined} ref={setNodeRef} style={style} {...listeners} {...attributes}>
       {props.children}
     </button>
   );

@@ -33,7 +33,7 @@
 
 .bar-tool__elements__button-svg {
     width: 30px;
-    color: var(--custom-color-white);
+    color: var( --custom-color-white-default);
 }
 
 .header-main__section__bar-tool__titulo {
@@ -63,7 +63,7 @@
 }
 
 .header-main-button__svg__logout {
-    color: white;
+    color: var(--custom-color-white-default);
     width: 30px;
 }
 

@@ -25,7 +25,7 @@ export function Opcion({ isOption, setIsOption, proyecto, callbackRefresh }) {
       hasCancel={false}
       hasFooter={false}
     >
-        <Tablist class='xxxx' marginBottom={16} display={'flex'} justifyContent={'space-evenly'} flexBasis={240}>
+        <Tablist marginBottom={16} display={'flex'} justifyContent={'space-evenly'} flexBasis={240}>
           {tabs.map((tab, index) => (
             <Tab
               aria-controls={`panel-${tab}`}

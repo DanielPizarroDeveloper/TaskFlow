@@ -18,7 +18,7 @@ export const createAccount = ({auth, userName, email, password, navigate}) => {
                 navigate('/Verify-email', { replace: true });
             })
             .catch((error) => {
-                console.log('Error al enviar un correo de verificación.', error.message);
+                console.error('Error al enviar un correo de verificación.', error.message);
             })
         })
         .catch((error) => {

@@ -60,11 +60,10 @@ export const createTask = async({titulo, responsable, estado, esfuerzo, taskID, 
         toaster.success(successMsjTarea[0], {
           description: successMsjTarea[1],
         });
-
-    // eslint-disable-next-line no-unused-vars
     } catch (error) {
         toaster.danger(dangerMsjTarea[0], {
             description: dangerMsjTarea[1],
         });
+        console.error(error);
     }
 }

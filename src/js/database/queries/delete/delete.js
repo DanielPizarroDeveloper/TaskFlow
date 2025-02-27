@@ -23,7 +23,6 @@ export const deleteProject = async (proyecto) => {
         toaster.danger(dangerDeleteMsj[0], {
             description: dangerDeleteMsj[1],
         });
-
         console.error(error);
     }
 }
@@ -40,11 +39,11 @@ export const deleteTask = async (IDTask, proyecto) => {
 
         return true;
 
-    // eslint-disable-next-line no-unused-vars
     } catch (error) {
         toaster.danger(dangerMsj[0], {
             description: dangerMsj[1],
         });
+        console.error(error);
         return false;
     }
 }

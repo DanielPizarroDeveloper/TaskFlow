@@ -17,7 +17,7 @@ export function Actualizar ({proyectoSeleccioando, changeIsShown}) {
       const loadedProyecto = await getProyecto(proyectoSeleccioando);
       setProyectoFirebase(loadedProyecto);
     }
-    fetchGetProyecto()
+    fetchGetProyecto();
   }, [proyectoSeleccioando])
   
   const updateDescripcion = (event) => {

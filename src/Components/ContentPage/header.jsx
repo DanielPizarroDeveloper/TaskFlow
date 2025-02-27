@@ -7,7 +7,6 @@ import { LogoutAuth } from '../Autenticacion/AuthLogout';
 import '../../css/header.css';
 
 export function Header({proyecto, callbackFunction}) {
-
   const { user } = UseAuth();
   const [logoutStatus, setLogoutStatus] = useState(false);
   const [isTaskCreateVisible, setTaskCreateVisible] = useState(false);
@@ -15,13 +14,13 @@ export function Header({proyecto, callbackFunction}) {
 
   useEffect(() => {
     if (proyecto !== null) {
-      setHeaderTitulo('header-main__section__bar-tool__elements')
+      setHeaderTitulo('header-main__section__bar-tool__elements');
     }
   }, [proyecto, user])
 
 
   const handlerClickShownModalCreate = () => {
-    var status = isTaskCreateVisible
+    var status = isTaskCreateVisible;
     setTaskCreateVisible(!status);
   }
 
@@ -40,6 +39,7 @@ export function Header({proyecto, callbackFunction}) {
           </svg>
         </button>
       </div>
+      
       <div className={headerTitulo}>
         <div className='header-main__section__bar-tool__titulo'>
           <h3>{proyecto}</h3>

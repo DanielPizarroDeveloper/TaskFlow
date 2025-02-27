@@ -1,4 +1,4 @@
-import { constProyecto } from "./categoria"
+import { constProyecto } from './categoria'
 
 export function Init_Desplegable_Proyecto (proyecto) {
     const { pickListOpen, pickListClose, detalleProyecto_block, detalleProyecto_none } = constProyecto()

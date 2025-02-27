@@ -1,0 +1,12 @@
+.green-background {
+    background-color: var(--custom-color-green);
+}
+
+.green-color {
+    color: var(--custom-color-green);
+}
+
+.green-option:hover {
+    background-color: var(--custom-color-green-hover);
+    border-radius: 99px;
+}

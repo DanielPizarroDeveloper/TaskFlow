@@ -1,5 +1,5 @@
 import { toaster } from 'evergreen-ui';
-import { auth } from '../database/conection/conn.js';
+import { auth } from '../database/conection/conn';
 import { NotificacionesUsuario } from '../../notification/Notificaciones';
 import { browserLocalPersistence, setPersistence, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
@@ -16,11 +16,11 @@ export const signInGoogle = async ({setUser, setEmailVerificated}) => {
       const result = await signInWithPopup(auth, provider)
           setUser(result.user.displayName);
           setEmailVerificated(result.user.emailVerified);
-    // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toaster.danger(dangerMsj[0], {
         description: dangerMsj[1]
       });
+      console.error(error);
     }
 }
 
@@ -38,15 +38,13 @@ export const signInAccount = ({auth, email, password, navigate}) => {
         }
       });
     })
-    // eslint-disable-next-line no-unused-vars
     .catch((error) => {
       toaster.danger(dangerAccountMsj[0], {
         description: dangerAccountMsj[1]
       });
+      console.error(error);
     });
 }
-
-//Outlook
 
 //Cierre Sesión
 export const logout = ({setUser, setEmailVerificated, setEmail, setIsShown, navigate}) => {
@@ -59,6 +57,6 @@ export const logout = ({setUser, setEmailVerificated, setEmail, setIsShown, navi
         navigate('/Authorize', { replace: true });
     })
     .catch((error) => {
-        console.log('Error del cierre de sesión. ', error)
+        console.error('Error del cierre de sesión. ', error)
     })
 }

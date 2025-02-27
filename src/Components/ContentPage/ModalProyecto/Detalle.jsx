@@ -11,7 +11,7 @@ export function Detalle({ proyectoSeleccioando }) {
       const loadedProyecto = await getProyecto(proyectoSeleccioando);
       setProyectoFirebase(loadedProyecto);
     }
-    fetchGetProyecto()
+    fetchGetProyecto();
   }, [proyectoSeleccioando])
 
   return (

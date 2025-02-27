@@ -13,7 +13,7 @@ export function Eliminar ({proyectoSeleccioando, callbackRefresh, changeIsShown}
       const loadedProyecto = await getProyecto(proyectoSeleccioando);
       setProyectoFirebase(loadedProyecto);
     }
-    fetchGetProyecto()
+    fetchGetProyecto();
   }, [proyectoSeleccioando])
         
   const handlerClick_DeleteProject = (event) => {

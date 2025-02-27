@@ -17,15 +17,13 @@ export const updateProyecto = async ({proyectoSeleccioando, descripcion}) => {
         toaster.success(successUpdateMsjProyecto[0], {
             description: successUpdateMsjProyecto[1],
         });
-
         return true;
+
     } catch (error) {
         toaster.danger(dangerUpdateMsjProyecto[0], {
             description: dangerUpdateMsjProyecto[1],
         });
-
         console.error('Msj: ', error);
-
         return false;
     }
 }
@@ -36,7 +34,7 @@ export const updateTask = async ({idElement, estado, proyecto}) => {
         const taskDoc = doc(db, `Proyectos/${proyecto}/tasks`, idElement)
         await updateDoc(taskDoc, {estado: estado})
     } catch (error) {
-        console.error('Msj: ', error)
+        console.error('Msj: ', error);
     }
 }
 
@@ -51,6 +49,6 @@ export const updateTaskID = async (ArrayTask, taskID, proyecto) => {
             }
         });
     } catch (error) {
-        console.log('Msj: ', error)
+        console.log('Msj: ', error);
     }
 }

@@ -1,8 +1,8 @@
 import { TaskFlow } from './Components/TaskFlow';
 import { Auth } from './Components/Autenticacion/Auth';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { RegisterAccount } from './Components/Autenticacion/Register';
 import { AuthProvider } from './Components/Autenticacion/UseAuth';
+import { RegisterAccount } from './Components/Autenticacion/Register';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { VerifyEmail } from '../src/Components/Autenticacion/VerifyEmail';
 
 import './App.css'

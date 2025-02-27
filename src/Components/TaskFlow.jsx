@@ -7,11 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import { UseAuth } from './Autenticacion/UseAuth';
 import { Complete } from './ContentPage/Tasks/complete';
 import { InProgress } from './ContentPage/Tasks/inProgress';
-import { getTasks } from '../js/database/queries/select/select.js';
+import { getTasks } from '../js/database/queries/select/select';
 
 export function TaskFlow () {
   const navigate = useNavigate();
-
   const { user, emailVerificated } = UseAuth();
   const [proyecto, setProyecto] = useState(null);
   const [tasksFirebase, setTasksFirebase] = useState([]);
@@ -21,14 +20,14 @@ export function TaskFlow () {
   useEffect(() => {
     if(!proyecto)
     {
-      return
+      return;
     }
     else 
     {
       const getAllTasks = async () => {
         const getTasksAll = await getTasks({proyecto: proyecto});
         if (getTasksAll == null) {
-          return
+          return;
         }
         else {
           const sortedTasks = getTasksAll.sort((a, b) => a.idTask - b.idTask);
@@ -93,6 +92,7 @@ export function TaskFlow () {
                 ))
               }
             </section>
+
             <section className='app-main__section__tasks-panel__section'>
               <div className='app-main__section__tasks__panel__section__content__titulo'>
                 <h1 className='app-main__section__tasks__panel__section__titulo-Progreso'>EN PROGRESO</h1>
@@ -114,6 +114,7 @@ export function TaskFlow () {
                 ))
               }
             </section>
+
             <section className='app-main__section__tasks-panel__section'>
               <div className='app-main__section__tasks__panel__section__content__titulo'>
                 <h1 className='app-main__section__tasks__panel__section__titulo-Completo'>FINALIZADO</h1>
@@ -172,7 +173,7 @@ export function TaskFlow () {
         newDroppedStates[index] = statusNuevo
       }
       
-      setDroppedStates(newDroppedStates)
+      setDroppedStates(newDroppedStates);
     }
   }
 }
