@@ -4,8 +4,8 @@ import { Opcion } from '../ModalTask/opcion';
 import { useEffect, useRef, useState } from 'react';
 import { Droppable } from '../../Arrastrable/Droppable';
 import { Draggable } from '../../Arrastrable/Draggable';
-// import { getTasks } from '../../../js/database/queries/select/select';
-// import { updateTask } from '../../../js/database/queries/update/update';
+import { getTasks } from '../../../js/database/queries/select/select';
+import { updateTask } from '../../../js/database/queries/update/update';
 
 import '../../../css/Board/card.css';
 import '../../../css/Board/progress.css';
@@ -23,16 +23,16 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
       return;
     }
 
-    // const updateTaskID = async () => {
-    //   const getTasksAll = await getTasks({proyecto: proyecto});
-    //   if (getTasksAll.length === 0) {
-    //     return;
-    //   }
-    //   else {
-    //     updateTask({idElement, proyecto, titulo, estado, esfuerzo, descripcion});
-    //   }
-    // }
-    // updateTaskID();
+    const updateTaskID = async () => {
+      const getTasksAll = await getTasks({proyecto: proyecto});
+      if (getTasksAll.length === 0) {
+        return;
+      }
+      else {
+        updateTask({idElement, proyecto, titulo, estado, esfuerzo, descripcion});
+      }
+    }
+    updateTaskID();
   }, [droppedStates, estado, idElement, proyecto])
 
   //Este método va a cambiar el valor del useState de False a True cuando el valor cambie.
@@ -54,7 +54,7 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
           <Droppable id={id} key={idElement}>
             {droppedStates === 'EN PROGRESO' ? (
               <Draggable id={id} key={idElement} effectCard={effectCard} taskID={id}>
-                <article className='article-card'>
+                {/* <article className='article-card'> */}
                   <div className='article-card__task'>
                     <div className='article-card__task-bar blue-background'></div>
                     <div className='article-card__task-content'>
@@ -80,7 +80,7 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
               
                       <div className='article-card__task-content-detail'>
                         <span className='article-card__task__content_estado-titulo blue-color'>Estado</span>
-                        <Badge color={categoriaColor} marginRight={8}>
+                        <Badge color={categoriaColor}>
                           {estado}
                         </Badge>
                       </div>
@@ -96,7 +96,7 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
                       </div>
                     </div>
                   </div>
-                </article>
+                {/* </article> */}
                 {
                   isTaskOption && <Opcion isTalked={isTaskOption} onActivate={handlerActivate} />
                 }
@@ -134,7 +134,7 @@ export function InProgress({ taskID, proyecto, droppedStates, idElement, id, tit
                     
                     <div className='article-card__task-content-detail'>
                       <span className='article-card__task__content_estado-titulo blue-color'>Estado</span>
-                      <Badge color={categoriaColor} marginRight={8}>
+                      <Badge color={categoriaColor}>
                         {estado}
                       </Badge>
                     </div>

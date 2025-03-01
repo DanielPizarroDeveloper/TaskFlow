@@ -5,8 +5,8 @@ import { Opcion } from '../ModalTask/opcion';
 import { useEffect, useRef, useState } from 'react';
 import { Droppable } from '../../Arrastrable/Droppable';
 import { Draggable } from '../../Arrastrable/Draggable';
-// import { getTasks } from '../../../js/database/queries/select/select';
-// import { updateTask } from '../../../js/database/queries/update/update';
+import { getTasks } from '../../../js/database/queries/select/select';
+import { updateTask } from '../../../js/database/queries/update/update';
 
 import '../../../css/Board/card.css';
 import '../../../css/Board/complete.css';
@@ -24,17 +24,17 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
       return
     }
 
-    // const updateTaskID = async () => {
-    //   const getTasksAll = await getTasks({proyecto: proyecto});
-    //   if (getTasksAll.length === 0) {
-    //     return
-    //   }
-    //   else {
-    //     updateTask({idElement, proyecto, titulo, estado, esfuerzo, descripcion});
-    //   }
-    // }
+    const updateTaskID = async () => {
+      const getTasksAll = await getTasks({proyecto: proyecto});
+      if (getTasksAll.length === 0) {
+        return
+      }
+      else {
+        updateTask({idElement, proyecto, titulo, estado, esfuerzo, descripcion});
+      }
+    }
 
-    // updateTaskID()
+    updateTaskID()
   }, [droppedStates, estado, idElement, proyecto, descripcion, esfuerzo, titulo])
 
   //Este método va a cambiar el valor del useState de False a True cuando el valor cambie.
@@ -55,7 +55,7 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
           <Droppable id={id} key={idElement}>
             { droppedStates  === 'FINALIZADO' ? 
               <Draggable id={id} key={idElement}  effectCard={effectCard} taskID={id}>
-                <article className='article-card'>
+                {/* <article className='article-card'> */}
                   <div className='article-card__task'>
                     <div className='article-card__task-bar green-background'></div>
                     <div className='article-card__task-content'>
@@ -81,7 +81,7 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
                       
                       <div className='article-card__task-content-detail'>
                         <span className='article-card__task__content_estado-titulo green-color'>Estado</span>
-                        <Badge color={categoriaColor} marginRight={8}>
+                        <Badge color={categoriaColor}>
                           {estado}
                         </Badge>
                       </div>
@@ -97,7 +97,7 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
                       </div>
                     </div>
                   </div>
-                </article>
+                {/* </article> */}
                 {
                   isTaskOption && <Delete isTalked={isTaskOption} onActivate={handlerActivate} />
                 }
@@ -107,7 +107,7 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
         ) : (
           <div>
             <button>
-              <article className='article-card'>
+              {/* <article className='article-card'> */}
                 <div className='article-card__task'>
                   <div className='article-card__task-bar green-background'></div>
                   <div className='article-card__task-content'>
@@ -133,7 +133,7 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
                     
                     <div className='article-card__task-content-detail'>
                       <span className='article-card__task__content_estado-titulo green-color'>Estado</span>
-                      <Badge color={categoriaColor} marginRight={8}>
+                      <Badge color={categoriaColor}>
                         {estado}
                       </Badge>
                     </div>
@@ -149,7 +149,7 @@ export function Complete({ taskID, proyecto, droppedStates, idElement, id, titul
                     </div>
                   </div>
                 </div>
-              </article>
+              {/* </article> */}
               {
                 isTaskOption && 
                   <Opcion 

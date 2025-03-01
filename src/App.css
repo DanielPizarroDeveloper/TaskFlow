@@ -57,7 +57,6 @@ button {
     display: flex;
     flex-direction: row;
     width: 100%;
-    min-width: 1150px;
 }
 
 .app-main__section__tasks-panel__section {

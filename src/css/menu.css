@@ -103,6 +103,7 @@
     margin-top: -10%;
     gap: 10px;
     align-items: baseline;
+    padding-inline-start: 10%;
 }
 
 .menu-section__lateral_article__li__button {
