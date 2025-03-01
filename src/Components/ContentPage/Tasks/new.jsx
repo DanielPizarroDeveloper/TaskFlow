@@ -4,8 +4,8 @@ import { Opcion } from '../ModalTask/opcion';
 import { useEffect, useRef, useState } from 'react';
 import { Droppable } from '../../Arrastrable/Droppable';
 import { Draggable } from '../../Arrastrable/Draggable';
-import { getTasks } from '../../../js/database/queries/select/select';
-import { updateTask } from '../../../js/database/queries/update/update';
+// import { getTasks } from '../../../js/database/queries/select/select';
+// import { updateTask } from '../../../js/database/queries/update/update';
 
 import '../../../css/Board/new.css';
 import '../../../css/Board/card.css';
@@ -23,16 +23,16 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
       return;
     }
     
-    const updateTaskID = async () => {
-      const getTasksAll = await getTasks({proyecto: proyecto});
-      if (getTasksAll.length === 0) {
-        return
-      }
-      else {
-        updateTask({idElement, proyecto, titulo, estado, esfuerzo, descripcion});
-      }
-    }
-    updateTaskID()
+    // const updateTaskID = async () => {
+    //   const getTasksAll = await getTasks({proyecto: proyecto});
+    //   if (getTasksAll === null) {
+    //     return
+    //   }
+    //   else {
+    //     updateTask({idElement, proyecto, titulo, estado, esfuerzo, descripcion});
+    //   }
+    // }
+    // updateTaskID()
   }, [droppedStates, estado, idElement, proyecto])
 
   //Este método va a cambiar el valor del useState de False a True cuando el valor cambie.
