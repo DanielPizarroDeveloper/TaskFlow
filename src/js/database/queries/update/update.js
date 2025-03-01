@@ -31,7 +31,7 @@ export const updateProyecto = async ({proyectoSeleccioando, descripcion}) => {
 }
 
 //UPDATE - TAREAS
-export const updateTask = async ({idElement, proyecto, titulo, estado, esfuerzo, descripcion, flag}) => {
+export const updateTask = async ({idElement, proyecto, titulo, estado, esfuerzo, descripcion}) => {
     try {
         const taskDoc = doc(db, `Proyectos/${proyecto}/tasks`, idElement)
         await updateDoc(taskDoc, {
@@ -41,15 +41,21 @@ export const updateTask = async ({idElement, proyecto, titulo, estado, esfuerzo,
             descripcion: descripcion
         });
 
-        //Esta notificación va a salir, solamente cuando el usuario actualice valores de una tarea, desde las opciones.
-        //No saltara cuando se haga un drop/drag de la actividad entre estados.
-        if(flag) {
-            toaster.success(successUpdateMsjTarea[0], {
-                description: successUpdateMsjTarea[1],
-            });
-        }
+        toaster.success(successUpdateMsjTarea[0], {
+            description: successUpdateMsjTarea[1],
+        });
     } catch (error) {
         console.error('Msj: ', error);
+    }
+}
+
+//UPDATE - TAREAS / DROP/DRAG
+export const updateTaskEstado = async ({idElement, proyecto, estado}) => {
+    try {
+        const taskDoc = doc(db, `Proyectos/${proyecto}/tasks`, idElement)
+        await updateDoc(taskDoc, {estado: estado})
+    } catch (error) {
+        console.error('Msj: ', error)
     }
 }
 

@@ -7,7 +7,7 @@ export function Droppable ({ id, children }) {
   });
 
   return (
-    <div style={{marginBottom: '2%', marginRight: '2%'}} ref={setNodeRef}>
+    <div style={{marginBottom: '2%', marginRight: '2%', height:'222.53px'}} ref={setNodeRef}>
       {children}
     </div>
   )

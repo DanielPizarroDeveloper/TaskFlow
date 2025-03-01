@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Droppable } from '../../Arrastrable/Droppable';
 import { Draggable } from '../../Arrastrable/Draggable';
 import { getTasks } from '../../../js/database/queries/select/select';
-import { updateTask } from '../../../js/database/queries/update/update';
+import { updateTaskEstado } from '../../../js/database/queries/update/update';
 
 import '../../../css/Board/new.css';
 import '../../../css/Board/card.css';
@@ -29,11 +29,11 @@ export function New({ taskID, proyecto, droppedStates, idElement, id, titulo, re
         return
       }
       else {
-        updateTask({idElement, proyecto, titulo, estado, esfuerzo, descripcion});
+        updateTaskEstado({idElement, proyecto, estado});
       }
     }
     updateTaskID()
-  }, [droppedStates, estado, idElement, proyecto])
+  }, [droppedStates])
 
   //Este método va a cambiar el valor del useState de False a True cuando el valor cambie.
   //Su función es renderizar las actividades de las columnas

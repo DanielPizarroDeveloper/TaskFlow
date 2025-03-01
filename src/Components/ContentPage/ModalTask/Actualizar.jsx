@@ -57,9 +57,7 @@ export function Actualizar({ID, proyecto, tituloActividad, estado, esfuerzo, des
     esfuerzo = ((editEsfuerzo.trim().length === 0) || (editEsfuerzo === 'Seleccione') ? esfuerzo : editEsfuerzo);
     descripcion = (editDescripcion.trim().length === 0 ? descripcion : editDescripcion);
 
-    var flag = true;
-
-    updateTask({idElement, proyecto, titulo, estado, esfuerzo, descripcion, flag});
+    updateTask({idElement, proyecto, titulo, estado, esfuerzo, descripcion});
   }
 
   return (
