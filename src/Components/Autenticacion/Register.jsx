@@ -20,7 +20,7 @@ export function RegisterAccount () {
 
   return (
     <article className='article-auth-registro'>
-        <img className='article-auth-registro__img' src='public\img\Logo.png' alt='Logo' />
+        <img className='article-auth-registro__img' src='img\TaskFlow.webp' alt='Logo' />
         <form onSubmit={handlerSignUp}>
           <div className='article-auth-registro__signIn__content'>
             <input className='article-auth-registro__signIn__content__input' type='text' placeholder='Nombre Usuario' onChange={(e) => setUserName(e.target.value)} />

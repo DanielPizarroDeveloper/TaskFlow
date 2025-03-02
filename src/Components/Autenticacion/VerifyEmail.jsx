@@ -11,7 +11,7 @@ export function VerifyEmail() {
 
     return(
         <article className='article-verify'>
-            <img className='auth-image' src='public\img\Logo.png' alt='Logo' />
+            <img className='auth-image' src='img\TaskFlow.webp' alt='Logo' />
             <div className='article-verify-content-span'>
                 <h4 className='article-verify-content-h4'>Se ha enviado un correo para realizar la verificación de su cuenta</h4>
             </div>
