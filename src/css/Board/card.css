@@ -1,8 +1,7 @@
-.article-card {
-    border: 0;
-    margin: 2.5%;
-    height: 20%;
-    min-width: 510px;
+.draggable {
+    margin-bottom: 2%;
+    margin-right: 2%; 
+    height: 222.53px;
 }
 
 .article-card__task {
