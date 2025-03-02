@@ -1,37 +1,54 @@
-# To-Do-App
+# TaskFlow 🚀
 
-1. Install Node.js
-   
-    ✔️ Make sure Node.js is installed on your system. If you don't have it, you can download it from nodejs.org.
+TaskFlow is a web application built with React JS and Firebase Firestore, designed to efficiently manage tasks. With an intuitive interface and drag-and-drop functionality, it allows users to organize tasks across different progress states.
+
+✨ Features
+
+<pre>
+   🔥 Google Authentication using Firebase Authentication.
+
+   📂 Task management with customizable statuses.
+
+   🖱️ Drag-and-Drop to move tasks between columns.
+
+   📊 Real-time synchronization with Firebase Firestore.
+
+   🎨 Modern and responsive UI built with React and CSS.
+</pre>
+
+🚀 Technologies Used
+
+<pre>
+   ✅ React JS ⚛️
+
+   ✅ Firebase Firestore 🔥
+
+   ✅ Firebase Authentication 🔑
+
+   ✅ Vite ⚡
+</pre>
+
+📌   Installation
+
+✔️   Clone this repository:
       
-2. Create a New Project with Vite
-   
-    ✔️ Open your terminal and navigate to the folder where you want to create the project. Then run the following command to create a new project using Vite:
+      ✅ git clone https://github.com/yourusername/TaskFlow.git
+✔️   Navigate to the project directory:
 
-       ✅ npm create vite@latest
+      ✅ cd TaskFlow
+      
+✔️  Install dependencies:
 
-   ✅ You'll be prompted to name your project and select the framework. For a React project, choose "React".
-        
-4. Install the Dependencies
-   
-    ✔️ Once the project is created, navigate to the project directory:
+      ✅ npm install
 
-       ✅ cd project-name
+✔️  Create a .env file and configure your Firebase credentials.
 
-    ✔️ Then, install the necessary dependencies:
+      ✅ npm run dev
+      
+📢 Contributions
 
-       ✅ npm install
-        
-6. Start the Development Server
-   
-   ✔️ To start the server and view your application in the browser, run:
+<pre>
+   ✅ All contributions are welcome! Feel free to open an issue or submit a pull request if you have ideas or improvements.
 
-       ✅ npm run dev
-        
-7. Build for Production
-   
-   ✔️ If you want to compile the application for production, run the following command:
-   
-       ✅ npm run build
-
-This will generate optimized static files in the dist folder, ready to be deployed.
+   📌 Developed by Daniel Pizarro Saavedra
+</pre>
