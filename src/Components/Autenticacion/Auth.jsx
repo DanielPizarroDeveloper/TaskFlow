@@ -63,7 +63,7 @@ export function Auth() {
         
       <div className='article-auth__signIn__content'>
         <button className='article-auth__signIn-option' onClick={handleGoogleSignIn}>
-          <img className='article-auth__logo' src='public\svg\Auth\google.svg' alt='Logo de google para inicio de sesión' />
+          <img className='article-auth__logo' src='svg\Auth\google.svg' alt='Logo de google para inicio de sesión' />
           <span className='article-auth__signIn-span'>Continuar con Google</span>
         </button>
       </div>
