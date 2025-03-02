@@ -1,6 +1,6 @@
 import { toaster } from 'evergreen-ui';
 import { NotificacionesCreacionCuenta } from '../../notification/Notificaciones';
-import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
 
 const warningMsj = NotificacionesCreacionCuenta().warningAccount;
 const dangerMsj = NotificacionesCreacionCuenta().dangerAccount;

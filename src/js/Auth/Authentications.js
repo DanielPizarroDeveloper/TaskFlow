@@ -25,25 +25,24 @@ export const signInGoogle = async ({setUser, setEmailVerificated}) => {
 }
 
 //Accounts
-export const signInAccount = ({auth, email, password, navigate}) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-  
-      user.reload().then(() => {
-        if (user.emailVerified) {
-          navigate('/', { replace: true });
-        } else {
-          navigate('/Verify-email', { replace: true });
-        }
-      });
-    })
-    .catch((error) => {
-      toaster.danger(dangerAccountMsj[0], {
-        description: dangerAccountMsj[1]
-      });
-      console.error(error);
+export const signInAccount = async ({auth, email, password, navigate}) => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    await user.reload();
+
+    if (user.emailVerified) {
+      window.location.href =  '/';
+    } else {
+      navigate('/Verify-email', { replace: true });
+    }
+  } catch (error) {
+    toaster.danger(dangerAccountMsj[0], {
+      description: dangerAccountMsj[1]
     });
+    console.error(error);
+  }
 }
 
 //Cierre Sesión
