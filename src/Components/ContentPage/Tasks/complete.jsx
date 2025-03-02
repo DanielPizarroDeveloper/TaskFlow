@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Avatar, Badge } from 'evergreen-ui';
 import { Delete } from '../ModalTask/Delete';
-import { Opcion } from '../ModalTask/opcion';
+import { Opcion } from '../ModalTask/Opcion';
 import { useEffect, useRef, useState } from 'react';
 import { Droppable } from '../../Arrastrable/Droppable';
 import { Draggable } from '../../Arrastrable/Draggable';
