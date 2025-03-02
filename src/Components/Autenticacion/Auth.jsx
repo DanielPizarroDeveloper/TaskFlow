@@ -43,7 +43,7 @@ export function Auth() {
 
   return(
     <article className='article-auth'>
-      <img className='article-auth-img' src='public\img\Logo.png' alt='Logo' />
+      <img className='article-auth-img' src='img\TaskFlow.webp' alt='Logo' />
       <form onSubmit={handlerSignIn}>
         <div className='article-auth__signIn__content'>
           <input className='article-auth__signIn__content__input' type='email' placeholder='Correo electronico' autoComplete='username' onChange={(e) => setEmail(e.target.value)}/>
