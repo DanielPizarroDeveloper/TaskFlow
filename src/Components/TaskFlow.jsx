@@ -61,12 +61,12 @@ export function TaskFlow () {
 
   //Método Callback que realiza el envió del proyecto seleccionado desde el componente hijo
   const handlePromptProyecto = (setApp_main_section) => {
-    setProyecto(setApp_main_section)
+    setProyecto(setApp_main_section);
   }
 
   return(
     <main className='app-main'>
-      <Menu onPromptProyecto={handlePromptProyecto} />
+      <Menu onPromptProyecto={handlePromptProyecto} setProyecto={setProyecto} />
       <section className='app-main__section'>
         <Header proyecto={proyecto} callbackFunction={callBack_Refresh} />
         <article className='app-main__section__tasks-panel'>

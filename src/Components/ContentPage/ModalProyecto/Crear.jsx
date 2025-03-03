@@ -16,7 +16,7 @@ export function Crear ({changeStatus, callbackRefresh}) {
     event.preventDefault();
     createProject({nombreProyecto, user, descripcionProyecto, email});
     setIsShown((prevState) => !prevState);
-    callbackRefresh((prevState) => !prevState);
+    callbackRefresh();
   }
 
   return (

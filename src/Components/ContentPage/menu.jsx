@@ -8,7 +8,7 @@ import { getProyectos } from '../../js/database/queries/select/select';
 import '../../css/menu.css';
 
 // eslint-disable-next-line react/prop-types
-export function Menu ({ onPromptProyecto }) {
+export function Menu ({ onPromptProyecto, setProyecto }) {
   const { email } = UseAuth();
   const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
   const [statusProyecto, setStatusProyecto] = useState(true);
@@ -114,7 +114,7 @@ export function Menu ({ onPromptProyecto }) {
         }
 
         {
-          isOption && <Opcion isOption={isOption} setIsOption={setIsOption} proyecto={proyectoSeleccionado} callbackRefresh={callbackRefresh} />
+          isOption && <Opcion isOption={isOption} setIsOption={setIsOption} proyecto={proyectoSeleccionado} callbackRefresh={callbackRefresh} setProyecto={setProyecto} />
         }
 
       </section>

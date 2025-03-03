@@ -7,7 +7,7 @@ import { Dialog, Pane, Tab, Tablist } from 'evergreen-ui';
 
 import '../../../css/Dialog/option.css';
 
-export function Opcion({ isOption, setIsOption, proyecto, callbackRefresh }) {
+export function Opcion({ isOption, setIsOption, proyecto, callbackRefresh, setProyecto }) {
   const [isShown] = useState(isOption);
   const [tabs] = useState(['Detalle', 'Actualizar', 'Eliminar']);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -51,6 +51,7 @@ export function Opcion({ isOption, setIsOption, proyecto, callbackRefresh }) {
                 proyectoSeleccioando={proyecto}
                 changeIsShown={changeIsShown}
                 callbackRefresh={callbackRefresh}
+                setProyecto={setProyecto}
               />
             ) : tab === 'Actualizar' ? (
               <Actualizar 

@@ -5,7 +5,7 @@ import { deleteProject } from '../../../js/database/queries/delete/delete';
 import '../../../css/Dialog/option.css';
 import '../../../css/Dialog/delete.css';
 
-export function Eliminar ({proyectoSeleccioando, callbackRefresh, changeIsShown}) {
+export function Eliminar ({proyectoSeleccioando, callbackRefresh, changeIsShown, setProyecto}) {
   const [proyectoFirebase, setProyectoFirebase] = useState([]);
         
   useEffect(() => {
@@ -21,6 +21,7 @@ export function Eliminar ({proyectoSeleccioando, callbackRefresh, changeIsShown}
     deleteProject(proyectoSeleccioando);
     callbackRefresh((prevState) => !prevState);
     changeIsShown();
+    setProyecto(null);
   }
   
   return (

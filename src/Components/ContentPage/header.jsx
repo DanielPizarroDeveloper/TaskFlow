@@ -16,6 +16,9 @@ export function Header({proyecto, callbackFunction}) {
     if (proyecto !== null) {
       setHeaderTitulo('header-main__section__bar-tool__elements');
     }
+    else {
+      setHeaderTitulo('header-main__section__bar-tool__elements none-titulo');
+    }
   }, [proyecto, user])
 
 
